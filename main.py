@@ -30,12 +30,15 @@ def main():
     sources = sources_doc.get("sources", [])
 
     settings = load_yaml("config/settings.yml")
-    allowed_keywords = settings.get("allowed_keywords", [])
+    include_all = settings.get("include_all", True)
     blocked_keywords = settings.get("blocked_keywords", [])
-    allowed_norm = [normalize_text(a) for a in allowed_keywords]
+    priority_keywords = settings.get("priority_keywords", [])
     blocked_norm = [normalize_text(b) for b in blocked_keywords]
+    priority_norm = [normalize_text(p) for p in priority_keywords]
 
     seen = set()
+    priority_entries = []  # Entradas prioritarias
+    regular_entries = []   # Entradas regulares
     out = ["#EXTM3U"]
 
     for s in sources:
@@ -60,14 +63,21 @@ def main():
                 if u in seen:
                     continue
                 combined = normalize_text(l + " " + u)
-                # Incluir solo si cumple con palabras clave permitidas
-                if not any(a in combined for a in allowed_norm):
-                    continue
                 # Excluir si está en la lista de palabras bloqueadas
                 if any(b in combined for b in blocked_norm):
                     continue
-                out.extend([l, u])
-                seen.add(u)
+                # Si include_all es True, incluir todo lo que no esté bloqueado
+                if include_all:
+                    # Separar en prioritarios y regulares
+                    if any(p in combined for p in priority_norm):
+                        priority_entries.extend([l, u])
+                    else:
+                        regular_entries.extend([l, u])
+                    seen.add(u)
+    
+    # Agregar prioritarios primero, luego regulares
+    out.extend(priority_entries)
+    out.extend(regular_entries)
 
     try:
         Path("playlist.m3u").write_text("\n".join(out), encoding="utf8")

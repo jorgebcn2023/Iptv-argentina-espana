@@ -1,8 +1,26 @@
-# Palabras clave a INCLUIR (solo estos canales serán incluidos)
-allowed_keywords:
-  - argentina
-  - españa
-  - spain
+# Incluir TODOS los canales por defecto
+include_all: true
 
-# Palabras clave a EXCLUIR (se aplicarán después de las palabras clave permitidas)
-blocked_keywords: []
+# Palabras clave a EXCLUIR (religiosos y canales no deseados)
+blocked_keywords:
+  - religioso
+  - religion
+  - iglesia
+  - evangeli
+  - pastor
+  - cristiano
+  - adoracion
+
+# Palabras clave PRIORITARIAS a incluir (asegurar que se agreguen)
+priority_keywords:
+  - documental
+  - documentary
+  - c5n
+  - america tv
+  - canal 26
+  - ln
+  - la nacion
+  - tn
+  - el trece
+  - el nueve
+  - increibles
