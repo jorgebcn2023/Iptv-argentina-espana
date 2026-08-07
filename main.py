@@ -30,8 +30,9 @@ def main():
     sources = sources_doc.get("sources", [])
 
     settings = load_yaml("config/settings.yml")
-    include_all = settings.get("include_all", True)
+    allowed_keywords = settings.get("allowed_keywords", [])
     blocked_keywords = settings.get("blocked_keywords", [])
+    allowed_norm = [normalize_text(a) for a in allowed_keywords]
     blocked_norm = [normalize_text(b) for b in blocked_keywords]
 
     seen = set()
@@ -59,7 +60,10 @@ def main():
                 if u in seen:
                     continue
                 combined = normalize_text(l + " " + u)
-                # Excluir solo si están en la lista de palabras bloqueadas
+                # Incluir solo si cumple con palabras clave permitidas
+                if not any(a in combined for a in allowed_norm):
+                    continue
+                # Excluir si está en la lista de palabras bloqueadas
                 if any(b in combined for b in blocked_norm):
                     continue
                 out.extend([l, u])

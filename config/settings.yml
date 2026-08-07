@@ -1,7 +1,8 @@
-# Palabras clave a EXCLUIR (dejar vacío para incluir todo)
-# Si deseas excluir ciertos canales, agrégalos aquí
-blocked_keywords: []
-  # - ejemplo
+# Palabras clave a INCLUIR (solo estos canales serán incluidos)
+allowed_keywords:
+  - argentina
+  - españa
+  - spain
 
-# Incluir todos los canales por defecto (true = incluir todo, false = usar allowed_keywords)
-include_all: true
+# Palabras clave a EXCLUIR (se aplicarán después de las palabras clave permitidas)
+blocked_keywords: []
