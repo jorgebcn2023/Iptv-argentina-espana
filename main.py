@@ -30,8 +30,9 @@ def main():
     sources = sources_doc.get("sources", [])
 
     settings = load_yaml("config/settings.yml")
-    allowed_keywords = settings.get("allowed_keywords", [])
-    allowed_norm = [normalize_text(a) for a in allowed_keywords]
+    include_all = settings.get("include_all", True)
+    blocked_keywords = settings.get("blocked_keywords", [])
+    blocked_norm = [normalize_text(b) for b in blocked_keywords]
 
     seen = set()
     out = ["#EXTM3U"]
@@ -58,9 +59,11 @@ def main():
                 if u in seen:
                     continue
                 combined = normalize_text(l + " " + u)
-                if any(a in combined for a in allowed_norm):
-                    out.extend([l, u])
-                    seen.add(u)
+                # Excluir solo si están en la lista de palabras bloqueadas
+                if any(b in combined for b in blocked_norm):
+                    continue
+                out.extend([l, u])
+                seen.add(u)
 
     try:
         Path("playlist.m3u").write_text("\n".join(out), encoding="utf8")
