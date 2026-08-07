@@ -36,7 +36,7 @@ def main():
     blocked_norm = [normalize_text(b) for b in blocked_keywords]
     priority_norm = [normalize_text(p) for p in priority_keywords]
 
-    seen = set()
+    seen = set()  # Guardar (nombre, URL) para evitar duplicados exactos
     priority_entries = []  # Entradas prioritarias
     regular_entries = []   # Entradas regulares
     out = ["#EXTM3U"]
@@ -60,8 +60,17 @@ def main():
                 u = lines[i + 1].strip()
                 if not u:
                     continue
-                if u in seen:
+                
+                # Extraer el nombre del canal de la línea EXTINF
+                name_match = l.rfind(',')
+                channel_name = l[name_match+1:].strip() if name_match >= 0 else "Unknown"
+                
+                # Crear clave única: nombre + URL (permite duplicados con URLs diferentes)
+                channel_key = (channel_name, u)
+                
+                if channel_key in seen:
                     continue
+                
                 combined = normalize_text(l + " " + u)
                 # Excluir si está en la lista de palabras bloqueadas
                 if any(b in combined for b in blocked_norm):
@@ -73,7 +82,7 @@ def main():
                         priority_entries.extend([l, u])
                     else:
                         regular_entries.extend([l, u])
-                    seen.add(u)
+                    seen.add(channel_key)
     
     # Agregar prioritarios primero, luego regulares
     out.extend(priority_entries)
