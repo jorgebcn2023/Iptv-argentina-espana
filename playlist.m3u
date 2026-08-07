@@ -1,4 +1,6 @@
 #EXTM3U
+#EXTINF:-1 group-title="-",Adult swim HD
+http://138.59.227.20:8000/play/a08d/index.m3u8
 #EXTINF:-1 group-title="-",America TV HD
 http://138.59.227.20:8000/play/a094/index.m3u8
 #EXTINF:-1 group-title="-",C5N
@@ -21,6 +23,8 @@ http://138.59.227.20:8000/play/a08e/index.m3u8
 http://138.59.227.20:8000/play/a08c/index.m3u8
 #EXTINF:-1 group-title="-",TNT Sports HD
 http://138.59.227.20:8000/play/a06z/index.m3u8
+#EXTINF:-1 group-title="-",Volver
+http://138.59.227.20:8000/play/a066/index.m3u8
 #EXTINF:-1 group-title="-",el nueve HD
 http://138.59.227.20:8000/play/a08k/index.m3u8
 #EXTINF:-1 group-title="-",el trece HD
@@ -107,6 +111,12 @@ https://ztnr.rtve.es/ztnr/6982935.m3u8
 https://ztnr.rtve.es/ztnr/6982917.m3u8
 #EXTINF:-1 tvg-logo="https://yt3.googleusercontent.com/6SgTMpyVCJlMGBcip6gvloYy2u-BP4vY-H2paJ2zO471owJq_YcgPhUUB0tBaKIKlNUKzeRf=s200" group-title="España",Canal San Roque
 https://cdnlivevlc.codev8.net/aytosanroquelive/smil:channel1.smil/playlist.m3u8
+#EXTINF:-1 group-title="Anime" tvg-logo="	https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Adult_Swim_2003_logo.svg/960px-Adult_Swim_2003_logo.svg.png",Adult Swim SD (Opc.1)
+http://200.35.176.154:8000/play/a04n/index.m3u8
+#EXTINF:-1 group-title="Anime" tvg-logo="	https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Adult_Swim_2003_logo.svg/960px-Adult_Swim_2003_logo.svg.png",Adult Swim SD (Opc.2)
+http://181.119.177.253:8000/play/a01i/index.m3u8
+#EXTINF:-1 group-title="Anime" tvg-logo="	https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Adult_Swim_2003_logo.svg/960px-Adult_Swim_2003_logo.svg.png",Adult Swim HD (Opc.2)
+http://190.238.43.117:9000/play/a0il/index.m3u8
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/StudioUniversal2016.png/960px-StudioUniversal2016.png" group-title="Cine / Películas Premium",Studio Universal HD (Opc.1)
 http://186.33.26.18:8000/play/a0ln/index.m3u8
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/TNT_Logo_2016.svg/960px-TNT_Logo_2016.svg.png" group-title="Cine / Películas Premium",TNT HD
@@ -281,8 +291,6 @@ http://138.59.227.20:8000/play/a061/index.m3u8
 http://138.59.227.20:8000/play/a064/index.m3u8
 #EXTINF:-1 group-title="-",AXN HD
 http://138.59.227.20:8000/play/a09e/index.m3u8
-#EXTINF:-1 group-title="-",Adult swim HD
-http://138.59.227.20:8000/play/a08d/index.m3u8
 #EXTINF:-1 group-title="-",Albirroja Tv
 http://138.59.227.20:8000/play/a0dx/index.m3u8
 #EXTINF:-1 group-title="-",Azteca Deportes
@@ -555,8 +563,6 @@ http://138.59.227.20:8000/play/a0gm/index.m3u8
 http://138.59.227.20:8000/play/a09i/index.m3u8
 #EXTINF:-1 group-title="-",Venus Tv
 http://138.59.227.20:8000/play/a0fc/index.m3u8
-#EXTINF:-1 group-title="-",Volver
-http://138.59.227.20:8000/play/a066/index.m3u8
 #EXTINF:-1 group-title="-",Warner Channel HD
 http://138.59.227.20:8000/play/a09d/index.m3u8
 #EXTINF:-1 group-title="-",Yguazu Tv
@@ -2031,12 +2037,6 @@ http://190.61.101.11:7050/play/a091/index.m3u8?hls
 http://190.61.114.186:8000/play/a01h/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/79hrcx8.png" group-title="Anime",Bitme HD (México)[Opc.3]
 http://181.225.190.242:8000/play/a00d
-#EXTINF:-1 group-title="Anime" tvg-logo="	https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Adult_Swim_2003_logo.svg/960px-Adult_Swim_2003_logo.svg.png",Adult Swim SD (Opc.1)
-http://200.35.176.154:8000/play/a04n/index.m3u8
-#EXTINF:-1 group-title="Anime" tvg-logo="	https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Adult_Swim_2003_logo.svg/960px-Adult_Swim_2003_logo.svg.png",Adult Swim SD (Opc.2)
-http://181.119.177.253:8000/play/a01i/index.m3u8
-#EXTINF:-1 group-title="Anime" tvg-logo="	https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Adult_Swim_2003_logo.svg/960px-Adult_Swim_2003_logo.svg.png",Adult Swim HD (Opc.2)
-http://190.238.43.117:9000/play/a0il/index.m3u8
 #EXTINF:-1 tvg-logo="https://neotv.energeek.cl/assets/img/channels/eg-fan-2.png" group-title="Anime",EnerGeek Fan (América Latina)
 https://backend.energeek.cl/webtv/egfanweb/index.m3u8?token=ZZDemoIPTVGH
 #EXTINF:-1 tvg-logo="https://neotv.energeek.cl/assets/img/channels/eg-fan-2.png" group-title="Anime",EnerGeek Fan (América Latina)[Opc.2]
