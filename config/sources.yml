@@ -2,3 +2,5 @@ sources:
   - http://138.59.227.20:8000/playlist.m3u8
   - http://45.5.118.152:8000/playlist.m3u8
   - https://raw.githubusercontent.com/JMigue85/IPTV-SV/main/IPTVSV.m3u
+  - http://181.224.255.210:8001/playlist.m3u
+  - http://181.224.200.5:2277/playlist.m3u
