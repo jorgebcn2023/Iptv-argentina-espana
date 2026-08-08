@@ -1,0 +1,808 @@
+- name: '+24'
+  aliases:
+  - '+24'
+  count: 1
+- name: +24 Opc 2
+  aliases:
+  - +24 [Opc.2]
+  count: 1
+- name: +Tdp
+  aliases:
+  - +tdp
+  count: 1
+- name: 00 Adult Swim
+  aliases:
+  - 00 - Adult Swim
+  count: 1
+- name: 00 Atv
+  aliases:
+  - 00 ATV HD
+  count: 1
+- name: 00 Atv Mas
+  aliases:
+  - 00_ATV_MAS
+  count: 1
+- name: 00 Atv Sur
+  aliases:
+  - 00_ATV_SUR
+  count: 1
+- name: 00 Directv Sports
+  aliases:
+  - 00  DIRECTV SPORTS
+  count: 1
+- name: 00 E Entertainment Tv
+  aliases:
+  - 00 - E! Entertainment TV
+  count: 1
+- name: 00 Espn Peru
+  aliases:
+  - 00 - ESPN PERU HD
+  count: 1
+- name: 00 Exitosa
+  aliases:
+  - 00_EXITOSA
+  count: 1
+- name: 00 Global Hd
+  aliases:
+  - 00_GLOBAL_HD
+  count: 1
+- name: 00 Hbo 2
+  aliases:
+  - 00_HBO_2
+  count: 1
+- name: 00 Lifetime
+  aliases:
+  - 00 - Lifetime
+  count: 1
+- name: 00 Stingray Concerts
+  aliases:
+  - 00 - Stingray Concerts HD
+  count: 1
+- name: 00 Telefe
+  aliases:
+  - 00 - Telefe
+  count: 1
+- name: 1 2 Willax
+  aliases:
+  - 1.2 - WILLAX HD
+  count: 1
+- name: 12Tv Alicante Alicante
+  aliases:
+  - 12TV Alicante (Alicante)
+  count: 1
+- name: 13 Festival Chile
+  aliases:
+  - 13 Festival (Chile)
+  count: 1
+- name: 13 Go Nacional
+  aliases:
+  - 13 GO HD (Nacional)
+  count: 1
+- name: 13 Internacional Nacional
+  aliases:
+  - 13 Internacional HD (Nacional)
+  count: 1
+- name: 13 Pop Nacional
+  aliases:
+  - 13 POP HD (Nacional)
+  count: 1
+- name: 13 Realidades Nacional
+  aliases:
+  - 13 Realidades HD (Nacional)
+  count: 1
+- name: 13 Teleseries Nacional
+  aliases:
+  - 13 Teleseries HD (Nacional)
+  count: 1
+- name: 13C Cultura Nacional
+  aliases:
+  - 13C Cultura HD (Nacional)
+  count: 1
+- name: 14 2 Liga Uno
+  aliases:
+  - 14.2 - LIGA UNO HD
+  count: 1
+- name: 24 7 Canal De Noticias Neuqu N
+  aliases:
+  - 24/7 Canal de Noticias (Neuquén)
+  count: 1
+- name: 24H
+  aliases:
+  - 24h
+  count: 1
+- name: 24H Canarias
+  aliases:
+  - 24h Canarias
+  count: 1
+- name: 24H Catalunya
+  aliases:
+  - 24h Catalunya
+  count: 1
+- name: 24H Opc 2
+  aliases:
+  - 24h [Opc.2]
+  count: 1
+- name: 26Tv
+  aliases:
+  - 26TV
+  count: 1
+- name: 28 Kanala Pa S Vasco
+  aliases:
+  - 28 Kanala (País Vasco)
+  count: 1
+- name: 3 3 Panamericana
+  aliases:
+  - 3.3 - PANAMERICANA HD
+  count: 1
+- name: 3 4 America Tv
+  aliases:
+  - 3.4 America TV HD
+  count: 1
+- name: 3 5 Rpp
+  aliases:
+  - 3.5 RPP
+  count: 1
+- name: 33Tv C Valenciana
+  aliases:
+  - 33TV (C. Valenciana)
+  count: 1
+- name: 360 Rftv Costa Rica San Jos
+  aliases:
+  - 360 RFTV (Costa Rica - San José)
+  count: 1
+- name: 39 Tv
+  aliases:
+  - 39 TV
+  count: 1
+- name: 3Abn
+  aliases:
+  - 3ABN
+  count: 1
+- name: 4 1 Latina
+  aliases:
+  - 4.1 Latina HD
+  count: 1
+- name: 5Tv Corrientes Corrientes
+  aliases:
+  - 5TV Corrientes (Corrientes)
+  count: 1
+- name: 88 Stereo Costa Rica No 24 7
+  aliases:
+  - 88 Stereo (Costa Rica) [No 24/7]
+  count: 1
+- name: A&E
+  aliases:
+  - A&E
+  - A&E HD
+  count: 5
+- name: A&E Opc 2
+  aliases:
+  - A&E HD [Opc.2]
+  count: 1
+- name: A&E Opc 3
+  aliases:
+  - A&E SD [Opc.3]
+  count: 1
+- name: A+ Guate
+  aliases:
+  - A+ Guate HD
+  count: 1
+- name: A+ Guate Opc 2
+  aliases:
+  - A+ Guate HD [Opc.2]
+  count: 1
+- name: A1 Tv
+  aliases:
+  - A1 TV
+  - A1 TV HD
+  count: 2
+- name: A1 Tv No 24 7
+  aliases:
+  - A1 TV HD [No 24/7]
+  count: 1
+- name: A24
+  aliases:
+  - A24
+  count: 1
+- name: Abc Tv
+  aliases:
+  - ABC TV
+  count: 1
+- name: Acci N
+  aliases:
+  - Acción
+  count: 1
+- name: Action Movie Channel Sub
+  aliases:
+  - Action Movie Channel (SUB)
+  count: 1
+- name: Activa Tv Espa A
+  aliases:
+  - Activa TV (España)
+  count: 1
+- name: Adn40 Nacional
+  aliases:
+  - ADN40 (Nacional)
+  count: 1
+- name: Adult Swim
+  aliases:
+  - Adult swim HD
+  count: 1
+- name: Adult Swim Opc 1
+  aliases:
+  - Adult Swim SD (Opc.1)
+  count: 1
+- name: Adult Swim Opc 2
+  aliases:
+  - Adult Swim HD (Opc.2)
+  - Adult Swim SD (Opc.2)
+  count: 2
+- name: Ae Radio Tv Chile
+  aliases:
+  - AE Radio TV (Chile)
+  count: 1
+- name: Agr Fm Tv
+  aliases:
+  - AGR FM TV
+  count: 1
+- name: Agro Tv No 24 7 Cusco
+  aliases:
+  - Agro TV HD [No 24/7] (Cusco)
+  count: 1
+- name: Aire De Santa Fe Santa Fe
+  aliases:
+  - Aire de Santa Fe (Santa Fe)
+  count: 1
+- name: Al Cielo Con Ella Rtve Geo Blocked
+  aliases:
+  - Al cielo con ella (RTVE)[Geo-blocked]
+  count: 1
+- name: Alacant Tv Alicante
+  aliases:
+  - Alacantí TV (Alicante)
+  count: 1
+- name: Albirroja Tv
+  aliases:
+  - Albirroja Tv
+  count: 1
+- name: Alcarria Tv
+  aliases:
+  - Alcarria TV
+  count: 1
+- name: Alcarria Tv Guadalajara
+  aliases:
+  - Alcarria TV (Guadalajara)
+  count: 1
+- name: Alcarria Tv Opc 2
+  aliases:
+  - Alcarria TV[Opc.2]
+  count: 1
+- name: Almer A Tv
+  aliases:
+  - Almería TV
+  count: 1
+- name: Alsacias Televisi N Ahuas Gracias A Dios
+  aliases:
+  - Alsacias Televisión HD (Ahuas / Gracias a Dios)
+  count: 1
+- name: Alternativa Tv No 24 7
+  aliases:
+  - Alternativa TV [No 24/7]
+  count: 1
+- name: Alternativa Tv No 24 7 Colombia Huasco Atacama
+  aliases:
+  - Alternativa TV [No 24/7](Colombia - Huasco - Atacama)
+  count: 1
+- name: Am Rica Televisi N
+  aliases:
+  - América Televisión HD
+  count: 1
+- name: Am Rica Televisi N Opc 2
+  aliases:
+  - América Televisión HD [Opc.2]
+  count: 1
+- name: Am Rica Televisi N Opc 3
+  aliases:
+  - América Televisión HD [Opc.3]
+  count: 1
+- name: Am Rica Televisi N Opc 4
+  aliases:
+  - América Televisión HD [Opc.4]
+  count: 1
+- name: Am Sports
+  aliases:
+  - AM Sports
+  count: 1
+- name: Amc
+  aliases:
+  - AMC
+  - AMC HD
+  count: 4
+- name: Amc En Espa Ol
+  aliases:
+  - AMC en Español
+  count: 1
+- name: Amc Opc 2
+  aliases:
+  - AMC HD (Opc.2)
+  count: 1
+- name: Amc Opc 3
+  aliases:
+  - AMC HD (Opc.3)
+  count: 1
+- name: Amc Series
+  aliases:
+  - AMC Series
+  count: 1
+- name: Amc Series Opc 1
+  aliases:
+  - AMC Series SD [Opc.1]
+  count: 1
+- name: Amc Series Opc 2
+  aliases:
+  - AMC Series SD [Opc.2]
+  count: 1
+- name: Amc Series Opc 3
+  aliases:
+  - AMC Series SD [Opc.3]
+  count: 1
+- name: America Tv
+  aliases:
+  - America TV HD
+  count: 2
+- name: American Tv
+  aliases:
+  - American TV
+  count: 1
+- name: An24
+  aliases:
+  - AN24
+  count: 1
+- name: Animal Planet
+  aliases:
+  - ANIMAL PLANET
+  - Animal Planet HD
+  count: 3
+- name: Animal Planet Opc 1
+  aliases:
+  - Animal Planet HD [Opc.1]
+  count: 1
+- name: Animal Planet Opc 2
+  aliases:
+  - Animal Planet HD [Opc.2]
+  count: 1
+- name: Animal Planet Opc 3
+  aliases:
+  - Animal Planet SD [Opc.3]
+  count: 1
+- name: Anime Station Am Rica Latina No 24 7
+  aliases:
+  - Anime Station (América Latina) [No 24/7]
+  count: 1
+- name: Anime Visi N Classics Espa A Opc 1
+  aliases:
+  - Anime Visión Classics (España)[Opc.1]
+  count: 1
+- name: Anime Visi N Espa A Opc 1
+  aliases:
+  - Anime Visión (España)[Opc.1]
+  count: 1
+- name: Anove Tv Galicia
+  aliases:
+  - Anove TV (Galicia)
+  count: 1
+- name: Antena 1
+  aliases:
+  - Antena 1 HD
+  count: 1
+- name: Antena 1 Opc 2
+  aliases:
+  - Antena 1 HD [Opc.2]
+  count: 1
+- name: Antena 21
+  aliases:
+  - Antena 21 HD
+  count: 1
+- name: Antena 3
+  aliases:
+  - ANTENA 3
+  - Antena 3
+  count: 3
+- name: Antena 3 Opc 2
+  aliases:
+  - Antena 3[Opc.2]
+  count: 1
+- name: Antena 7
+  aliases:
+  - Antena 7 SD
+  count: 1
+- name: Antena 7 Opc 2
+  aliases:
+  - Antena 7 SD [Opc.2]
+  count: 1
+- name: Antena Music Chile
+  aliases:
+  - Antena Music (Chile)
+  count: 1
+- name: Antena Seis Tv Grecia Alajuela
+  aliases:
+  - Antena Seis TV HD (Grecia - Alajuela)
+  count: 1
+- name: Antena Sur Arequipa
+  aliases:
+  - Antena Sur HD (Arequipa)
+  count: 1
+- name: Antena Uno Radiovideo Mpv Azuay
+  aliases:
+  - Antena Uno RadioVideo SD (MPV)(Azuay)
+  count: 1
+- name: Antofagasta Tv Antofagasta
+  aliases:
+  - Antofagasta TV (Antofagasta)
+  count: 1
+- name: Arab Tv Yecla Yecla Murcia
+  aliases:
+  - Arabí TV Yecla (Yecla - Murcia)
+  count: 1
+- name: Arab Tv Yecla Yecla Murcia Opc 2
+  aliases:
+  - Arabí TV Yecla (Yecla - Murcia)[Opc.2]
+  count: 1
+- name: Argentinisima Satelital Nacional
+  aliases:
+  - Argentinisima Satelital SD (Nacional)
+  count: 1
+- name: Artflix Pel Culas Cl Sicas Es
+  aliases:
+  - Artflix - Películas Clásicas (ES)
+  count: 1
+- name: Asiritv No 24 7 Per Lima
+  aliases:
+  - AsiriTV [No 24/7] (Perú - Lima)
+  count: 1
+- name: Asomavisi N Ecuador
+  aliases:
+  - Asomavisión (Ecuador)
+  count: 1
+- name: Atacama Noticias Copiap Atacama
+  aliases:
+  - Atacama Noticias (Copiapó - Atacama)
+  count: 1
+- name: Atacama Tv Not 24 7 Copiap Atacama
+  aliases:
+  - Atacama TV [Not 24/7] (Copiapó - Atacama)
+  count: 1
+- name: Atres Series
+  aliases:
+  - Atres Series
+  count: 1
+- name: Atres Series Opc 1
+  aliases:
+  - ATRES Series HD (Opc.1)
+  count: 1
+- name: Atv
+  aliases:
+  - ATV
+  count: 2
+- name: Atv + Arequipa Nacional Opc 1
+  aliases:
+  - ATV + HD (Arequipa / Nacional) [Opc.1]
+  count: 1
+- name: Atv Andorra No 24 7 Int Europa
+  aliases:
+  - ATV Andorra [No 24/7] (Int. Europa)
+  count: 1
+- name: Atv Canal 3
+  aliases:
+  - ATV Canal 3 HD
+  count: 1
+- name: Atv Mpv Nacional Opc 2
+  aliases:
+  - ATV SD (MPV)(Nacional)[Opc.2]
+  count: 1
+- name: Atv Mpv Nacional Opc 3
+  aliases:
+  - ATV SD (MPV)(Nacional)[Opc.3]
+  count: 1
+- name: Atv Nacional
+  aliases:
+  - ATV  (Nacional)
+  count: 1
+- name: Atv Sur Arequipa Nacional Opc 1
+  aliases:
+  - ATV Sur HD (Arequipa / Nacional) [Opc.1]
+  count: 1
+- name: Aurora Mf No 24 7
+  aliases:
+  - Aurora MF HD [No 24/7]
+  count: 1
+- name: Avivamiento Tv Colombia
+  aliases:
+  - Avivamiento TV (Colombia)
+  count: 1
+- name: Axn
+  aliases:
+  - AXN
+  - AXN HD
+  count: 5
+- name: Axn Opc 2
+  aliases:
+  - AXN HD (Opc.2)
+  count: 1
+- name: Axn Opc 3
+  aliases:
+  - AXN HD (Opc.3)
+  count: 1
+- name: Ays N Tv No 24 7 Puerto Ays N Ays N
+  aliases:
+  - Aysén TV HD [No 24/7] (Puerto Aysén - Aysén)
+  count: 1
+- name: Azahares Radio Visual Argentina
+  aliases:
+  - Azahares Radio Visual (Argentina)
+  count: 1
+- name: Azcorazon
+  aliases:
+  - Azcorazon
+  - Azcorazon HD
+  count: 2
+- name: Azcorazon Opc 2
+  aliases:
+  - Azcorazon HD [Opc.2]
+  count: 1
+- name: Azcorazon Opc 3
+  aliases:
+  - Azcorazon HD [Opc.3]
+  count: 1
+- name: Azteca 7 Mpv M Xico Opc 1
+  aliases:
+  - Azteca 7 HD (MPV) (México)[Opc. 1]
+  count: 1
+- name: Azteca 7 Mpv M Xico Opc 2
+  aliases:
+  - Azteca 7 HD (MPV) (México)[Opc. 2]
+  count: 1
+- name: Azteca 7 Mpv M Xico Opc 3
+  aliases:
+  - Azteca 7 SD (MPV) (México)[Opc. 3]
+  count: 1
+- name: Azteca Cinema
+  aliases:
+  - Azteca Cinema HD
+  count: 1
+- name: Azteca Cinema Opc 2
+  aliases:
+  - Azteca Cinema HD [Opc.2]
+  count: 1
+- name: Azteca Cinema Opc 3
+  aliases:
+  - Azteca Cinema HD [Opc.3]
+  count: 1
+- name: Azteca Deportes
+  aliases:
+  - Azteca Deportes
+  count: 1
+- name: Azteca Deportes Network
+  aliases:
+  - Azteca Deportes Network HD
+  count: 1
+- name: Azteca Deportes Network 3
+  aliases:
+  - Azteca Deportes Network 3 HD
+  count: 1
+- name: Azteca Deportes Network Mpv
+  aliases:
+  - Azteca Deportes Network SD (MPV)
+  count: 1
+- name: Azteca Internacional
+  aliases:
+  - Azteca Internacional HD
+  count: 1
+- name: Azteca Internacional Opc 2
+  aliases:
+  - Azteca Internacional HD [Opc.2]
+  count: 1
+- name: Azteca Internacional Opc 3
+  aliases:
+  - Azteca Internacional HD [Opc.3]
+  count: 1
+- name: Azteca Uno Mpv
+  aliases:
+  - Azteca UNO SD (MPV)
+  count: 1
+- name: Azteca Uno Mpv Opc 2
+  aliases:
+  - Azteca UNO SD (MPV) [Opc.2]
+  count: 1
+- name: Baby Firts
+  aliases:
+  - BABY FIRTS
+  count: 1
+- name: Baby Shark Tv Es
+  aliases:
+  - BABY SHARK TV (ES)
+  count: 1
+- name: Baby Tv
+  aliases:
+  - Baby TV
+  count: 3
+- name: Baby Tv Opc 2
+  aliases:
+  - Baby TV(Opc.2)
+  count: 1
+- name: Bac N Te Veo No 24 7 Loja
+  aliases:
+  - Bacán Te Veo HD [No 24/7] (Loja)
+  count: 1
+- name: Barbe Tv
+  aliases:
+  - Barbe TV HD
+  count: 1
+- name: Bayres Tv Clasicos No 24 7 Argentina
+  aliases:
+  - Bayres TV (Clasicos) [No 24/7] (Argentina)
+  count: 1
+- name: Bbc News
+  aliases:
+  - BBC News
+  count: 1
+- name: Bbc Series Espa A
+  aliases:
+  - BBC Series (España)
+  count: 1
+- name: Beats Radio 100 5 Fm Argentina
+  aliases:
+  - Beats Radio 100.5 FM (Argentina)
+  count: 1
+- name: Bein Sports Internacional
+  aliases:
+  - beIN Sports (Internacional)
+  count: 1
+- name: Bendici N Channel Honduras
+  aliases:
+  - Bendición Channel (Honduras)
+  count: 1
+- name: Bethel
+  aliases:
+  - BETHEL
+  count: 1
+- name: Bethel Tv Internacional
+  aliases:
+  - Bethel TV (Internacional)
+  count: 1
+- name: Beyblade Espa A
+  aliases:
+  - Beyblade (España)
+  count: 1
+- name: Bhtv Lima
+  aliases:
+  - BHTV HD (Lima)
+  count: 1
+- name: Bitme M Xico Opc 1
+  aliases:
+  - Bitme HD (México)[Opc.1]
+  count: 1
+- name: Bitme M Xico Opc 2
+  aliases:
+  - Bitme HD (México)[Opc.2]
+  count: 1
+- name: Bitme M Xico Opc 3
+  aliases:
+  - Bitme HD (México)[Opc.3]
+  count: 1
+- name: Bjgtjme Pel Culas Gratis
+  aliases:
+  - Bjgtjme Películas Gratis
+  count: 1
+- name: Blu Radio No 24 7 Nacional
+  aliases:
+  - Blu Radio HD [No 24/7] (Nacional)
+  count: 1
+- name: Boca Chica Tv 3
+  aliases:
+  - Boca Chica TV 3 HD
+  count: 1
+- name: Bolivisi N Lpz La Paz Bolivia
+  aliases:
+  - Bolivisión LPZ (La Paz / Bolivia)
+  count: 1
+- name: Boreal Internacional
+  aliases:
+  - Boreal (Internacional)
+  count: 1
+- name: Box Cinema
+  aliases:
+  - Box Cinema
+  count: 1
+- name: Box Gamers Espa A
+  aliases:
+  - Box Gamers (España)
+  count: 1
+- name: Box Playlist Internacional
+  aliases:
+  - Box Playlist (Internacional)
+  count: 1
+- name: Bravo Tv Buenos Aires Argentina
+  aliases:
+  - Bravo TV (Buenos Aires / Argentina)
+  count: 1
+- name: Bruno Masi Tv
+  aliases:
+  - Bruno Masi Tv
+  count: 1
+- name: C Ritas Tv
+  aliases:
+  - Cáritas TV HD
+  count: 1
+- name: C5N
+  aliases:
+  - C5N
+  count: 1
+- name: C9N
+  aliases:
+  - C9N HD
+  count: 2
+- name: C9N Digital
+  aliases:
+  - C9N Digital
+  count: 1
+- name: Cad Tv No 24 7
+  aliases:
+  - CAD TV [No 24/7]
+  count: 1
+- name: Cadena 103 Olavarr A Argentina
+  aliases:
+  - Cadena 103 Olavarría (Argentina)
+  count: 1
+- name: Cadena Lite Nacional
+  aliases:
+  - Cadena Élite (Nacional)
+  count: 1
+- name: Cadena Master Tv
+  aliases:
+  - Cadena Master Tv
+  count: 1
+- name: Cadena Tv No 24 7 Lima
+  aliases:
+  - Cadena TV HD [No 24/7] (Lima)
+  count: 1
+- name: Caillou Es
+  aliases:
+  - Caillou (ES)
+  count: 1
+- name: Cali Tv Cali Colombia
+  aliases:
+  - Cali TV (Cali - Colombia)
+  count: 1
+- name: Camara Camboriu
+  aliases:
+  - CAMARA Camboriu
+  count: 1
+- name: Cambyreta Tv
+  aliases:
+  - Cambyreta Tv
+  count: 1
+- name: Canal 1 Mar Menor San Javier Murcia
+  aliases:
+  - Canal 1 Mar Menor (San Javier - Murcia)
+  count: 1
+- name: Canal 1 Nacional
+  aliases:
+  - Canal 1 HD (Nacional)
+  count: 1
+- name: Canal 1 Uble Chill N Uble
+  aliases:
+  - Canal 1 Ñuble HD (Chillán - Ñuble)
+  count: 1
+- name: Canal 10 Nacional
+  aliases:
+  - Canal 10 HD (Nacional)
+  count: 1
+- name: Canal 10 No 24 7 Solol
+  aliases:
+  - Canal 10 SD [No 24/7] (Sololá)
+  count: 1
+- name: Canal 10 Telenord No 24 7
+  aliases:
+  - Canal 10 Telenord HD [No 24/7]
+  count: 1
