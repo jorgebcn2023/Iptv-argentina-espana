@@ -1,6 +1,38 @@
-allowed_keywords:
-  - argentina
-  - españa
-  - spain
-  - internacional
-  - international
+# Configuración de filtrado de canales IPTV
+
+# Incluir TODOS los canales por defecto (excepto bloqueados)
+include_all: true
+
+# Palabras clave a EXCLUIR (religiosos y canales no deseados)
+blocked_keywords:
+  - religioso
+  - religion
+  - iglesia
+  - evangeli
+  - pastor
+  - cristiano
+  - adoracion
+
+# Palabras clave PRIORITARIAS a incluir (aparecen primero en la playlist)
+priority_keywords:
+  # Documentales
+  - documental
+  - documentary
+  # Canales argentinos principales
+  - c5n
+  - america tv
+  - canal 26
+  - ln
+  - la nacion
+  - tn
+  - el trece
+  - el nueve
+  - increibles
+  - volver
+  # Contenido adulto
+  - xxx
+  - porno
+  - adulto
+  - adult
+  - "18+"
+  - "+18"
