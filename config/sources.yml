@@ -4,3 +4,8 @@ sources:
   - https://raw.githubusercontent.com/JMigue85/IPTV-SV/main/IPTVSV.m3u
   - http://181.224.255.210:8001/playlist.m3u
   - http://181.224.200.5:2277/playlist.m3u
+  
+    - name: fuente_18111918532
+    enabled: true
+    priority: 50
+    url: "http://181.119.185.32:8000/playlist.m3u"
