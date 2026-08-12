@@ -2,7 +2,7 @@
 
 include_all: true
 
-# Palabras clave a excluir.
+# Canales y contenidos que NO deben incorporarse.
 blocked_keywords:
   - religioso
   - religion
@@ -12,7 +12,7 @@ blocked_keywords:
   - cristiano
   - adoracion
 
-# Palabras clave prioritarias.
+# Entradas que aparecerán primero dentro de la playlist.
 priority_keywords:
   - documental
   - documentary
@@ -26,17 +26,6 @@ priority_keywords:
   - el nueve
   - increibles
   - volver
-  
-  Palabras clave a excluir.
-blocked_keywords:
-  - religioso
-  - religion
-  - iglesia
-  - evangeli
-  - pastor
-  - cristiano
-  - adoracion
-
 
 # Contenido adulto: conservar.
 adult_content:
@@ -47,6 +36,5 @@ adult_content:
     - porno
     - adulto
     - adult
-    - "18+"
-    - "+18"
-Después de subi
+    - “18+”
+    - “+18”
