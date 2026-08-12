@@ -1,0 +1,37 @@
+name: Actualizar IPTV
+
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: python -m pip install --upgrade requests pyyaml pytest
+
+      - name: Ejecutar pruebas
+        run: pytest -q
+
+      - name: Actualizar playlist
+        working-directory: scripts
+        run: python actualizar_playlist.py
+
+      - name: Publicar cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add playlists/playlist_IPTV_ARG_ESP_FINAL.m3u downloads/
+          git diff --cached --quiet || git commit -m "chore: actualizar playlist IPTV"
+          git push

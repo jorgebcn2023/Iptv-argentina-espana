@@ -1,0 +1,30 @@
+sources:
+  - name: fuente_138
+    enabled: true
+    priority: 10
+    url: "http://138.59.227.20:8000/playlist.m3u8"
+
+  - name: fuente_45
+    enabled: true
+    priority: 20
+    url: "http://45.5.118.152:8000/playlist.m3u"
+
+  - name: fuente_iptvsv
+    enabled: true
+    priority: 30
+    url: "https://raw.githubusercontent.com/JMigue85/IPTV-SV/refs/heads/main/IPTVSV.m3u"
+
+  - name: fuente_181224255210
+    enabled: true
+    priority: 40
+    url: "http://181.224.255.210:8001/playlist.m3u"
+
+  - name: fuente_18111918532
+    enabled: true
+    priority: 50
+    url: "http://181.119.185.32:8000/playlist.m3u"
+
+  - name: fuente_1812242005
+    enabled: true
+    priority: 60
+    url: "http://181.224.200.5:2277/playlist.m3u"
