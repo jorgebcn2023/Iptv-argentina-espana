@@ -46,14 +46,14 @@ def group_name(extinf: str) -> str:
     return match.group(1).strip() if match else ""
 
 
-def probe_stream(item):
+def probe_stream(item, timeout):
     extinf, url, source_priority = item
     started = monotonic()
     try:
         with requests.get(
             url,
             stream=True,
-            timeout=(DEFAULT_PROBE_TIMEOUT, DEFAULT_PROBE_TIMEOUT),
+            timeout=(timeout, timeout),
             headers={"User-Agent": USER_AGENT, "Accept": "*/*"},
             allow_redirects=True,
         ) as response:
@@ -77,9 +77,6 @@ def main():
     probe_timeout = int(settings.get("probe_timeout_seconds", DEFAULT_PROBE_TIMEOUT))
     workers = int(settings.get("probe_workers", DEFAULT_WORKERS))
     probe_enabled = bool(settings.get("probe_streams", True))
-
-    global DEFAULT_PROBE_TIMEOUT
-    DEFAULT_PROBE_TIMEOUT = probe_timeout
 
     allowed_keywords = settings.get("allowed_keywords")
     if allowed_keywords:
@@ -144,7 +141,7 @@ def main():
     if probe_enabled:
         healthy = []
         with ThreadPoolExecutor(max_workers=max(1, workers)) as executor:
-            futures = [executor.submit(probe_stream, item) for item in candidates]
+            futures = [executor.submit(probe_stream, item, probe_timeout) for item in candidates]
             for future in as_completed(futures):
                 item, ok, latency, status = future.result()
                 if ok:
@@ -156,8 +153,6 @@ def main():
     else:
         candidates_scored = [(line, url, priority, 999.0) for line, url, priority in candidates]
 
-    # Deduplicate by channel + group. For duplicates, keep the healthy stream
-    # with the lowest first-byte latency; source priority breaks ties.
     best = {}
     for line, url, source_priority, latency in candidates_scored:
         key = (normalize_text(channel_name(line)), normalize_text(group_name(line)))
@@ -166,7 +161,6 @@ def main():
             best[key] = (score, line, url)
 
     selected = [(v[1], v[2]) for v in best.values()]
-
     priority_norm = [normalize_text(p) for p in settings.get("priority_keywords", [])]
     priority_selected = []
     regular_selected = []
