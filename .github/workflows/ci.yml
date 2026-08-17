@@ -5,8 +5,9 @@ on:
     branches: [ main, 'fix/**' ]
   pull_request:
     branches: [ main ]
-  schedule:
-    - cron: '0 3 * * *' # daily at 03:00 UTC
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -17,22 +18,25 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.8'
+          python-version: '3.12'
+          cache: 'pip'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run script
-        run: |
-          python main.py
+      - name: Validate playlist generator
+        run: python main.py
         timeout-minutes: 10
 
-      - name: Upload playlist artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: playlist-m3u
-          path: playlist.m3u
+      - name: Validate generated playlist
+        run: |
+          test -s playlist.m3u
+          grep -q '^#EXTM3U' playlist.m3u
+          if ! grep -q '^#EXTINF' playlist.m3u; then
+            echo 'ERROR: playlist.m3u no contiene canales.'
+            exit 1
+          fi
