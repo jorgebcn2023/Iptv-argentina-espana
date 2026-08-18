@@ -1,6 +1,13 @@
 name: Update IPTV Playlist
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'main.py'
+      - 'config/**'
+      - 'requirements.txt'
+      - '.github/workflows/update-playlist.yml'
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
