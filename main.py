@@ -11,10 +11,31 @@ from requests.exceptions import RequestException
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-USER_AGENT = "IPTV-Argentina-Espana/2.1"
+USER_AGENT = "IPTV-Argentina-Espana/3.0"
 DEFAULT_SOURCE_TIMEOUT = 20
 DEFAULT_PROBE_TIMEOUT = 8
 DEFAULT_WORKERS = 20
+
+COUNTRY_NAMES = {
+    "AR": "Argentina",
+    "ES": "España",
+    "IT": "Italia",
+    "GB": "Reino Unido",
+    "UK": "Reino Unido",
+    "US": "Estados Unidos",
+    "BR": "Brasil",
+}
+
+GENRE_RULES = [
+    ("Noticias", ["news", "noticia", "noticias", "news 24", "cnn", "bbc news", "tn ", "c5n", "america noticias"]),
+    ("Deportes", ["sport", "sports", "deporte", "deportes", "espn", "fox sports", "tyc sports", "tnt sports", "dazn"]),
+    ("Documentales", ["documental", "documentary", "history", "nat geo", "national geographic", "discovery", "animal planet"]),
+    ("Infantiles", ["kids", "infantil", "disney", "nick", "nickelodeon", "cartoon", "baby", "junior"]),
+    ("Películas y Series", ["movie", "movies", "cine", "pelicula", "peliculas", "series", "film", "filme", "axn", "fx", "warner", "universal", "paramount"]),
+    ("Música", ["music", "musica", "mtv", "vh1", "vevo", "hit", "hits"]),
+    ("Entretenimiento", ["entertainment", "entretenimiento", "reality", "show", "comedy"]),
+    ("Infantil", ["kids", "children", "child"]),
+]
 
 
 def normalize_text(s: str) -> str:
@@ -41,16 +62,69 @@ def channel_name(extinf: str) -> str:
     return extinf[pos + 1:].strip() if pos >= 0 else "Unknown"
 
 
-def group_name(extinf: str) -> str:
-    match = re.search(r'group-title=["\']([^"\']*)["\']', extinf, re.I)
+def attr(extinf: str, name: str) -> str:
+    match = re.search(rf'{re.escape(name)}=["\']([^"\']*)["\']', extinf, re.I)
     return match.group(1).strip() if match else ""
 
 
-def country_code(extinf: str) -> str:
-    match = re.search(r'tvg-country=["\']([^"\']*)["\']', extinf, re.I)
-    if match:
-        return match.group(1).strip().upper()
-    return ""
+def group_name(extinf: str) -> str:
+    return attr(extinf, "group-title")
+
+
+def country_codes(extinf: str) -> set[str]:
+    raw = attr(extinf, "tvg-country") or attr(extinf, "country")
+    if not raw:
+        return set()
+    parts = re.split(r"[,;|/ ]+", raw.upper())
+    return {p for p in parts if p}
+
+
+def infer_country(extinf: str) -> str:
+    codes = country_codes(extinf)
+    for code in codes:
+        if code in COUNTRY_NAMES:
+            return COUNTRY_NAMES[code]
+
+    text = normalize_text(extinf)
+    aliases = [
+        ("Argentina", ["argentina", "arg ", "ar "]),
+        ("España", ["espana", "españa", "spain", "esp "]),
+        ("Italia", ["italia", "italy", "ita "]),
+        ("Reino Unido", ["reino unido", "united kingdom", "uk ", "gb ", "british"]),
+        ("Estados Unidos", ["united states", "usa", "us ", "america ", "american"]),
+        ("Brasil", ["brasil", "brazil", "br "]),
+    ]
+    for country, keys in aliases:
+        if any(k in text for k in keys):
+            return country
+    return "Internacional"
+
+
+def infer_section(extinf: str) -> str:
+    existing = group_name(extinf).strip()
+    if existing and normalize_text(existing) not in {"-", "_", "n/a", "null", "none", "general"}:
+        return existing
+
+    text = normalize_text(extinf + " " + channel_name(extinf))
+    for genre, keywords in GENRE_RULES:
+        if any(normalize_text(k) in text for k in keywords):
+            return genre
+
+    return infer_country(extinf)
+
+
+def set_group_title(extinf: str, section: str) -> str:
+    if re.search(r'group-title=["\']', extinf, re.I):
+        return re.sub(
+            r'group-title=["\'][^"\']*["\']',
+            f'group-title="{section}"',
+            extinf,
+            count=1,
+            flags=re.I,
+        )
+    comma = extinf.rfind(",")
+    insert_at = comma if comma >= 0 else len(extinf)
+    return extinf[:insert_at] + f' group-title="{section}"' + extinf[insert_at:]
 
 
 def probe_stream(item, timeout):
@@ -68,12 +142,26 @@ def probe_stream(item, timeout):
             first_chunk = next(response.iter_content(chunk_size=4096), b"")
             if not first_chunk:
                 return item, False, float("inf"), "empty response"
-            latency = monotonic() - started
-            return item, True, latency, "ok"
+            return item, True, monotonic() - started, "ok"
     except (RequestException, OSError) as exc:
         return item, False, float("inf"), str(exc)
     except Exception as exc:
         return item, False, float("inf"), str(exc)
+
+
+def source_allows_channel(source, extinf: str) -> bool:
+    allowed = source.get("allowed_countries")
+    if not allowed:
+        return True
+
+    allowed_norm = {str(x).upper() for x in allowed}
+    codes = country_codes(extinf)
+    if codes & allowed_norm:
+        return True
+
+    # Algunas listas no rellenan tvg-country; permitimos inferencia conservadora.
+    inferred = infer_country(extinf)
+    return any(COUNTRY_NAMES.get(code, "") == inferred for code in allowed_norm)
 
 
 def main():
@@ -104,7 +192,6 @@ def main():
         url = str(source.get("url", "")).strip()
         source_name = str(source.get("name", url))
         source_priority = int(source.get("priority", 9999))
-        allowed_countries = {str(c).upper() for c in source.get("allowed_countries", [])}
         if not url:
             logging.warning("Fuente sin URL: %s", source_name)
             continue
@@ -130,7 +217,7 @@ def main():
             if not stream_url or stream_url.startswith("#"):
                 continue
 
-            if allowed_countries and country_code(line) not in allowed_countries:
+            if not source_allows_channel(source, line):
                 continue
 
             combined = normalize_text(line + " " + stream_url)
@@ -143,46 +230,59 @@ def main():
                 if not include_all and not any(k in combined for k in priority_norm):
                     continue
 
+            # No se elimina un canal por llamarse igual que otro. Cada URL única es una fuente independiente.
             candidates.append((line, stream_url, source_priority))
 
     if not candidates or successful_sources == 0:
         logging.error("No se encontraron candidatos: %d fuentes correctas", successful_sources)
         return 1
 
+    # La comprobación se usa para ordenar, NO para eliminar fuentes.
+    scored = []
     if probe_enabled:
-        healthy = []
         with ThreadPoolExecutor(max_workers=max(1, workers)) as executor:
             futures = [executor.submit(probe_stream, item, probe_timeout) for item in candidates]
             for future in as_completed(futures):
                 item, ok, latency, status = future.result()
-                if ok:
-                    healthy.append((item[0], item[1], item[2], latency))
-                else:
-                    logging.info("Descartado stream no saludable: %s (%s)", channel_name(item[0]), status)
-        candidates_scored = healthy
-        logging.info("Streams saludables: %d/%d", len(candidates_scored), len(candidates))
+                scored.append((item[0], item[1], item[2], latency, ok))
     else:
-        candidates_scored = [(line, url, priority, 999.0) for line, url, priority in candidates]
+        scored = [(line, url, priority, 999.0, True) for line, url, priority in candidates]
 
-    best = {}
-    for line, url, source_priority, latency in candidates_scored:
-        key = (normalize_text(channel_name(line)), normalize_text(group_name(line)))
-        score = (latency, source_priority)
-        if key not in best or score < best[key][0]:
-            best[key] = (score, line, url)
+    # Único criterio de eliminación: URL idéntica. Se conserva la primera aparición de cada URL.
+    seen_urls = set()
+    unique = []
+    for line, url, priority, latency, ok in sorted(scored, key=lambda x: (not x[4], x[3], x[2])):
+        canonical_url = url.strip()
+        if canonical_url in seen_urls:
+            continue
+        seen_urls.add(canonical_url)
+        section = infer_section(line)
+        normalized_line = set_group_title(line, section)
+        unique.append((normalized_line, url, priority, latency, ok, section))
 
-    selected = [(v[1], v[2]) for v in best.values()]
     priority_norm = [normalize_text(p) for p in settings.get("priority_keywords", [])]
-    priority_selected = []
-    regular_selected = []
-    for line, url in selected:
-        combined = normalize_text(line + " " + url)
-        (priority_selected if any(p in combined for p in priority_norm) else regular_selected).extend([line, url])
+    sections = {}
+    for line, url, priority, latency, ok, section in unique:
+        sections.setdefault(section, []).append((line, url, priority, latency, ok))
 
-    out = ["#EXTM3U"] + priority_selected + regular_selected
+    # Primero las secciones existentes y después las nuevas; dentro de cada sección, enlaces saludables y rápidos primero.
+    preferred_order = [
+        "Argentina", "España", "Italia", "Reino Unido", "Estados Unidos", "Brasil",
+        "Noticias", "Deportes", "Documentales", "Películas y Series", "Infantiles", "Música", "Entretenimiento", "Internacional"
+    ]
+    ordered_sections = [s for s in preferred_order if s in sections]
+    ordered_sections += sorted(s for s in sections if s not in ordered_sections)
+
+    out = ["#EXTM3U"]
+    for section in ordered_sections:
+        items = sections[section]
+        items.sort(key=lambda x: (not x[4], x[3], x[2], normalize_text(channel_name(x[0]))))
+        for line, url, *_ in items:
+            out.extend([line, url])
+
     entries = (len(out) - 1) // 2
     if entries == 0:
-        logging.error("Todos los streams fueron descartados durante la comprobación")
+        logging.error("No se generaron canales")
         return 1
 
     try:
@@ -191,7 +291,9 @@ def main():
         logging.error("Error escribiendo playlist.m3u: %s", exc)
         return 1
 
-    logging.info("playlist.m3u optimizado: %d canales seleccionados", entries)
+    healthy = sum(1 for x in unique if x[4])
+    logging.info("playlist.m3u optimizado: %d canales, %d URLs únicas, %d saludables", entries, len(unique), healthy)
+    logging.info("Secciones generadas: %d", len(ordered_sections))
     return 0
 
 
