@@ -11,7 +11,7 @@ from requests.exceptions import RequestException
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-USER_AGENT = "IPTV-Argentina-Espana/2.0"
+USER_AGENT = "IPTV-Argentina-Espana/2.1"
 DEFAULT_SOURCE_TIMEOUT = 20
 DEFAULT_PROBE_TIMEOUT = 8
 DEFAULT_WORKERS = 20
@@ -44,6 +44,13 @@ def channel_name(extinf: str) -> str:
 def group_name(extinf: str) -> str:
     match = re.search(r'group-title=["\']([^"\']*)["\']', extinf, re.I)
     return match.group(1).strip() if match else ""
+
+
+def country_code(extinf: str) -> str:
+    match = re.search(r'tvg-country=["\']([^"\']*)["\']', extinf, re.I)
+    if match:
+        return match.group(1).strip().upper()
+    return ""
 
 
 def probe_stream(item, timeout):
@@ -97,6 +104,7 @@ def main():
         url = str(source.get("url", "")).strip()
         source_name = str(source.get("name", url))
         source_priority = int(source.get("priority", 9999))
+        allowed_countries = {str(c).upper() for c in source.get("allowed_countries", [])}
         if not url:
             logging.warning("Fuente sin URL: %s", source_name)
             continue
@@ -120,6 +128,9 @@ def main():
                 continue
             stream_url = lines[i + 1].strip()
             if not stream_url or stream_url.startswith("#"):
+                continue
+
+            if allowed_countries and country_code(line) not in allowed_countries:
                 continue
 
             combined = normalize_text(line + " " + stream_url)
