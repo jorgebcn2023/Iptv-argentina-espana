@@ -28,3 +28,16 @@ sources:
     enabled: true
     priority: 60
     url: "http://181.224.200.5:2277/playlist.m3u"
+
+  - name: free_tv_seleccionada
+    enabled: true
+    priority: 70
+    timeout_seconds: 30
+    allowed_countries:
+      - AR
+      - ES
+      - IT
+      - GB
+      - US
+      - BR
+    url: "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8"
