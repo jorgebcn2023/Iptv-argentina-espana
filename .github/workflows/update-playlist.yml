@@ -2,12 +2,15 @@ name: Update IPTV Playlist
 
 on:
   schedule:
-    # Ejecutar diariamente a las 00:00 UTC
     - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: update-iptv-playlist-main
+  cancel-in-progress: false
 
 jobs:
   update-playlist:
@@ -16,6 +19,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -38,7 +43,9 @@ jobs:
           git add playlist.m3u
           if git diff --cached --quiet; then
             echo "No hay cambios en la playlist."
-          else
-            git commit -m "chore: update playlist [$(date -u +'%Y-%m-%d %H:%M:%S Z')]"
-            git push
+            exit 0
           fi
+          git commit -m "chore: update playlist [$(date -u +'%Y-%m-%d %H:%M:%S Z')]"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
