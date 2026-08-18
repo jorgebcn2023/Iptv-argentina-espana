@@ -11,7 +11,7 @@ import yaml
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-USER_AGENT = "IPTV-Argentina-Espana/5.0"
+USER_AGENT = "IPTV-Argentina-Espana/6.0"
 SOURCE_TIMEOUT = 30
 PROBE_TIMEOUT = 8
 WORKERS = 24
@@ -82,6 +82,7 @@ def stream_url(u):
     return u.strip().lower().startswith(("http://", "https://", "rtmp://", "rtmps://", "rtsp://", "udp://", "srt://", "acestream://"))
 
 def parse(lines):
+    """Parse one EXTINF entry without dropping per-entry IPTV metadata."""
     out = []
     i = 0
     while i < len(lines):
@@ -100,10 +101,9 @@ def parse(lines):
             if x.startswith("#EXTINF"):
                 break
             if x.startswith("#"):
-                # Preserve every per-entry directive instead of dropping headers/options
-                # that a particular player may require (Origin, Referer, Kodi props, etc.).
-                if x.upper().startswith(("#EXTVLCOPT:", "#KODIPROP:", "#EXTHTTP:", "#EXTGRP:", "#EXTART:", "#EXTALB:", "#EXTGENRE:")):
-                    directives.append(x)
+                # Preserve every per-entry directive. Some players depend on tags not
+                # known by this generator, so the source entry is never stripped down.
+                directives.append(x)
                 j += 1
                 continue
             if stream_url(x):
@@ -115,8 +115,31 @@ def parse(lines):
         i = max(j, i + 1)
     return out
 
-def headers(directives):
+def pipe_headers(url):
+    """Read inline VLC-style metadata after | without changing the original URL."""
+    h = {}
+    if "|" not in url:
+        return h
+    meta = url.split("|", 1)[1]
+    for part in re.split(r"[|&]", meta):
+        if "=" not in part:
+            continue
+        k, v = part.split("=", 1)
+        k = k.strip().lower()
+        v = v.strip()
+        if k in {"user-agent", "http-user-agent"}:
+            h["User-Agent"] = v
+        elif k in {"referer", "http-referrer", "http-referer"}:
+            h["Referer"] = v
+        elif k in {"origin", "http-origin"}:
+            h["Origin"] = v
+        elif k in {"cookie", "http-cookie"}:
+            h["Cookie"] = v
+    return h
+
+def headers(directives, url=""):
     h = {"User-Agent": USER_AGENT, "Accept": "*/*", "Connection": "close"}
+    h.update(pipe_headers(url))
     for d in directives:
         low = d.lower()
         if low.startswith("#extvlcopt:http-referrer="):
@@ -145,14 +168,13 @@ def probe(item):
     k = kind(url)
     if k == 2:
         return item, False, 999.0, "web page", 0, k
-    # A pipe suffix is player metadata (e.g. User-Agent/Referer), not part of the HTTP URL.
     request_url = url.split("|", 1)[0].strip()
     started = monotonic()
     last = "unverified"
     successes = 0
     for verify in (True, False):
         try:
-            with requests.get(request_url, stream=True, timeout=(PROBE_TIMEOUT, PROBE_TIMEOUT), headers=headers(directives), allow_redirects=True, verify=verify) as r:
+            with requests.get(request_url, stream=True, timeout=(PROBE_TIMEOUT, PROBE_TIMEOUT), headers=headers(directives, url), allow_redirects=True, verify=verify) as r:
                 code = r.status_code
                 ctype = (r.headers.get("content-type") or "").lower()
                 chunk = next(r.iter_content(chunk_size=8192), b"")
@@ -219,9 +241,8 @@ def main():
     else:
         results = [(x, kind(x[1]) == 0, 999.0, "not probed", 0, kind(x[1])) for x in candidates]
 
-    # Deduplicación segura: la URL sola NO identifica una variante reproducible.
-    # La misma URL puede necesitar Referer/Origin/User-Agent/KODIPROP diferentes.
-    # Solo eliminamos duplicados cuando URL + directivas son idénticas.
+    # URL + ALL per-entry directives identify a reproducible variant.
+    # The same URL with different headers/options is therefore intentionally preserved.
     seen = set()
     unique = []
     for item, ok, lat, status, successes, k in results:
@@ -241,8 +262,6 @@ def main():
     out = ["#EXTM3U"]
     for sec in ordered:
         items = sections[sec]
-        # Dentro de cada sección/canal: stream real > stream no clasificado > página web.
-        # La prioridad de fuente decide entre variantes equivalentes.
         items.sort(key=lambda x: (norm(name(x[0])), x[8], not x[5], x[6], x[3]))
         for ext, u, d, *_ in items:
             out.append(ext)
@@ -250,7 +269,7 @@ def main():
             out.append(u)
 
     Path("playlist.m3u").write_text("\n".join(out) + "\n", encoding="utf-8")
-    logging.info("Playlist: %d variantes únicas; URLs + headers preservados; páginas web separadas", len(unique))
+    logging.info("Playlist: %d variantes únicas; metadatos por entrada preservados; URLs no verificables conservadas", len(unique))
     return 0
 
 if __name__ == "__main__":
