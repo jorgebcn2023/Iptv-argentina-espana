@@ -10,31 +10,24 @@ import yaml
 from requests.exceptions import RequestException
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-
-USER_AGENT = "IPTV-Argentina-Espana/3.4"
-DEFAULT_SOURCE_TIMEOUT = 20
-DEFAULT_PROBE_TIMEOUT = 8
-DEFAULT_WORKERS = 24
-PROBE_ATTEMPTS = 2
-RETRY_ON_TRANSIENT = 1
-
-COUNTRY_NAMES = {"AR":"Argentina","ES":"España","IT":"Italia","GB":"Reino Unido","UK":"Reino Unido","US":"Estados Unidos","BR":"Brasil"}
-GENRE_RULES = [("Noticias",["news","noticia","noticias","news 24","cnn","bbc news","tn ","c5n","america noticias"]),("Deportes",["sport","sports","deporte","deportes","espn","fox sports","tyc sports","tnt sports","dazn"]),("Documentales",["documental","documentary","history","nat geo","national geographic","discovery","animal planet"]),("Infantiles",["kids","infantil","disney","nick","nickelodeon","cartoon","baby","junior"]),("Películas y Series",["movie","movies","cine","pelicula","peliculas","series","film","filme","axn","fx","warner","universal","paramount"]),("Música",["music","musica","mtv","vh1","vevo","hit","hits"]),("Entretenimiento",["entertainment","entretenimiento","reality","show","comedy"]),("Infantil",["kids","children","child"])]
+USER_AGENT="IPTV-Argentina-Espana/3.5"; DEFAULT_SOURCE_TIMEOUT=20; DEFAULT_PROBE_TIMEOUT=8; DEFAULT_WORKERS=24; PROBE_ATTEMPTS=2; RETRY_ON_TRANSIENT=1
 TRANSIENT_STATUS={408,425,429,500,502,503,504}
+COUNTRY_NAMES={"AR":"Argentina","ES":"España","IT":"Italia","GB":"Reino Unido","UK":"Reino Unido","US":"Estados Unidos","BR":"Brasil"}
+GENRE_RULES=[("Noticias",["news","noticia","noticias","cnn","bbc news","tn ","c5n","america noticias"]),("Deportes",["sport","sports","deporte","deportes","espn","fox sports","tyc sports","tnt sports","dazn"]),("Documentales",["documental","documentary","history","nat geo","national geographic","discovery","animal planet"]),("Infantiles",["kids","infantil","disney","nick","nickelodeon","cartoon","baby","junior"]),("Películas y Series",["movie","movies","cine","pelicula","peliculas","series","film","filme","axn","fx","warner","universal","paramount"]),("Música",["music","musica","mtv","vh1","vevo","hit","hits"]),("Entretenimiento",["entertainment","entretenimiento","reality","show","comedy"])]
 
 def normalize_text(s):
     nk=unicodedata.normalize("NFKD",str(s or "")); return "".join(c for c in nk if not unicodedata.combining(c)).lower().strip()
 def load_yaml(path):
     try:
         with open(path,encoding="utf8") as f:return yaml.safe_load(f) or {}
-    except Exception as e: logging.error("Error leyendo %s: %s",path,e); return {}
+    except Exception as e:logging.error("Error leyendo %s: %s",path,e);return {}
 def channel_name(extinf):
-    p=extinf.rfind(","); return extinf[p+1:].strip() if p>=0 else "Unknown"
+    p=extinf.rfind(",");return extinf[p+1:].strip() if p>=0 else "Unknown"
 def attr(extinf,name):
-    m=re.search(rf'{re.escape(name)}=["\']([^"\']*)["\']',extinf,re.I); return m.group(1).strip() if m else ""
-def group_name(extinf): return attr(extinf,"group-title")
+    m=re.search(rf'{re.escape(name)}=["\']([^"\']*)["\']',extinf,re.I);return m.group(1).strip() if m else ""
+def group_name(extinf):return attr(extinf,"group-title")
 def country_codes(extinf):
-    raw=attr(extinf,"tvg-country") or attr(extinf,"country"); return {p for p in re.split(r"[,;|/ ]+",raw.upper()) if p} if raw else set()
+    raw=attr(extinf,"tvg-country") or attr(extinf,"country");return {p for p in re.split(r"[,;|/ ]+",raw.upper()) if p} if raw else set()
 def infer_country(extinf):
     for code in country_codes(extinf):
         if code in COUNTRY_NAMES:return COUNTRY_NAMES[code]
@@ -51,14 +44,13 @@ def infer_section(extinf):
     return infer_country(extinf)
 def set_group_title(extinf,section):
     if re.search(r'group-title=["\']',extinf,re.I):return re.sub(r'group-title=["\'][^"\']*["\']',f'group-title="{section}"',extinf,count=1,flags=re.I)
-    comma=extinf.rfind(","); return extinf[:comma]+f' group-title="{section}"'+extinf[comma:] if comma>=0 else extinf
-def is_stream_url(value):
-    return value.strip().lower().startswith(("http://","https://","rtmp://","rtmps://","udp://","rtsp://","srt://","acestream://"))
+    comma=extinf.rfind(",");return extinf[:comma]+f' group-title="{section}"'+extinf[comma:] if comma>=0 else extinf
+def is_stream_url(value):return value.strip().lower().startswith(("http://","https://","rtmp://","rtmps://","udp://","rtsp://","srt://","acestream://"))
 def parse_source_entries(lines):
-    entries=[]; i=0
+    entries=[];i=0
     while i<len(lines):
         if not lines[i].strip().startswith("#EXTINF"):i+=1;continue
-        extinf=lines[i].strip(); directives=[]; j=i+1; url=""
+        extinf=lines[i].strip();directives=[];j=i+1;url=""
         while j<len(lines):
             c=lines[j].strip()
             if not c:j+=1;continue
@@ -89,7 +81,7 @@ def _probe_once(url,timeout,directives):
             return True,monotonic()-started,"ok",r.status_code
     except (RequestException,OSError) as e:return False,float("inf"),str(e),None
 def probe_stream(item,timeout):
-    extinf,url,priority,directives=item; successes=[];errors=[]
+    extinf,url,priority,directives=item;successes=[];errors=[]
     for _ in range(PROBE_ATTEMPTS+RETRY_ON_TRANSIENT):
         ok,lat,msg,code=_probe_once(url,timeout,directives)
         if ok:
@@ -105,51 +97,57 @@ def source_allows_channel(source,extinf):
     allowed_norm={str(x).upper() for x in allowed};codes=country_codes(extinf)
     if codes&allowed_norm:return True
     inferred=infer_country(extinf);return any(COUNTRY_NAMES.get(c,"")==inferred for c in allowed_norm)
+def protocol_rank(url):
+    v=url.lower().split("?",1)[0]
+    if v.startswith(("udp://","rtsp://","rtmp://","rtmps://","srt://","acestream://")):return 0
+    if any(x in v for x in (".m3u8",".mpd",".ts")):return 0
+    if "youtube.com/" in v or "youtu.be/" in v or "youtube-nocookie.com/" in v:return 2
+    if v.startswith(("http://","https://")):return 1
+    return 3
 def main():
-    sources_doc=load_yaml("config/sources.yml");sources=sources_doc.get("sources",[]);settings=load_yaml("config/settings.yml")
-    probe_timeout=int(settings.get("probe_timeout_seconds",DEFAULT_PROBE_TIMEOUT));workers=int(settings.get("probe_workers",DEFAULT_WORKERS));probe_enabled=bool(settings.get("probe_streams",True))
-    allowed_keywords=settings.get("allowed_keywords");use_whitelist=bool(allowed_keywords);allowed_norm=[normalize_text(a) for a in allowed_keywords] if use_whitelist else []
-    include_all=settings.get("include_all",True);blocked_norm=[normalize_text(b) for b in settings.get("blocked_keywords",[])];priority_norm=[normalize_text(p) for p in settings.get("priority_keywords",[])]
+    doc=load_yaml("config/sources.yml");sources=doc.get("sources",[]);settings=load_yaml("config/settings.yml")
+    timeout=int(settings.get("probe_timeout_seconds",DEFAULT_PROBE_TIMEOUT));workers=int(settings.get("probe_workers",DEFAULT_WORKERS));probe=bool(settings.get("probe_streams",True));allowed=settings.get("allowed_keywords");whitelist=bool(allowed);allowed_norm=[normalize_text(x) for x in allowed] if whitelist else [];include_all=settings.get("include_all",True);blocked=[normalize_text(x) for x in settings.get("blocked_keywords",[])];priority_words=[normalize_text(x) for x in settings.get("priority_keywords",[])]
     candidates=[];successful_sources=0
     for source in sources:
         if not isinstance(source,dict) or not source.get("enabled",True):continue
-        url=str(source.get("url","")).strip();name=str(source.get("name",url));priority=int(source.get("priority",9999))
-        if not url:continue
+        source_url=str(source.get("url","")).strip();name=str(source.get("name",source_url));source_priority=int(source.get("priority",9999))
+        if not source_url:continue
         try:
-            r=requests.get(url,timeout=int(source.get("timeout_seconds",DEFAULT_SOURCE_TIMEOUT)),headers={"User-Agent":USER_AGENT,"Accept":"*/*"},allow_redirects=True);r.raise_for_status();lines=r.text.splitlines();successful_sources+=1
+            r=requests.get(source_url,timeout=int(source.get("timeout_seconds",DEFAULT_SOURCE_TIMEOUT)),headers={"User-Agent":USER_AGENT,"Accept":"*/*"},allow_redirects=True);r.raise_for_status();lines=r.text.splitlines();successful_sources+=1
         except (RequestException,OSError) as e:logging.warning("Fuente no disponible %s: %s",name,e);continue
-        for line,stream_url,directives in parse_source_entries(lines):
+        for line,url,directives in parse_source_entries(lines):
             if not source_allows_channel(source,line):continue
-            combined=normalize_text(line+" "+stream_url)
-            if use_whitelist:
+            combined=normalize_text(line+" "+url)
+            if whitelist:
                 if not any(k in combined for k in allowed_norm):continue
-            elif any(k in combined for k in blocked_norm):continue
-            elif not include_all and not any(k in combined for k in priority_norm):continue
-            candidates.append((line,stream_url,priority,directives))
+            elif any(k in combined for k in blocked):continue
+            elif not include_all and not any(k in combined for k in priority_words):continue
+            candidates.append((line,url,source_priority,directives))
     if not candidates or not successful_sources:return 1
     scored=[]
-    if probe_enabled:
+    if probe:
         with ThreadPoolExecutor(max_workers=max(1,workers)) as ex:
-            futures=[ex.submit(probe_stream,x,probe_timeout) for x in candidates]
+            futures=[ex.submit(probe_stream,x,timeout) for x in candidates]
             for f in as_completed(futures):
                 item,ok,lat,status,attempts=f.result();scored.append((item[0],item[1],item[2],item[3],lat,ok,attempts))
-                if not ok:logging.info("URL no verificable desde GitHub (SE CONSERVA): %s (%s)",channel_name(item[0]),status)
     else:scored=[(l,u,p,d,999.0,True,0) for l,u,p,d in candidates]
-    # GitHub Actions solo puntúa/ordena. No elimina URLs por 403, 404, timeout, SSL, geo-block o bloqueo de datacenter.
-    seen_urls=set();unique=[]
-    for line,url,priority,directives,lat,ok,attempts in sorted(scored,key=lambda x:(not x[5],-x[6],x[4],x[2],normalize_text(channel_name(x[0])))):
-        canonical=url.strip()
-        if canonical in seen_urls:continue
-        seen_urls.add(canonical);section=infer_section(line);unique.append((set_group_title(line,section),url,priority,directives,lat,ok,attempts,section))
+    # No se eliminan URLs por fallos de prueba. Solo se elimina una URL literalmente idéntica.
+    # Se priorizan streams directos sobre páginas web/YouTube porque muchos reproductores IPTV no pueden reproducir estas últimas.
+    scored.sort(key=lambda x:(protocol_rank(x[1]),not x[5],-x[6],x[4],x[2],normalize_text(channel_name(x[0]))))
+    seen=set();unique=[]
+    for line,url,p,d,lat,ok,attempts in scored:
+        key=url.strip()
+        if key in seen:continue
+        seen.add(key);section=infer_section(line);unique.append((set_group_title(line,section),url,p,d,lat,ok,attempts,section))
     sections={}
-    for item in unique:sections.setdefault(item[7],[]).append(item[:7])
+    for item in unique:sections.setdefault(item[7],[]).append(item)
     preferred=["Argentina","España","Italia","Reino Unido","Estados Unidos","Brasil","Noticias","Deportes","Documentales","Películas y Series","Infantiles","Música","Entretenimiento","Internacional"]
     ordered=[s for s in preferred if s in sections]+sorted(s for s in sections if s not in preferred)
     out=["#EXTM3U"]
     for section in ordered:
-        items=sorted(sections[section],key=lambda x:(not x[5],-x[6],x[4],x[2],normalize_text(channel_name(x[0]))))
+        items=sorted(sections[section],key=lambda x:(protocol_rank(x[1]),not x[5],-x[6],x[4],x[2],normalize_text(channel_name(x[0]))))
         for line,url,_,directives,*_ in items:out.extend([line,*directives,url])
     Path("playlist.m3u").write_text("\n".join(out)+"\n",encoding="utf8")
-    logging.info("playlist.m3u: %d canales, %d URLs únicas; %d verificadas y %d no verificables conservadas",len(unique),len(unique),sum(x[5] for x in unique),sum(not x[5] for x in unique))
+    logging.info("playlist.m3u: %d entradas; %d URLs únicas; verificadas=%d; no verificables conservadas=%d",len(unique),len(unique),sum(x[5] for x in unique),sum(not x[5] for x in unique))
     return 0
 if __name__=="__main__":raise SystemExit(main())
