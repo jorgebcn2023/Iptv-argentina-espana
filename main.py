@@ -11,7 +11,7 @@ from requests.exceptions import RequestException
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-USER_AGENT = "IPTV-Argentina-Espana/3.2"
+USER_AGENT = "IPTV-Argentina-Espana/3.3"
 DEFAULT_SOURCE_TIMEOUT = 20
 DEFAULT_PROBE_TIMEOUT = 8
 DEFAULT_WORKERS = 24
@@ -118,14 +118,75 @@ def set_group_title(extinf: str, section: str) -> str:
     return extinf[:insert_at] + f' group-title="{section}"' + extinf[insert_at:]
 
 
-def _probe_once(url: str, timeout: int):
+def is_stream_url(value: str) -> bool:
+    v = value.strip().lower()
+    return v.startswith(("http://", "https://", "rtmp://", "rtmps://", "udp://", "rtsp://", "srt://", "acestream://"))
+
+
+def parse_source_entries(lines):
+    """Parse M3U while preserving per-entry player directives."""
+    entries = []
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        if not line.startswith("#EXTINF"):
+            i += 1
+            continue
+        extinf = line
+        directives = []
+        j = i + 1
+        url = ""
+        while j < len(lines):
+            candidate = lines[j].strip()
+            if not candidate:
+                j += 1
+                continue
+            if candidate.startswith("#EXTINF"):
+                break
+            if candidate.startswith("#"):
+                if candidate.upper().startswith(("#EXTVLCOPT:", "#KODIPROP:", "#EXTHTTP:")):
+                    directives.append(candidate)
+                j += 1
+                continue
+            if is_stream_url(candidate):
+                url = candidate
+                break
+            j += 1
+        if url:
+            entries.append((extinf, url, directives))
+        else:
+            logging.warning("EXTINF sin URL reproducible: %s", channel_name(extinf))
+        i = max(j, i + 1)
+    return entries
+
+
+def directive_headers(directives):
+    headers = {}
+    for directive in directives:
+        low = directive.lower()
+        if low.startswith("#extvlcopt:http-referrer="):
+            headers["Referer"] = directive.split("=", 1)[1].strip()
+        elif low.startswith("#extvlcopt:http-user-agent="):
+            headers["User-Agent"] = directive.split("=", 1)[1].strip()
+        elif low.startswith("#exthttp:"):
+            value = directive.split(":", 1)[1]
+            if "=" in value:
+                key, val = value.split("=", 1)
+                headers[key.strip()] = val.strip()
+    headers.setdefault("User-Agent", USER_AGENT)
+    headers.setdefault("Accept", "*/*")
+    headers.setdefault("Connection", "close")
+    return headers
+
+
+def _probe_once(url: str, timeout: int, directives):
     started = monotonic()
     try:
         with requests.get(
             url,
             stream=True,
             timeout=(timeout, timeout),
-            headers={"User-Agent": USER_AGENT, "Accept": "*/*", "Connection": "close"},
+            headers=directive_headers(directives),
             allow_redirects=True,
         ) as response:
             status = response.status_code
@@ -142,12 +203,12 @@ def _probe_once(url: str, timeout: int):
 
 
 def probe_stream(item, timeout):
-    extinf, url, source_priority = item
+    extinf, url, source_priority, directives = item
     successes = []
     errors = []
     attempts = PROBE_ATTEMPTS + RETRY_ON_TRANSIENT
-    for attempt in range(attempts):
-        ok, latency, status, code = _probe_once(url, timeout)
+    for _ in range(attempts):
+        ok, latency, status, code = _probe_once(url, timeout, directives)
         if ok:
             successes.append(latency)
             if len(successes) >= PROBE_ATTEMPTS:
@@ -218,15 +279,9 @@ def main():
             logging.warning("Fuente no disponible %s: %s", source_name, exc)
             continue
 
-        for i, line in enumerate(lines):
-            if not line.startswith("#EXTINF") or i + 1 >= len(lines):
-                continue
-            stream_url = lines[i + 1].strip()
-            if not stream_url or stream_url.startswith("#"):
-                continue
+        for line, stream_url, directives in parse_source_entries(lines):
             if not source_allows_channel(source, line):
                 continue
-
             combined = normalize_text(line + " " + stream_url)
             if use_whitelist:
                 if not any(k in combined for k in allowed_norm):
@@ -236,7 +291,7 @@ def main():
                     continue
                 if not include_all and not any(k in combined for k in priority_norm):
                     continue
-            candidates.append((line, stream_url, source_priority))
+            candidates.append((line, stream_url, source_priority, directives))
 
     if not candidates or successful_sources == 0:
         logging.error("No se encontraron candidatos: %d fuentes correctas", successful_sources)
@@ -248,17 +303,17 @@ def main():
             futures = [executor.submit(probe_stream, item, probe_timeout) for item in candidates]
             for future in as_completed(futures):
                 item, ok, latency, status, attempts_ok = future.result()
-                scored.append((item[0], item[1], item[2], latency, ok, attempts_ok))
+                scored.append((item[0], item[1], item[2], item[3], latency, ok, attempts_ok))
                 if not ok:
                     logging.info("URL no saludable (se conserva): %s (%s)", channel_name(item[0]), status)
     else:
-        scored = [(line, url, priority, 999.0, True, 0) for line, url, priority in candidates]
+        scored = [(line, url, priority, directives, 999.0, True, 0) for line, url, priority, directives in candidates]
 
     # ÚNICA eliminación: URL idéntica. Nunca se deduplica por nombre de canal.
     seen_urls = set()
     unique = []
-    for line, url, priority, latency, ok, attempts_ok in sorted(
-        scored, key=lambda x: (not x[4], -x[5], x[3], x[2], normalize_text(channel_name(x[0])))
+    for line, url, priority, directives, latency, ok, attempts_ok in sorted(
+        scored, key=lambda x: (not x[5], -x[6], x[4], x[2], normalize_text(channel_name(x[0])))
     ):
         canonical_url = url.strip()
         if canonical_url in seen_urls:
@@ -266,11 +321,11 @@ def main():
         seen_urls.add(canonical_url)
         section = infer_section(line)
         normalized_line = set_group_title(line, section)
-        unique.append((normalized_line, url, priority, latency, ok, attempts_ok, section))
+        unique.append((normalized_line, url, priority, directives, latency, ok, attempts_ok, section))
 
     sections = {}
-    for line, url, priority, latency, ok, attempts_ok, section in unique:
-        sections.setdefault(section, []).append((line, url, priority, latency, ok, attempts_ok))
+    for line, url, priority, directives, latency, ok, attempts_ok, section in unique:
+        sections.setdefault(section, []).append((line, url, priority, directives, latency, ok, attempts_ok))
 
     preferred_order = [
         "Argentina", "España", "Italia", "Reino Unido", "Estados Unidos", "Brasil",
@@ -282,11 +337,13 @@ def main():
     out = ["#EXTM3U"]
     for section in ordered_sections:
         items = sections[section]
-        items.sort(key=lambda x: (not x[4], -x[5], x[3], x[2], normalize_text(channel_name(x[0]))))
-        for line, url, *_ in items:
-            out.extend([line, url])
+        items.sort(key=lambda x: (not x[5], -x[6], x[4], x[2], normalize_text(channel_name(x[0]))))
+        for line, url, _, directives, *_ in items:
+            out.append(line)
+            out.extend(directives)
+            out.append(url)
 
-    entries = (len(out) - 1) // 2
+    entries = len(unique)
     if entries == 0:
         logging.error("No se generaron canales")
         return 1
@@ -297,8 +354,8 @@ def main():
         logging.error("Error escribiendo playlist.m3u: %s", exc)
         return 1
 
-    healthy = sum(1 for x in unique if x[4])
-    stable = sum(1 for x in unique if x[5] == PROBE_ATTEMPTS)
+    healthy = sum(1 for x in unique if x[5])
+    stable = sum(1 for x in unique if x[6] == PROBE_ATTEMPTS)
     logging.info("playlist.m3u optimizado: %d canales, %d URLs únicas, %d saludables, %d estables", entries, len(unique), healthy, stable)
     logging.info("Secciones generadas: %d", len(ordered_sections))
     return 0
