@@ -1631,9 +1631,9 @@ http://138.59.227.20:8000/play/a0gj/index.m3u8
 #EXTINF:-1 group-title="Internacional",Food Network
 http://181.224.255.210:8001/play/a0om/index.m3u8
 #EXTINF:-1 group-title="Internacional",FOX CR
-http://45.5.118.152:8000/play/a0df/index.m3u8
-#EXTINF:-1 group-title="Internacional",FOX CR
 http://45.5.118.152:8000/play/a0ds/index.m3u8
+#EXTINF:-1 group-title="Internacional",FOX CR
+http://45.5.118.152:8000/play/a0df/index.m3u8
 #EXTINF:-1 group-title="Internacional",Foz de Yguazu
 http://138.59.227.20:8000/play/a0gv/index.m3u8
 #EXTINF:-1 group-title="Internacional",FRANCE 24
@@ -1823,9 +1823,9 @@ http://138.59.227.20:8000/play/a0eu/index.m3u8
 #EXTINF:-1 group-title="Internacional",RCC Tv
 http://138.59.227.20:8000/play/a0gh/index.m3u8
 #EXTINF:-1 group-title="Internacional",Red Digital San Pedro
-http://138.59.227.20:8000/play/a0gi/index.m3u8
-#EXTINF:-1 group-title="Internacional",Red Digital San Pedro
 http://138.59.227.20:8000/play/a0ey/index.m3u8
+#EXTINF:-1 group-title="Internacional",Red Digital San Pedro
+http://138.59.227.20:8000/play/a0gi/index.m3u8
 #EXTINF:-1 group-title="Internacional",Republica Tv Vca
 http://138.59.227.20:8000/play/a0gl/index.m3u8
 #EXTINF:-1 group-title="Internacional",RPC Digital
@@ -1905,9 +1905,9 @@ http://138.59.227.20:8000/play/a0ff/index.m3u8
 #EXTINF:-1 group-title="Internacional",TELEMUNDO
 http://181.119.185.32:8000/play/a01r/index.m3u8
 #EXTINF:-1 group-title="Internacional",Telemundo
-http://181.224.255.210:8001/play/a0ot/index.m3u8
-#EXTINF:-1 group-title="Internacional",Telemundo
 http://181.224.200.5:2277/play/a01q/index.m3u8
+#EXTINF:-1 group-title="Internacional",Telemundo
+http://181.224.255.210:8001/play/a0ot/index.m3u8
 #EXTINF:-1 group-title="Internacional",Telemundo HD
 http://45.5.118.152:8000/play/a02j/index.m3u8
 #EXTINF:-1 group-title="Internacional",TLC
@@ -2770,7 +2770,7 @@ http://45.167.2.101:8000/play/a0qf/index.m3u8
 http://181.225.190.242:8000/play/a023
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/History_%282021%29.svg/500px-History_%282021%29.svg.png" group-title="Documentales y Cultura",History Channel HD
 http://181.119.177.253:8000/play/a020/index.m3u8
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/History_%282021%29.svg/500px-History_%282021%29.svg.png" group-title="Documentales y Cultura",History Channel SD [Opc.2]
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/History_%282021%29.svg/500px-History_%282021%29.svg.png" group-title="Documentales y Cultura",History Channel SD [Opc.3]
 http://186.33.47.113:8000/play/a08d/index.m3u8
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Natgeologo.svg/960px-Natgeologo.svg.png" group-title="Documentales y Cultura",Nat Geo HD
 http://190.61.101.11:7050/play/a05f/index.m3u8?hls
@@ -5180,6 +5180,8 @@ https://tsw.streamingwebtv24.it:1936/inteccdn3/inteccdn3/playlist.m3u8
 https://directes-tv-int.3catdirectes.cat/live-content/bondia-hls/master.m3u8
 #EXTINF:-1 tvg-name="Canal 4 Tenerife" tvg-logo="https://i.imgur.com/Egymir4.png" tvg-id="Canal4Tenerife.es" tvg-chno="17" tvg-country="ES" group-title="Spain",Canal 4 Tenerife
 https://videoserver.tmcreativos.com:19360/hkbpjryheu/hkbpjryheu.m3u8
+#EXTINF:-1 tvg-name="Canal Extremadura" tvg-logo="https://i.imgur.com/xBeywIA.png" tvg-id="CanalExtremadura.es" tvg-chno="8" tvg-country="ES" group-title="Spain",Canal Extremadura
+https://d2ymuyhevki1a1.cloudfront.net/wct-ddd2992e-86fc-4611-a491-7f392259e9ba/continuous/9be76611-d2cd-474d-bf19-ef702ba31b02/index.m3u8
 #EXTINF:-1 tvg-name="Canal Sur Andalucía" tvg-logo="https://i.imgur.com/WcVOXPr.png" tvg-id="CanalSurAndalucia.es" tvg-chno="3" tvg-country="ES" group-title="Spain",Canal Sur Andalucía
 https://d4oe4cnrgi9c9.cloudfront.net/master.m3u8
 #EXTINF:-1 tvg-name="Canal TE24" tvg-logo="https://i.ibb.co/3ynghbW/logox2.png" tvg-id="CanalTerresdelEbre.es" tvg-chno="15" tvg-country="ES" group-title="Spain",Canal TE24
