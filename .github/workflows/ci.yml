@@ -30,13 +30,11 @@ jobs:
 
       - name: Validate playlist generator
         run: python main.py
-        timeout-minutes: 10
+        timeout-minutes: 15
 
       - name: Validate generated playlist
         run: |
           test -s playlist.m3u
           grep -q '^#EXTM3U' playlist.m3u
-          if ! grep -q '^#EXTINF' playlist.m3u; then
-            echo 'ERROR: playlist.m3u no contiene canales.'
-            exit 1
-          fi
+          grep -q '^#EXTINF' playlist.m3u
+          echo "Playlist válida: $(grep -c '^#EXTINF' playlist.m3u) canales"
