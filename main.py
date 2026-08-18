@@ -8,11 +8,10 @@ from urllib.parse import urlparse
 
 import requests
 import yaml
-from requests.exceptions import RequestException
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-USER_AGENT = "IPTV-Argentina-Espana/4.0"
+USER_AGENT = "IPTV-Argentina-Espana/5.0"
 SOURCE_TIMEOUT = 30
 PROBE_TIMEOUT = 8
 WORKERS = 24
@@ -35,9 +34,11 @@ def norm(s):
 
 def load(path):
     try:
-        with open(path, encoding="utf-8") as f: return yaml.safe_load(f) or {}
+        with open(path, encoding="utf-8") as f:
+            return yaml.safe_load(f) or {}
     except Exception as e:
-        logging.error("No se puede leer %s: %s", path, e); return {}
+        logging.error("No se puede leer %s: %s", path, e)
+        return {}
 
 def attr(line, key):
     m = re.search(rf'{re.escape(key)}=["\']([^"\']*)["\']', line, re.I)
@@ -47,25 +48,28 @@ def name(line):
     p = line.rfind(",")
     return line[p + 1:].strip() if p >= 0 else "Unknown"
 
-def tvg_id(line): return attr(line, "tvg-id")
 def country(line):
     raw = attr(line, "tvg-country") or attr(line, "country")
     return {x for x in re.split(r"[,;|/ ]+", raw.upper()) if x} if raw else set()
 
 def infer_country(line):
     for c in country(line):
-        if c in COUNTRY_NAMES: return COUNTRY_NAMES[c]
+        if c in COUNTRY_NAMES:
+            return COUNTRY_NAMES[c]
     t = norm(line)
     for label, keys in [("Argentina", ["argentina"]), ("España", ["espana", "españa", "spain"]), ("Italia", ["italia", "italy"]), ("Reino Unido", ["reino unido", "united kingdom", "british"]), ("Estados Unidos", ["united states", "usa", "american"]), ("Brasil", ["brasil", "brazil"])]:
-        if any(k in t for k in keys): return label
+        if any(k in t for k in keys):
+            return label
     return "Internacional"
 
 def section(line):
     g = attr(line, "group-title").strip()
-    if g and norm(g) not in {"-", "_", "n/a", "null", "none", "general"}: return g
+    if g and norm(g) not in {"-", "_", "n/a", "null", "none", "general"}:
+        return g
     t = norm(line + " " + name(line))
     for label, keys in GENRES:
-        if any(norm(k) in t for k in keys): return label
+        if any(norm(k) in t for k in keys):
+            return label
     return infer_country(line)
 
 def set_group(line, g):
@@ -78,121 +82,176 @@ def stream_url(u):
     return u.strip().lower().startswith(("http://", "https://", "rtmp://", "rtmps://", "rtsp://", "udp://", "srt://", "acestream://"))
 
 def parse(lines):
-    out=[]; i=0
+    out = []
+    i = 0
     while i < len(lines):
         if not lines[i].strip().startswith("#EXTINF"):
-            i += 1; continue
-        ext=lines[i].strip(); directives=[]; url=""; j=i+1
+            i += 1
+            continue
+        ext = lines[i].strip()
+        directives = []
+        url = ""
+        j = i + 1
         while j < len(lines):
-            x=lines[j].strip()
-            if not x: j += 1; continue
-            if x.startswith("#EXTINF"): break
+            x = lines[j].strip()
+            if not x:
+                j += 1
+                continue
+            if x.startswith("#EXTINF"):
+                break
             if x.startswith("#"):
-                if x.upper().startswith(("#EXTVLCOPT:", "#KODIPROP:", "#EXTHTTP:")): directives.append(x)
-                j += 1; continue
-            if stream_url(x): url=x; break
+                # Preserve every per-entry directive instead of dropping headers/options
+                # that a particular player may require (Origin, Referer, Kodi props, etc.).
+                if x.upper().startswith(("#EXTVLCOPT:", "#KODIPROP:", "#EXTHTTP:", "#EXTGRP:", "#EXTART:", "#EXTALB:", "#EXTGENRE:")):
+                    directives.append(x)
+                j += 1
+                continue
+            if stream_url(x):
+                url = x
+                break
             j += 1
-        if url: out.append((ext, url, directives))
-        i=max(j, i+1)
+        if url:
+            out.append((ext, url, directives))
+        i = max(j, i + 1)
     return out
 
 def headers(directives):
-    h={"User-Agent":USER_AGENT,"Accept":"*/*","Connection":"close"}
+    h = {"User-Agent": USER_AGENT, "Accept": "*/*", "Connection": "close"}
     for d in directives:
-        low=d.lower()
-        if low.startswith("#extvlcopt:http-referrer="): h["Referer"]=d.split("=",1)[1].strip()
-        elif low.startswith("#extvlcopt:http-user-agent="): h["User-Agent"]=d.split("=",1)[1].strip()
-        elif low.startswith("#exthttp:") and "=" in d.split(":",1)[1]:
-            k,v=d.split(":",1)[1].split("=",1); h[k.strip()]=v.strip()
+        low = d.lower()
+        if low.startswith("#extvlcopt:http-referrer="):
+            h["Referer"] = d.split("=", 1)[1].strip()
+        elif low.startswith("#extvlcopt:http-origin="):
+            h["Origin"] = d.split("=", 1)[1].strip()
+        elif low.startswith("#extvlcopt:http-user-agent="):
+            h["User-Agent"] = d.split("=", 1)[1].strip()
+        elif low.startswith("#exthttp:") and "=" in d.split(":", 1)[1]:
+            k, v = d.split(":", 1)[1].split("=", 1)
+            h[k.strip()] = v.strip()
     return h
 
 def kind(url):
-    p=urlparse(url); host=p.netloc.lower().split(":")[0]; path=p.path.lower()
-    if host in WEB_HOSTS or host.endswith(".youtube.com") or host.endswith(".twitch.tv"): return 2
-    if ".m3u8" in path or ".m3u" in path or ".mpd" in path or ".ts" in path or "/hls/" in path or "/live/" in path or "/playlist" in path or "/manifest" in path: return 0
+    p = urlparse(url.split("|", 1)[0])
+    host = p.netloc.lower().split(":")[0]
+    path = p.path.lower()
+    if host in WEB_HOSTS or host.endswith(".youtube.com") or host.endswith(".twitch.tv"):
+        return 2
+    if ".m3u8" in path or ".m3u" in path or ".mpd" in path or ".ts" in path or "/hls/" in path or "/live/" in path or "/playlist" in path or "/manifest" in path:
+        return 0
     return 1
 
 def probe(item):
-    ext,url,directives,priority,source=item
-    k=kind(url)
-    if k==2:
-        # Web pages (YouTube/Twitch/etc.) are retained but NEVER considered a playable IPTV stream.
+    ext, url, directives, priority, source = item
+    k = kind(url)
+    if k == 2:
         return item, False, 999.0, "web page", 0, k
-    started=monotonic(); last="unverified"; successes=0
+    # A pipe suffix is player metadata (e.g. User-Agent/Referer), not part of the HTTP URL.
+    request_url = url.split("|", 1)[0].strip()
+    started = monotonic()
+    last = "unverified"
+    successes = 0
     for verify in (True, False):
         try:
-            with requests.get(url, stream=True, timeout=(PROBE_TIMEOUT,PROBE_TIMEOUT), headers=headers(directives), allow_redirects=True, verify=verify) as r:
-                code=r.status_code; ctype=(r.headers.get("content-type") or "").lower(); chunk=next(r.iter_content(chunk_size=8192), b"")
-                if code < 400 and chunk and ("text/html" not in ctype) and (kind(url)==0 or "mpegurl" in ctype or "mpeg" in ctype or "video/" in ctype or "octet-stream" in ctype or url.lower().endswith((".m3u8", ".m3u", ".mpd"))):
-                    successes += 1; last="ok"
+            with requests.get(request_url, stream=True, timeout=(PROBE_TIMEOUT, PROBE_TIMEOUT), headers=headers(directives), allow_redirects=True, verify=verify) as r:
+                code = r.status_code
+                ctype = (r.headers.get("content-type") or "").lower()
+                chunk = next(r.iter_content(chunk_size=8192), b"")
+                if code < 400 and chunk and "text/html" not in ctype and (kind(request_url) == 0 or "mpegurl" in ctype or "mpeg" in ctype or "video/" in ctype or "octet-stream" in ctype or request_url.lower().endswith((".m3u8", ".m3u", ".mpd"))):
+                    successes += 1
+                    last = "ok"
                     break
-                last=f"HTTP {code}" if code>=400 else ("HTML response" if "text/html" in ctype else "unrecognized stream")
-                if code not in TRANSIENT and code not in (401,403,404): break
+                last = f"HTTP {code}" if code >= 400 else ("HTML response" if "text/html" in ctype else "unrecognized stream")
+                if code not in TRANSIENT and code not in (401, 403, 404):
+                    break
         except Exception as e:
-            last=type(e).__name__
-    latency=monotonic()-started
+            last = type(e).__name__
+    latency = monotonic() - started
     return item, bool(successes), latency, last, successes, k
 
 def allowed_source(src, ext):
-    allowed=src.get("allowed_countries")
-    if not allowed: return True
-    a={str(x).upper() for x in allowed}; return bool(country(ext)&a) or infer_country(ext) in {COUNTRY_NAMES.get(x,"") for x in a}
+    allowed = src.get("allowed_countries")
+    if not allowed:
+        return True
+    a = {str(x).upper() for x in allowed}
+    return bool(country(ext) & a) or infer_country(ext) in {COUNTRY_NAMES.get(x, "") for x in a}
 
 def main():
-    cfg=load("config/sources.yml"); settings=load("config/settings.yml")
-    blocked=[norm(x) for x in settings.get("blocked_keywords",[])]
-    allowed_words=[norm(x) for x in settings.get("allowed_keywords",[])]
-    candidates=[]; good_sources=0
-    for src in cfg.get("sources",[]):
-        if not isinstance(src,dict) or not src.get("enabled",True): continue
-        source=str(src.get("name",src.get("url",""))); priority=int(src.get("priority",9999)); url=str(src.get("url","")).strip()
-        if not url: continue
+    cfg = load("config/sources.yml")
+    settings = load("config/settings.yml")
+    blocked = [norm(x) for x in settings.get("blocked_keywords", [])]
+    allowed_words = [norm(x) for x in settings.get("allowed_keywords", [])]
+    candidates = []
+    good_sources = 0
+
+    for src in cfg.get("sources", []):
+        if not isinstance(src, dict) or not src.get("enabled", True):
+            continue
+        source = str(src.get("name", src.get("url", "")))
+        priority = int(src.get("priority", 9999))
+        url = str(src.get("url", "")).strip()
+        if not url:
+            continue
         try:
-            r=requests.get(url,timeout=int(src.get("timeout_seconds",SOURCE_TIMEOUT)),headers={"User-Agent":USER_AGENT,"Accept":"*/*"},allow_redirects=True); r.raise_for_status(); good_sources+=1
+            r = requests.get(url, timeout=int(src.get("timeout_seconds", SOURCE_TIMEOUT)), headers={"User-Agent": USER_AGENT, "Accept": "*/*"}, allow_redirects=True)
+            r.raise_for_status()
+            good_sources += 1
         except Exception as e:
-            logging.warning("Fuente no disponible %s: %s",source,e); continue
-        for ext,u,d in parse(r.text.splitlines()):
-            if not allowed_source(src,ext): continue
-            text=norm(ext+" "+u)
-            if allowed_words and not any(x in text for x in allowed_words): continue
-            if any(x in text for x in blocked): continue
-            candidates.append((ext,u,d,priority,source))
-    if not candidates or not good_sources: return 1
+            logging.warning("Fuente no disponible %s: %s", source, e)
+            continue
+        for ext, u, d in parse(r.text.splitlines()):
+            if not allowed_source(src, ext):
+                continue
+            text = norm(ext + " " + u)
+            if allowed_words and not any(x in text for x in allowed_words):
+                continue
+            if any(x in text for x in blocked):
+                continue
+            candidates.append((ext, u, d, priority, source))
 
-    # La prueba solo puntúa. Nunca elimina una URL.
-    results=[]
-    if bool(settings.get("probe_streams",True)):
-        with ThreadPoolExecutor(max_workers=int(settings.get("probe_workers",WORKERS))) as ex:
-            for f in as_completed([ex.submit(probe,x) for x in candidates]): results.append(f.result())
+    if not candidates or not good_sources:
+        return 1
+
+    results = []
+    if bool(settings.get("probe_streams", True)):
+        with ThreadPoolExecutor(max_workers=int(settings.get("probe_workers", WORKERS))) as ex:
+            for f in as_completed([ex.submit(probe, x) for x in candidates]):
+                results.append(f.result())
     else:
-        results=[(x, kind(x[1])==0, 999.0, "not probed", 0, kind(x[1])) for x in candidates]
+        results = [(x, kind(x[1]) == 0, 999.0, "not probed", 0, kind(x[1])) for x in candidates]
 
-    # Única eliminación: URL exactamente idéntica.
-    seen=set(); unique=[]
-    for item,ok,lat,status,successes,k in results:
-        ext,u,d,p,src=item
-        if u.strip() in seen: continue
-        seen.add(u.strip()); unique.append((set_group(ext,section(ext)),u,d,p,src,ok,lat,successes,k))
+    # Deduplicación segura: la URL sola NO identifica una variante reproducible.
+    # La misma URL puede necesitar Referer/Origin/User-Agent/KODIPROP diferentes.
+    # Solo eliminamos duplicados cuando URL + directivas son idénticas.
+    seen = set()
+    unique = []
+    for item, ok, lat, status, successes, k in results:
+        ext, u, d, p, src = item
+        key = (u.strip(), tuple(d))
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append((set_group(ext, section(ext)), u, d, p, src, ok, lat, successes, k))
 
-    # Evita que los reproductores que fusionan tvg-id/nombre escojan una página web sobre un stream real.
-    # Los streams directos se ordenan primero dentro de cada canal; las páginas web quedan al final como referencia.
-    groups={}
-    for x in unique: groups.setdefault(norm(name(x[0])),[]).append(x)
-    for key, items in groups.items():
-        items.sort(key=lambda x:(x[8], not x[5], x[6], x[3]))
+    preferred = ["Argentina", "España", "Italia", "Reino Unido", "Estados Unidos", "Brasil", "Noticias", "Deportes", "Documentales", "Películas y Series", "Infantiles", "Música", "Entretenimiento", "Internacional"]
+    sections = {}
+    for x in unique:
+        sections.setdefault(attr(x[0], "group-title"), []).append(x)
+    ordered = [s for s in preferred if s in sections] + sorted(s for s in sections if s not in preferred)
 
-    preferred=["Argentina","España","Italia","Reino Unido","Estados Unidos","Brasil","Noticias","Deportes","Documentales","Películas y Series","Infantiles","Música","Entretenimiento","Internacional"]
-    sections={}
-    for x in unique: sections.setdefault(attr(x[0],"group-title"),[]).append(x)
-    ordered=[s for s in preferred if s in sections]+sorted(s for s in sections if s not in preferred)
-    out=["#EXTM3U"]
+    out = ["#EXTM3U"]
     for sec in ordered:
-        items=sections[sec]
-        items.sort(key=lambda x:(norm(name(x[0])), x[8], not x[5], x[6], x[3]))
-        for ext,u,d,*_ in items:
-            out.append(ext); out.extend(d); out.append(u)
-    Path("playlist.m3u").write_text("\n".join(out)+"\n",encoding="utf-8")
-    logging.info("Playlist: %d URLs únicas; todas las fuentes conservadas; páginas web relegadas; URLs no verificables conservadas",len(unique))
+        items = sections[sec]
+        # Dentro de cada sección/canal: stream real > stream no clasificado > página web.
+        # La prioridad de fuente decide entre variantes equivalentes.
+        items.sort(key=lambda x: (norm(name(x[0])), x[8], not x[5], x[6], x[3]))
+        for ext, u, d, *_ in items:
+            out.append(ext)
+            out.extend(d)
+            out.append(u)
+
+    Path("playlist.m3u").write_text("\n".join(out) + "\n", encoding="utf-8")
+    logging.info("Playlist: %d variantes únicas; URLs + headers preservados; páginas web separadas", len(unique))
     return 0
 
-if __name__=="__main__": raise SystemExit(main())
+if __name__ == "__main__":
+    raise SystemExit(main())
