@@ -11,11 +11,12 @@ from requests.exceptions import RequestException
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-USER_AGENT = "IPTV-Argentina-Espana/3.1"
+USER_AGENT = "IPTV-Argentina-Espana/3.2"
 DEFAULT_SOURCE_TIMEOUT = 20
 DEFAULT_PROBE_TIMEOUT = 8
-DEFAULT_WORKERS = 20
+DEFAULT_WORKERS = 24
 PROBE_ATTEMPTS = 2
+RETRY_ON_TRANSIENT = 1
 
 COUNTRY_NAMES = {
     "AR": "Argentina", "ES": "España", "IT": "Italia",
@@ -33,6 +34,8 @@ GENRE_RULES = [
     ("Entretenimiento", ["entertainment", "entretenimiento", "reality", "show", "comedy"]),
     ("Infantil", ["kids", "children", "child"]),
 ]
+
+TRANSIENT_STATUS = {408, 425, 429, 500, 502, 503, 504}
 
 
 def normalize_text(s: str) -> str:
@@ -82,10 +85,10 @@ def infer_country(extinf: str) -> str:
             return COUNTRY_NAMES[code]
     text = normalize_text(extinf)
     aliases = [
-        ("Argentina", ["argentina", "arg "]),
+        ("Argentina", ["argentina"]),
         ("España", ["espana", "españa", "spain"]),
         ("Italia", ["italia", "italy"]),
-        ("Reino Unido", ["reino unido", "united kingdom", "british", "uk "]),
+        ("Reino Unido", ["reino unido", "united kingdom", "british", "uk"]),
         ("Estados Unidos", ["united states", "usa", "american"]),
         ("Brasil", ["brasil", "brazil"]),
     ]
@@ -97,7 +100,8 @@ def infer_country(extinf: str) -> str:
 
 def infer_section(extinf: str) -> str:
     existing = group_name(extinf).strip()
-    if existing and normalize_text(existing) not in {"-", "_", "n/a", "null", "none", "general"}:
+    normalized_group = normalize_text(existing)
+    if existing and normalized_group not in {"-", "_", "n/a", "null", "none", "general"}:
         return existing
     text = normalize_text(extinf + " " + channel_name(extinf))
     for genre, keywords in GENRE_RULES:
@@ -114,31 +118,47 @@ def set_group_title(extinf: str, section: str) -> str:
     return extinf[:insert_at] + f' group-title="{section}"' + extinf[insert_at:]
 
 
+def _probe_once(url: str, timeout: int):
+    started = monotonic()
+    try:
+        with requests.get(
+            url,
+            stream=True,
+            timeout=(timeout, timeout),
+            headers={"User-Agent": USER_AGENT, "Accept": "*/*", "Connection": "close"},
+            allow_redirects=True,
+        ) as response:
+            status = response.status_code
+            if status >= 400:
+                return False, float("inf"), f"HTTP {status}", status
+            first_chunk = next(response.iter_content(chunk_size=8192), b"")
+            if not first_chunk:
+                return False, float("inf"), "empty response", status
+            return True, monotonic() - started, "ok", status
+    except (RequestException, OSError) as exc:
+        return False, float("inf"), str(exc), None
+    except Exception as exc:
+        return False, float("inf"), str(exc), None
+
+
 def probe_stream(item, timeout):
     extinf, url, source_priority = item
-    latencies = []
-    last_error = ""
-    for _ in range(PROBE_ATTEMPTS):
-        started = monotonic()
-        try:
-            with requests.get(
-                url,
-                stream=True,
-                timeout=(timeout, timeout),
-                headers={"User-Agent": USER_AGENT, "Accept": "*/*", "Connection": "close"},
-                allow_redirects=True,
-            ) as response:
-                response.raise_for_status()
-                first_chunk = next(response.iter_content(chunk_size=4096), b"")
-                if not first_chunk:
-                    last_error = "empty response"
-                    continue
-                latencies.append(monotonic() - started)
-        except (RequestException, OSError) as exc:
-            last_error = str(exc)
-    if not latencies:
-        return item, False, float("inf"), last_error or "probe failed", 0
-    return item, True, sum(latencies) / len(latencies), "ok", len(latencies)
+    successes = []
+    errors = []
+    attempts = PROBE_ATTEMPTS + RETRY_ON_TRANSIENT
+    for attempt in range(attempts):
+        ok, latency, status, code = _probe_once(url, timeout)
+        if ok:
+            successes.append(latency)
+            if len(successes) >= PROBE_ATTEMPTS:
+                break
+        else:
+            errors.append(status)
+            if code not in TRANSIENT_STATUS and code is not None:
+                break
+    if not successes:
+        return item, False, float("inf"), errors[-1] if errors else "probe failed", 0
+    return item, True, sum(successes) / len(successes), "ok", len(successes)
 
 
 def source_allows_channel(source, extinf: str) -> bool:
@@ -188,7 +208,7 @@ def main():
             response = requests.get(
                 url,
                 timeout=int(source.get("timeout_seconds", DEFAULT_SOURCE_TIMEOUT)),
-                headers={"User-Agent": USER_AGENT},
+                headers={"User-Agent": USER_AGENT, "Accept": "*/*"},
                 allow_redirects=True,
             )
             response.raise_for_status()
@@ -222,7 +242,6 @@ def main():
         logging.error("No se encontraron candidatos: %d fuentes correctas", successful_sources)
         return 1
 
-    # Todas las URLs se conservan. La prueba solo determina el orden de preferencia.
     scored = []
     if probe_enabled:
         with ThreadPoolExecutor(max_workers=max(1, workers)) as executor:
@@ -235,7 +254,7 @@ def main():
     else:
         scored = [(line, url, priority, 999.0, True, 0) for line, url, priority in candidates]
 
-    # ÚNICA eliminación permitida: URL exactamente igual. Nunca se deduplica por nombre de canal.
+    # ÚNICA eliminación: URL idéntica. Nunca se deduplica por nombre de canal.
     seen_urls = set()
     unique = []
     for line, url, priority, latency, ok, attempts_ok in sorted(
