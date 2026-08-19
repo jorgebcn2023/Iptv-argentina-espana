@@ -709,9 +709,9 @@ https://amg00218-wptenterprisesi-wptespanol-samsungspain-9s2tf.amagi.tv/ts-eu-w1
 #EXTINF:-1 group-title="Documentales",ANIMAL PLANET
 http://181.119.185.32:8000/play/a01s/index.m3u8
 #EXTINF:-1 group-title="Documentales",Animal Planet HD
-http://181.224.200.5:2277/play/a00r/index.m3u8
-#EXTINF:-1 group-title="Documentales",Animal Planet HD
 http://181.224.255.210:8001/play/a0lz/index.m3u8
+#EXTINF:-1 group-title="Documentales",Animal Planet HD
+http://181.224.200.5:2277/play/a00r/index.m3u8
 #EXTINF:-1 group-title="Documentales",CANAL 111 Discovery Home & Health
 http://45.5.118.152:8000/play/a086/index.m3u8
 #EXTINF:-1 group-title="Documentales",CANAL 16 Discovery Kids
@@ -789,9 +789,9 @@ http://181.119.185.32:8000/play/a020/index.m3u8
 #EXTINF:-1 group-title="Documentales",Nat Geo HD
 http://181.224.255.210:8001/play/a0m2/index.m3u8
 #EXTINF:-1 group-title="Documentales",Nat Geo HD
-http://181.224.200.5:2277/play/5684/index.m3u8
-#EXTINF:-1 group-title="Documentales",Nat Geo HD
 http://181.224.200.5:2277/play/a012/index.m3u8
+#EXTINF:-1 group-title="Documentales",Nat Geo HD
+http://181.224.200.5:2277/play/5684/index.m3u8
 #EXTINF:-1 group-title="Documentales",Nat Geo HD
 http://138.59.227.20:8000/play/a09f/index.m3u8
 #EXTINF:-1 group-title="Documentales",The History Channel HD
@@ -1040,9 +1040,9 @@ http://181.119.185.32:8000/play/a015/index.m3u8
 #EXTINF:-1 group-title="Infantiles",Nickelodeon
 http://138.59.227.20:8000/play/a08y/index.m3u8
 #EXTINF:-1 group-title="Infantiles",Nickelodeon HD
-http://181.224.255.210:8001/play/a0ol/index.m3u8
-#EXTINF:-1 group-title="Infantiles",Nickelodeon HD
 http://181.224.200.5:2277/play/a0bm/index.m3u8
+#EXTINF:-1 group-title="Infantiles",Nickelodeon HD
+http://181.224.255.210:8001/play/a0ol/index.m3u8
 #EXTINF:-1 group-title="Infantiles" tvg-logo="https://i.imgur.com/E84jnP8.png",Nickelodeon HD (Opc.1)
 http://181.224.255.210:8001/play/a0fm/index.m3u8?hls
 #EXTINF:-1 group-title="Infantiles" tvg-logo="https://i.imgur.com/E84jnP8.png",Nickelodeon HD (Opc.2)
@@ -1631,9 +1631,9 @@ http://138.59.227.20:8000/play/a0gj/index.m3u8
 #EXTINF:-1 group-title="Internacional",Food Network
 http://181.224.255.210:8001/play/a0om/index.m3u8
 #EXTINF:-1 group-title="Internacional",FOX CR
-http://45.5.118.152:8000/play/a0ds/index.m3u8
-#EXTINF:-1 group-title="Internacional",FOX CR
 http://45.5.118.152:8000/play/a0df/index.m3u8
+#EXTINF:-1 group-title="Internacional",FOX CR
+http://45.5.118.152:8000/play/a0ds/index.m3u8
 #EXTINF:-1 group-title="Internacional",Foz de Yguazu
 http://138.59.227.20:8000/play/a0gv/index.m3u8
 #EXTINF:-1 group-title="Internacional",FRANCE 24
@@ -1700,10 +1700,10 @@ http://181.224.255.210:8001/play/a0re/index.m3u8
 http://138.59.227.20:8000/play/a06h/index.m3u8
 #EXTINF:-1 group-title="Internacional",HBO Xtreme
 http://138.59.227.20:8000/play/a06g/index.m3u8
-#EXTINF:-1 group-title="Internacional",HBO Xtreme HD
-http://181.224.255.210:8001/play/a0oo/index.m3u8
 #EXTINF:-1 group-title="Internacional",HBO XTREME HD
 http://181.224.255.210:8001/play/a0nw/index.m3u8
+#EXTINF:-1 group-title="Internacional",HBO Xtreme HD
+http://181.224.255.210:8001/play/a0oo/index.m3u8
 #EXTINF:-1 group-title="Internacional",HEI HD
 http://181.224.255.210:8001/play/a0sg/index.m3u8
 #EXTINF:-1 group-title="Internacional",HGTV
@@ -1818,14 +1818,14 @@ http://138.59.227.20:8000/play/a0fq/index.m3u8
 http://138.59.227.20:8000/play/a0fn/index.m3u8
 #EXTINF:-1 group-title="Internacional",Radio Colmenar Tv
 http://138.59.227.20:8000/play/a0gf/index.m3u8
-#EXTINF:-1 group-title="Internacional",RCC Tv
-http://138.59.227.20:8000/play/a0gh/index.m3u8
 #EXTINF:-1 group-title="Internacional",RCC TV
 http://138.59.227.20:8000/play/a0eu/index.m3u8
-#EXTINF:-1 group-title="Internacional",Red Digital San Pedro
-http://138.59.227.20:8000/play/a0ey/index.m3u8
+#EXTINF:-1 group-title="Internacional",RCC Tv
+http://138.59.227.20:8000/play/a0gh/index.m3u8
 #EXTINF:-1 group-title="Internacional",Red Digital San Pedro
 http://138.59.227.20:8000/play/a0gi/index.m3u8
+#EXTINF:-1 group-title="Internacional",Red Digital San Pedro
+http://138.59.227.20:8000/play/a0ey/index.m3u8
 #EXTINF:-1 group-title="Internacional",Republica Tv Vca
 http://138.59.227.20:8000/play/a0gl/index.m3u8
 #EXTINF:-1 group-title="Internacional",RPC Digital
@@ -1905,9 +1905,9 @@ http://138.59.227.20:8000/play/a0ff/index.m3u8
 #EXTINF:-1 group-title="Internacional",TELEMUNDO
 http://181.119.185.32:8000/play/a01r/index.m3u8
 #EXTINF:-1 group-title="Internacional",Telemundo
-http://181.224.200.5:2277/play/a01q/index.m3u8
-#EXTINF:-1 group-title="Internacional",Telemundo
 http://181.224.255.210:8001/play/a0ot/index.m3u8
+#EXTINF:-1 group-title="Internacional",Telemundo
+http://181.224.200.5:2277/play/a01q/index.m3u8
 #EXTINF:-1 group-title="Internacional",Telemundo HD
 http://45.5.118.152:8000/play/a02j/index.m3u8
 #EXTINF:-1 group-title="Internacional",TLC
@@ -2748,7 +2748,7 @@ http://186.148.175.138:8000/play/a05l
 http://186.148.196.100:8000/play/a00r
 #EXTINF:-1 tvg-logo="https://i.imgur.com/1pQPxu3.png" group-title="Documentales y Cultura",Discovery Turbo SD [Opc.2]
 http://181.119.177.253:8000/play/a04k/index.m3u8
-#EXTINF:-1 tvg-logo="https://i.imgur.com/yNFmUkE.png" group-title="Documentales y Cultura",Discovery World HD
+#EXTINF:-1 tvg-logo="https://i.imgur.com/yNFmUkE.png" group-title="Documentales y Cultura",Discovery World HD [Opc.2]
 http://186.33.0.57:8000/play/a05t/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/yNFmUkE.png" group-title="Documentales y Cultura",Discovery World HD [Opc.3]
 http://181.119.177.253:8000/play/a0cs/index.m3u8
@@ -2770,7 +2770,7 @@ http://45.167.2.101:8000/play/a0qf/index.m3u8
 http://181.225.190.242:8000/play/a023
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/History_%282021%29.svg/500px-History_%282021%29.svg.png" group-title="Documentales y Cultura",History Channel HD
 http://181.119.177.253:8000/play/a020/index.m3u8
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/History_%282021%29.svg/500px-History_%282021%29.svg.png" group-title="Documentales y Cultura",History Channel SD [Opc.3]
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/History_%282021%29.svg/500px-History_%282021%29.svg.png" group-title="Documentales y Cultura",History Channel SD [Opc.2]
 http://186.33.47.113:8000/play/a08d/index.m3u8
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Natgeologo.svg/960px-Natgeologo.svg.png" group-title="Documentales y Cultura",Nat Geo HD
 http://190.61.101.11:7050/play/a05f/index.m3u8?hls
