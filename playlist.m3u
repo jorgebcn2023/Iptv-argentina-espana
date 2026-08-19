@@ -789,11 +789,11 @@ http://181.119.185.32:8000/play/a020/index.m3u8
 #EXTINF:-1 group-title="Documentales",Nat Geo HD
 http://181.224.255.210:8001/play/a0m2/index.m3u8
 #EXTINF:-1 group-title="Documentales",Nat Geo HD
-http://138.59.227.20:8000/play/a09f/index.m3u8
+http://181.224.200.5:2277/play/5684/index.m3u8
 #EXTINF:-1 group-title="Documentales",Nat Geo HD
 http://181.224.200.5:2277/play/a012/index.m3u8
 #EXTINF:-1 group-title="Documentales",Nat Geo HD
-http://181.224.200.5:2277/play/5684/index.m3u8
+http://138.59.227.20:8000/play/a09f/index.m3u8
 #EXTINF:-1 group-title="Documentales",The History Channel HD
 http://138.59.227.20:8000/play/a09g/index.m3u8
 #EXTINF:-1 group-title="Películas y Series",AMC Series
@@ -900,10 +900,10 @@ http://45.5.118.152:8000/play/a0dx/index.m3u8
 http://181.119.185.32:8000/play/a00y/index.m3u8
 #EXTINF:-1 tvg-logo="https://tvpnlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/ES17000065P_20251013T053431SQUARE.png" group-title="Infantiles", BABY SHARK TV (ES)
 https://jmp2.uk/stvp-ES17000065P
-#EXTINF:-1 group-title="Infantiles",Baby TV
-http://181.224.255.210:8001/play/a0pz/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/WxLHBwu.png" group-title="Infantiles",Baby TV
 http://181.224.255.210:8001/play/a0pz/index.m3u8?hls
+#EXTINF:-1 group-title="Infantiles",Baby TV
+http://181.224.255.210:8001/play/a0pz/index.m3u8
 #EXTINF:-1 group-title="Infantiles",Baby TV
 http://138.59.227.20:8000/play/a06j/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/WxLHBwu.png" group-title="Infantiles",Baby TV(Opc.2)
@@ -1631,9 +1631,9 @@ http://138.59.227.20:8000/play/a0gj/index.m3u8
 #EXTINF:-1 group-title="Internacional",Food Network
 http://181.224.255.210:8001/play/a0om/index.m3u8
 #EXTINF:-1 group-title="Internacional",FOX CR
-http://45.5.118.152:8000/play/a0ds/index.m3u8
-#EXTINF:-1 group-title="Internacional",FOX CR
 http://45.5.118.152:8000/play/a0df/index.m3u8
+#EXTINF:-1 group-title="Internacional",FOX CR
+http://45.5.118.152:8000/play/a0ds/index.m3u8
 #EXTINF:-1 group-title="Internacional",Foz de Yguazu
 http://138.59.227.20:8000/play/a0gv/index.m3u8
 #EXTINF:-1 group-title="Internacional",FRANCE 24
