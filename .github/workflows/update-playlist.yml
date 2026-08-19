@@ -46,34 +46,47 @@ jobs:
 
       - name: Validate generated playlist
         run: |
+          set -e
           test -s playlist.m3u
           grep -q '^#EXTM3U' playlist.m3u
           grep -q '^#EXTINF' playlist.m3u
-          echo "Playlist válida: $(grep -c '^#EXTINF' playlist.m3u) canales"
+          entries=$(grep -c '^#EXTINF' playlist.m3u)
+          urls=$(grep -E '^(https?|rtmp|rtmps|rtsp|udp|srt|acestream)://' playlist.m3u | wc -l)
+          test "$entries" -gt 0
+          test "$urls" -ge "$entries"
+          echo "Playlist válida: ${entries} entradas, ${urls} URLs"
 
-      - name: Commit and push changes
+      - name: Configure Git
         run: |
-          set -e
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+
+      - name: Commit generated playlist
+        run: |
           git add playlist.m3u
           if git diff --cached --quiet; then
             echo "No hay cambios en la playlist."
             exit 0
           fi
-
           git commit -m "chore: update playlist [$(date -u +'%Y-%m-%d %H:%M:%S Z')]"
 
-          for attempt in 1 2 3; do
+      - name: Rebase and publish playlist
+        run: |
+          set -e
+          for attempt in 1 2 3 4 5; do
             git fetch origin main
-            git rebase origin/main
+            git rebase origin/main || {
+              echo "Rebase conflictivo; abortando rebase y reintentando."
+              git rebase --abort || true
+              sleep 2
+              continue
+            }
             if git push origin HEAD:main; then
               echo "Playlist publicada correctamente."
               exit 0
             fi
-            echo "Push rechazado; reintentando (${attempt}/3)..."
-            sleep 3
+            echo "Push rechazado; reintentando (${attempt}/5)..."
+            sleep 5
           done
-
-          echo "ERROR: no se pudo publicar la playlist después de 3 intentos."
+          echo "ERROR: no se pudo publicar la playlist después de 5 intentos."
           exit 1
