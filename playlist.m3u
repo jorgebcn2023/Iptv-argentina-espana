@@ -1716,10 +1716,10 @@ http://138.59.227.20:8000/play/a06h/index.m3u8
 http://181.224.255.210:8001/play/a0re/index.m3u8
 #EXTINF:-1 group-title="-",HBO Xtreme
 http://138.59.227.20:8000/play/a06g/index.m3u8
-#EXTINF:-1 group-title="-",HBO Xtreme HD
-http://181.224.255.210:8001/play/a0oo/index.m3u8
 #EXTINF:-1 group-title="-",HBO XTREME HD
 http://181.224.255.210:8001/play/a0nw/index.m3u8
+#EXTINF:-1 group-title="-",HBO Xtreme HD
+http://181.224.255.210:8001/play/a0oo/index.m3u8
 #EXTINF:-1 group-title="-",HEI HD
 http://181.224.255.210:8001/play/a0sg/index.m3u8
 #EXTINF:-1 group-title="-",HGTV

@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-08-20T18:32:28.121612Z",
+  "resolved": [],
+  "failed": [
+    {
+      "channel": "A24 Ⓨ",
+      "source_url": "https://www.youtube.com/c/A24com/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "América Ⓨ",
+      "source_url": "https://www.youtube.com/c/americaenvivo/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "Barricada TV",
+      "source_url": "https://www.youtube.com/channel/UC6YundoLrEuBJaPp_oEPWaA/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "C5N Ⓨ",
+      "source_url": "https://www.youtube.com/c/c5n/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "Canal 26 Ⓨ",
+      "source_url": "https://www.youtube.com/c/canal26/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "Comarca TV",
+      "source_url": "https://www.youtube.com/c/ComarcaTV/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "Crónica TV Ⓨ",
+      "source_url": "https://www.youtube.com/c/cronicatv/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "El Destape Ⓨ",
+      "source_url": "https://www.youtube.com/c/eldestapetv/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "Encuentro Ⓨ Ⓖ",
+      "source_url": "https://www.youtube.com/user/encuentro/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "IP Noticias Ⓨ",
+      "source_url": "https://www.youtube.com/c/IPNoticiasEnVivo/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "LN+ Ⓨ",
+      "source_url": "https://www.youtube.com/c/LaNacionMas/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "Pakapaka Ⓨ Ⓖ",
+      "source_url": "https://www.youtube.com/user/CanalPakapaka/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "Televisión Pública Ⓨ",
+      "source_url": "https://www.youtube.com/user/TVPublicaArgentina/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "TN Todo Noticias Ⓨ",
+      "source_url": "https://www.youtube.com/c/todonoticias/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "Urbana Tevé",
+      "source_url": "https://www.youtube.com/channel/UCTnbbQUGmWEKeCq9wWoyN0g/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "RBC Ⓨ",
+      "source_url": "https://www.youtube.com/watch?v=oUdd3CsxYaE",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "SBT Ⓨ",
+      "source_url": "https://www.youtube.com/watch?v=ABVQXgr2LW4",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "Euronews Italian Ⓨ",
+      "source_url": "https://www.youtube.com/user/euronewsit/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "Prima Tivvù Ⓨ",
+      "source_url": "https://www.youtube.com/@PrimaTivvucanale17/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "Radio Colonna Tv Ⓨ",
+      "source_url": "https://www.youtube.com/radiocolonna/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "TRM h24 Ⓨ",
+      "source_url": "https://www.youtube.com/user/trmh24/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "IB3 Global Ⓨ",
+      "source_url": "https://www.youtube.com/c/ib3/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "France 24 Ⓨ",
+      "source_url": "https://www.youtube.com/c/france24english/live",
+      "status": "CalledProcessError"
+    },
+    {
+      "channel": "CNBC Ⓨ",
+      "source_url": "https://www.youtube.com/c/CNBC/live",
+      "status": "CalledProcessError"
+    }
+  ]
+}
