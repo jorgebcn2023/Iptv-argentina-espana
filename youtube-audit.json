@@ -1,126 +1,150 @@
 {
-  "generated_at": "2026-08-20T18:32:28.121612Z",
+  "generated_at": "2026-08-20T19:54:57.944994+00:00",
   "resolved": [],
   "failed": [
     {
       "channel": "A24 Ⓨ",
       "source_url": "https://www.youtube.com/c/A24com/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] ArKbAx1K-2U: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "América Ⓨ",
       "source_url": "https://www.youtube.com/c/americaenvivo/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] zcWXboTnous: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Barricada TV",
       "source_url": "https://www.youtube.com/channel/UC6YundoLrEuBJaPp_oEPWaA/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] RJdsBOyVyY8: This live event will begin in 4 minutes."
     },
     {
       "channel": "C5N Ⓨ",
       "source_url": "https://www.youtube.com/c/c5n/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] j6oh4Kqz3UM: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Canal 26 Ⓨ",
       "source_url": "https://www.youtube.com/c/canal26/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] u-WTg-pckSQ: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Comarca TV",
       "source_url": "https://www.youtube.com/c/ComarcaTV/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] CpmkdTGnPqE: This live event will begin in a few moments."
     },
     {
       "channel": "Crónica TV Ⓨ",
       "source_url": "https://www.youtube.com/c/cronicatv/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] hw4uHyct4vg: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "El Destape Ⓨ",
       "source_url": "https://www.youtube.com/c/eldestapetv/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] rGYj8yaF2e4: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Encuentro Ⓨ Ⓖ",
       "source_url": "https://www.youtube.com/user/encuentro/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube:tab] encuentro: The channel is not currently live"
     },
     {
       "channel": "IP Noticias Ⓨ",
       "source_url": "https://www.youtube.com/c/IPNoticiasEnVivo/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] 21UP3XoRIBU: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "LN+ Ⓨ",
       "source_url": "https://www.youtube.com/c/LaNacionMas/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] FEWZjXJ7M0c: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Pakapaka Ⓨ Ⓖ",
       "source_url": "https://www.youtube.com/user/CanalPakapaka/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube:tab] CanalPakapaka: The channel is not currently live"
     },
     {
       "channel": "Televisión Pública Ⓨ",
       "source_url": "https://www.youtube.com/user/TVPublicaArgentina/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] -QfTRrtz8eQ: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "TN Todo Noticias Ⓨ",
       "source_url": "https://www.youtube.com/c/todonoticias/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] cb12KmMMDJA: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Urbana Tevé",
       "source_url": "https://www.youtube.com/channel/UCTnbbQUGmWEKeCq9wWoyN0g/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube:tab] UCTnbbQUGmWEKeCq9wWoyN0g: The channel is not currently live"
     },
     {
       "channel": "RBC Ⓨ",
       "source_url": "https://www.youtube.com/watch?v=oUdd3CsxYaE",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] oUdd3CsxYaE: This live stream recording is not available."
     },
     {
       "channel": "SBT Ⓨ",
       "source_url": "https://www.youtube.com/watch?v=ABVQXgr2LW4",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] ABVQXgr2LW4: The uploader has not made this video available in your country This video is available in Brazil. You might want to use a VPN or a proxy server (with --proxy) to workaround."
     },
     {
       "channel": "Euronews Italian Ⓨ",
       "source_url": "https://www.youtube.com/user/euronewsit/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] pUcmpyynASM: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Prima Tivvù Ⓨ",
       "source_url": "https://www.youtube.com/@PrimaTivvucanale17/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] 6kDMRAKkTKU: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Radio Colonna Tv Ⓨ",
       "source_url": "https://www.youtube.com/radiocolonna/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] HVtJaZPDGQ0: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "TRM h24 Ⓨ",
       "source_url": "https://www.youtube.com/user/trmh24/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] wHJHpOP7vjM: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "IB3 Global Ⓨ",
       "source_url": "https://www.youtube.com/c/ib3/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] 91lfbS-ZW70: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "France 24 Ⓨ",
       "source_url": "https://www.youtube.com/c/france24english/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] HvZt-nh9sGg: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "CNBC Ⓨ",
       "source_url": "https://www.youtube.com/c/CNBC/live",
-      "status": "CalledProcessError"
+      "status": "failed",
+      "error": "ERROR: [youtube] 9NyxcX3rhQs: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     }
   ]
 }
