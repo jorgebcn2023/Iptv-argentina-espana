@@ -1,6 +1,7 @@
 import json
 import subprocess
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -12,34 +13,66 @@ def is_youtube(url):
     return host in WEB or host.endswith('.youtube.com')
 
 
+def run_ytdlp(url, extra_args=None, timeout=120):
+    cmd = [
+        sys.executable, '-m', 'yt_dlp',
+        '--no-playlist', '--no-warnings', '--ignore-config',
+        '--extractor-retries', '3', '--fragment-retries', '3',
+        '--retry-sleep', 'http:2',
+        '--geo-bypass', '--js-runtimes', 'node',
+        '-J'
+    ]
+    if extra_args:
+        cmd.extend(extra_args)
+    cmd.append(url)
+    return subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, check=False)
+
+
 def resolve(url):
-    cmd = [sys.executable, '-m', 'yt_dlp', '--no-playlist', '--no-warnings', '-J', url]
-    try:
-        p = subprocess.run(cmd, capture_output=True, text=True, timeout=45, check=True)
-        info = json.loads(p.stdout)
+    attempts = [
+        [],
+        ['--extractor-args', 'youtube:player_client=web,ios,android'],
+        ['--extractor-args', 'youtube:player_client=android_vr,web_safari']
+    ]
+    errors = []
+    for extra in attempts:
+        try:
+            p = run_ytdlp(url, extra)
+        except subprocess.TimeoutExpired:
+            errors.append('timeout')
+            continue
+        if p.returncode != 0:
+            err = (p.stderr or p.stdout or '').strip().replace('\n', ' ')
+            errors.append(err[:500] or f'exit {p.returncode}')
+            continue
+        try:
+            info = json.loads(p.stdout)
+        except json.JSONDecodeError as e:
+            errors.append(f'json error: {e}')
+            continue
         direct = info.get('url')
         if not direct:
-            return None, 'no direct URL'
+            errors.append('no direct URL')
+            continue
         headers = info.get('http_headers') or {}
         pairs = []
-        mapping = {'User-Agent': 'User-Agent', 'Referer': 'Referer', 'Origin': 'Origin', 'Cookie': 'Cookie'}
-        for src, dst in mapping.items():
-            value = headers.get(src) or headers.get(src.lower())
+        for key in ('User-Agent', 'Referer', 'Origin', 'Cookie'):
+            value = headers.get(key) or headers.get(key.lower())
             if value:
-                pairs.append(f'{dst}={value}')
+                pairs.append(f'{key}={value}')
         if pairs:
             direct += '|' + '&'.join(pairs)
-        return direct, 'ok'
-    except subprocess.TimeoutExpired:
-        return None, 'timeout'
-    except Exception as e:
-        return None, type(e).__name__
+        return direct, 'ok', None
+    return None, 'failed', errors[-1] if errors else 'unknown error'
 
 
 def main():
     src = Path('playlist.m3u').read_text(encoding='utf-8').splitlines()
     out = ['#EXTM3U']
-    audit = {'generated_at': __import__('datetime').datetime.utcnow().isoformat() + 'Z', 'resolved': [], 'failed': []}
+    audit = {
+        'generated_at': datetime.now(timezone.utc).isoformat(),
+        'resolved': [], 'failed': []
+    }
     pending = []
     for line in src:
         s = line.strip()
@@ -53,14 +86,14 @@ def main():
                 pending.append(s)
             continue
         if pending and is_youtube(s):
-            direct, status = resolve(s)
+            direct, status, error = resolve(s)
             channel = pending[0].rsplit(',', 1)[-1].strip()
             if direct:
                 out.extend(pending)
                 out.append(direct)
                 audit['resolved'].append({'channel': channel, 'source_url': s, 'status': status})
             else:
-                audit['failed'].append({'channel': channel, 'source_url': s, 'status': status})
+                audit['failed'].append({'channel': channel, 'source_url': s, 'status': status, 'error': error})
             pending = []
             continue
         pending = []
