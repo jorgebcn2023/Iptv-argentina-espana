@@ -1,0 +1,244 @@
+{
+  "sources": [
+    {
+      "name": "free_tv_seleccionada",
+      "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8",
+      "priority": 5,
+      "status": "ok",
+      "entries": 2045,
+      "accepted": 729
+    },
+    {
+      "name": "fuente_138",
+      "url": "http://138.59.227.20:8000/playlist.m3u8",
+      "priority": 10,
+      "status": "ok",
+      "entries": 164,
+      "accepted": 164
+    },
+    {
+      "name": "fuente_45",
+      "url": "http://45.5.118.152:8000/playlist.m3u",
+      "priority": 20,
+      "status": "ok",
+      "entries": 145,
+      "accepted": 145
+    },
+    {
+      "name": "fuente_iptvsv",
+      "url": "https://raw.githubusercontent.com/JMigue85/IPTV-SV/main/IPTVSV.m3u",
+      "priority": 30,
+      "status": "ok",
+      "entries": 1713,
+      "accepted": 1649
+    },
+    {
+      "name": "fuente_181224255210",
+      "url": "http://181.224.255.210:8001/playlist.m3u",
+      "priority": 40,
+      "status": "ok",
+      "entries": 130,
+      "accepted": 130
+    },
+    {
+      "name": "fuente_18111918532",
+      "url": "http://181.119.185.32:8000/playlist.m3u",
+      "priority": 50,
+      "status": "ok",
+      "entries": 69,
+      "accepted": 69
+    },
+    {
+      "name": "fuente_1812242005",
+      "url": "http://181.224.200.5:2277/playlist.m3u",
+      "priority": 60,
+      "status": "ok",
+      "entries": 48,
+      "accepted": 48
+    }
+  ],
+  "input_entries": 2934,
+  "output_entries": 2934,
+  "duplicates_removed": [],
+  "probe_summary": {
+    "web/resolver required": 27,
+    "ok": 2403,
+    "HTTP 403": 150,
+    "empty/html response": 1,
+    "ConnectionError": 62,
+    "HTTP 404": 193,
+    "SSLError": 2,
+    "HTML response": 1,
+    "ConnectTimeout": 76,
+    "ReadTimeout": 1,
+    "HTTP 400": 10,
+    "HTTP 502": 1,
+    "HTTP 504": 3,
+    "HTTP 503": 3,
+    "HTTP 451": 1
+  },
+  "web_resolver_entries": [
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "C5N Ⓨ",
+      "url": "https://www.youtube.com/c/c5n/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Televisión Pública Ⓨ",
+      "url": "https://www.youtube.com/user/TVPublicaArgentina/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Encuentro Ⓨ Ⓖ",
+      "url": "https://www.youtube.com/user/encuentro/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Pakapaka Ⓨ Ⓖ",
+      "url": "https://www.youtube.com/user/CanalPakapaka/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "América Ⓨ",
+      "url": "https://www.youtube.com/c/americaenvivo/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "El Destape Ⓨ",
+      "url": "https://www.youtube.com/c/eldestapetv/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "A24 Ⓨ",
+      "url": "https://www.youtube.com/c/A24com/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "RBC Ⓨ",
+      "url": "https://www.youtube.com/watch?v=oUdd3CsxYaE",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "IP Noticias Ⓨ",
+      "url": "https://www.youtube.com/c/IPNoticiasEnVivo/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "SBT Ⓨ",
+      "url": "https://www.youtube.com/watch?v=ABVQXgr2LW4",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Crónica TV Ⓨ",
+      "url": "https://www.youtube.com/c/cronicatv/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Comarca TV",
+      "url": "https://www.youtube.com/c/ComarcaTV/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Urbana Tevé",
+      "url": "https://www.youtube.com/channel/UCTnbbQUGmWEKeCq9wWoyN0g/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "TN Todo Noticias Ⓨ",
+      "url": "https://www.youtube.com/c/todonoticias/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Canal 26 Ⓨ",
+      "url": "https://www.youtube.com/c/canal26/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "LN+ Ⓨ",
+      "url": "https://www.youtube.com/c/LaNacionMas/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Barricada TV",
+      "url": "https://www.youtube.com/channel/UC6YundoLrEuBJaPp_oEPWaA/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Radio Colonna Tv Ⓨ",
+      "url": "https://www.youtube.com/radiocolonna/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "TRM h24 Ⓨ",
+      "url": "https://www.youtube.com/user/trmh24/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Euronews Italian Ⓨ",
+      "url": "https://www.youtube.com/user/euronewsit/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Teleroma 56 Ⓣ",
+      "url": "https://www.twitch.tv/teleroma_56",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "TeleRadioStereo Ⓣ",
+      "url": "https://www.twitch.tv/teleradiostereo",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Canale Uno Tivù Ⓣ",
+      "url": "https://www.twitch.tv/canaleunotivu",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Prima Tivvù Ⓨ",
+      "url": "https://www.youtube.com/@PrimaTivvucanale17/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "IB3 Global Ⓨ",
+      "url": "https://www.youtube.com/c/ib3/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "France 24 Ⓨ",
+      "url": "https://www.youtube.com/c/france24english/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "CNBC Ⓨ",
+      "url": "https://www.youtube.com/c/CNBC/live",
+      "status": "web/resolver required"
+    }
+  ]
+}
