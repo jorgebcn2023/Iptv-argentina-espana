@@ -797,9 +797,9 @@ http://138.59.227.20:8000/play/a09f/index.m3u8
 #EXTINF:-1 group-title="-",Nat Geo HD
 http://181.224.255.210:8001/play/a0m2/index.m3u8
 #EXTINF:-1 group-title="Documentales",Nat Geo HD
-http://181.224.200.5:2277/play/5684/index.m3u8
-#EXTINF:-1 group-title="Documentales",Nat Geo HD
 http://181.224.200.5:2277/play/a012/index.m3u8
+#EXTINF:-1 group-title="Documentales",Nat Geo HD
+http://181.224.200.5:2277/play/5684/index.m3u8
 #EXTINF:-1 group-title="-",The History Channel HD
 http://138.59.227.20:8000/play/a09g/index.m3u8
 #EXTINF:-1 group-title="-",AMC Series
@@ -1645,9 +1645,9 @@ http://138.59.227.20:8000/play/a0gj/index.m3u8
 #EXTINF:-1 group-title="-",Food Network
 http://181.224.255.210:8001/play/a0om/index.m3u8
 #EXTINF:-1 group-title="-",FOX CR
-http://45.5.118.152:8000/play/a0ds/index.m3u8
-#EXTINF:-1 group-title="-",FOX CR
 http://45.5.118.152:8000/play/a0df/index.m3u8
+#EXTINF:-1 group-title="-",FOX CR
+http://45.5.118.152:8000/play/a0ds/index.m3u8
 #EXTINF:-1 group-title="-",Foz de Yguazu
 http://138.59.227.20:8000/play/a0gv/index.m3u8
 #EXTINF:-1 group-title="-",France 24
@@ -1834,10 +1834,10 @@ http://138.59.227.20:8000/play/a0fq/index.m3u8
 http://138.59.227.20:8000/play/a0fn/index.m3u8
 #EXTINF:-1 group-title="-",Radio Colmenar Tv
 http://138.59.227.20:8000/play/a0gf/index.m3u8
-#EXTINF:-1 group-title="-",RCC TV
-http://138.59.227.20:8000/play/a0eu/index.m3u8
 #EXTINF:-1 group-title="-",RCC Tv
 http://138.59.227.20:8000/play/a0gh/index.m3u8
+#EXTINF:-1 group-title="-",RCC TV
+http://138.59.227.20:8000/play/a0eu/index.m3u8
 #EXTINF:-1 group-title="-",Red Digital San Pedro
 http://138.59.227.20:8000/play/a0gi/index.m3u8
 #EXTINF:-1 group-title="-",Red Digital San Pedro
