@@ -41,52 +41,61 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Update playlist
+      - name: Update playlist and audit
         run: python main.py
 
-      - name: Validate generated playlist
+      - name: Validate generated outputs
         run: |
           set -e
           test -s playlist.m3u
+          test -s audit.json
           grep -q '^#EXTM3U' playlist.m3u
           grep -q '^#EXTINF' playlist.m3u
-          entries=$(grep -c '^#EXTINF' playlist.m3u)
-          urls=$(grep -E '^(https?|rtmp|rtmps|rtsp|udp|srt|acestream)://' playlist.m3u | wc -l)
-          test "$entries" -gt 0
-          test "$urls" -ge "$entries"
-          echo "Playlist válida: ${entries} entradas, ${urls} URLs"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          audit = json.loads(Path('audit.json').read_text(encoding='utf-8'))
+          required = {'sources', 'input_entries', 'output_entries', 'duplicates_removed', 'probe_summary', 'web_resolver_entries'}
+          missing = required - set(audit)
+          assert not missing, f'audit.json incompleto: {sorted(missing)}'
+          entries = sum(1 for line in Path('playlist.m3u').read_text(encoding='utf-8').splitlines() if line.startswith('#EXTINF'))
+          assert entries == audit['output_entries'], f'playlist/audit no coinciden: {entries} != {audit["output_entries"]}'
+          print(f'Playlist válida: {entries} entradas')
+          print(f'Entradas web/resolver: {len(audit["web_resolver_entries"])}')
+          print(f'Duplicados exactos eliminados: {len(audit["duplicates_removed"])}')
+          PY
 
       - name: Configure Git
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-      - name: Commit generated playlist
+      - name: Commit generated outputs
         run: |
-          git add playlist.m3u
+          git add playlist.m3u audit.json
           if git diff --cached --quiet; then
-            echo "No hay cambios en la playlist."
+            echo "No hay cambios en los archivos generados."
             exit 0
           fi
-          git commit -m "chore: update playlist [$(date -u +'%Y-%m-%d %H:%M:%S Z')]"
+          git commit -m "chore: update playlist and audit [$(date -u +'%Y-%m-%d %H:%M:%S Z')]"
 
-      - name: Rebase and publish playlist
+      - name: Rebase and publish generated outputs
         run: |
           set -e
           for attempt in 1 2 3 4 5; do
             git fetch origin main
             git rebase origin/main || {
-              echo "Rebase conflictivo; abortando rebase y reintentando."
+              echo "Rebase conflictivo; abortando y reintentando."
               git rebase --abort || true
               sleep 2
               continue
             }
             if git push origin HEAD:main; then
-              echo "Playlist publicada correctamente."
+              echo "Playlist y auditoría publicadas correctamente."
               exit 0
             fi
             echo "Push rechazado; reintentando (${attempt}/5)..."
             sleep 5
           done
-          echo "ERROR: no se pudo publicar la playlist después de 5 intentos."
+          echo "ERROR: no se pudo publicar después de 5 intentos."
           exit 1
