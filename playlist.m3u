@@ -562,10 +562,10 @@ http://45.5.118.152:8000/play/a003/index.m3u8
 http://181.224.200.5:2277/play/a02h/index.m3u8
 #EXTINF:-1 group-title="Deportes",ESPN 7 HD
 http://181.224.200.5:2277/play/a02l/index.m3u8
-#EXTINF:-1 group-title="Deportes",ESPN HD
-http://181.224.200.5:2277/play/aa07/index.m3u8
 #EXTINF:-1 group-title="-",ESPN HD
 http://181.224.255.210:8001/play/a0sd/index.m3u8
+#EXTINF:-1 group-title="Deportes",ESPN HD
+http://181.224.200.5:2277/play/aa07/index.m3u8
 #EXTINF:-1 group-title="-",ESPN HD
 http://138.59.227.20:8000/play/a099/index.m3u8
 #EXTINF:-1 group-title="-",ESPN Premium HD
@@ -702,10 +702,10 @@ http://138.59.227.20:8000/play/a06x/index.m3u8
 http://181.79.87.130:8000/play/a0ck/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.ibb.co/jkxk9Bxr/ufc-PNG64.png" group-title="Deportes", UFC tubi (EE.UU.) [EN]
 https://aegis-cloudfront-1.tubi.video/a78ea283-8666-44a1-a0f6-fde5d229ac21/playlist.m3u8
-#EXTINF:-1 group-title="-",Via X Esports
-http://181.224.255.210:8001/play/a0qs/index.m3u8
 #EXTINF:-1 tvg-logo="https://viaxesports.com/wp-content/themes/ViaxExports/img/viaxesports.png" group-title="Deportes",Via X Esports
 http://181.224.255.210:8001/play/a0qs/index.m3u8?hls
+#EXTINF:-1 group-title="-",Via X Esports
+http://181.224.255.210:8001/play/a0qs/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gMhWB50y/OIP.png" group-title="Deportes", Women's Sports Network (EE.UU.) [EN]
 https://aegis-cloudfront-1.tubi.video/e974981b-bbcd-42a3-a6c1-6c25e14f10bd/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://i.ibb.co/6R9LNbwj/world-billiards-tv-mx.png" group-title="Deportes", World Billiards TV (EE.UU.) [EN]
@@ -714,10 +714,10 @@ https://ads.its-newid.net/api/manifest.m3u8?tp=lg_channels&channel_name=worldbil
 https://amg00218-wptenterprisesi-wptespanol-samsungspain-9s2tf.amagi.tv/ts-eu-w1-n2/playlist/amg00218-wptenterprisesi-wptespanol-samsungspain/playlist.m3u8
 #EXTINF:-1 group-title="-",ANIMAL PLANET
 http://181.119.185.32:8000/play/a01s/index.m3u8
-#EXTINF:-1 group-title="-",Animal Planet HD
-http://181.224.255.210:8001/play/a0lz/index.m3u8
 #EXTINF:-1 group-title="Documentales",Animal Planet HD
 http://181.224.200.5:2277/play/a00r/index.m3u8
+#EXTINF:-1 group-title="-",Animal Planet HD
+http://181.224.255.210:8001/play/a0lz/index.m3u8
 #EXTINF:-1 group-title="-",CANAL 111 Discovery Home & Health
 http://45.5.118.152:8000/play/a086/index.m3u8
 #EXTINF:-1 group-title="-",CANAL 16 Discovery Kids
@@ -748,10 +748,10 @@ http://138.59.227.20:8000/play/a08f/index.m3u8
 http://181.119.185.32:8000/play/a01m/index.m3u8
 #EXTINF:-1 group-title="-",Discovery Kids
 http://138.59.227.20:8000/play/a07r/index.m3u8
-#EXTINF:-1 group-title="-",Discovery Kids HD
-http://181.224.255.210:8001/play/a0pv/index.m3u8
 #EXTINF:-1 group-title="Documentales",Discovery Kids HD
 http://181.224.200.5:2277/play/a00o/index.m3u8
+#EXTINF:-1 group-title="-",Discovery Kids HD
+http://181.224.255.210:8001/play/a0pv/index.m3u8
 #EXTINF:-1 group-title="-",Discovery Science
 http://181.224.255.210:8001/play/a0mo/index.m3u8
 #EXTINF:-1 group-title="-",Discovery Science
@@ -786,18 +786,18 @@ http://138.59.227.20:8000/play/a06n/index.m3u8
 http://181.119.185.32:8000/play/a011/index.m3u8
 #EXTINF:-1 group-title="-",History Channel
 http://138.59.227.20:8000/play/a090/index.m3u8
-#EXTINF:-1 group-title="Documentales",History Channel HD
-http://181.224.200.5:2277/play/a02b/index.m3u8
 #EXTINF:-1 group-title="-",History Channel HD
 http://181.224.255.210:8001/play/a0m1/index.m3u8
+#EXTINF:-1 group-title="Documentales",History Channel HD
+http://181.224.200.5:2277/play/a02b/index.m3u8
 #EXTINF:-1 group-title="-",ID - Investigation Discovery
 http://181.119.185.32:8000/play/a020/index.m3u8
 #EXTINF:-1 group-title="-",Nat Geo HD
 http://181.224.255.210:8001/play/a0m2/index.m3u8
 #EXTINF:-1 group-title="Documentales",Nat Geo HD
-http://181.224.200.5:2277/play/5684/index.m3u8
-#EXTINF:-1 group-title="Documentales",Nat Geo HD
 http://181.224.200.5:2277/play/a012/index.m3u8
+#EXTINF:-1 group-title="Documentales",Nat Geo HD
+http://181.224.200.5:2277/play/5684/index.m3u8
 #EXTINF:-1 group-title="-",Nat Geo HD
 http://138.59.227.20:8000/play/a09f/index.m3u8
 #EXTINF:-1 group-title="-",The History Channel HD
@@ -838,10 +838,10 @@ http://181.119.185.32:8000/play/a010/index.m3u8
 http://45.5.118.152:8000/play/a05t/index.m3u8
 #EXTINF:-1 group-title="-",Cine.AR
 http://138.59.227.20:8000/play/a069/index.m3u8
-#EXTINF:-1 group-title="-",Cinecanal HD
-http://181.224.255.210:8001/play/a0ob/index.m3u8
 #EXTINF:-1 group-title="Películas y Series",Cinecanal HD
 http://181.224.200.5:2277/play/a013/index.m3u8
+#EXTINF:-1 group-title="-",Cinecanal HD
+http://181.224.255.210:8001/play/a0ob/index.m3u8
 #EXTINF:-1 group-title="-",Cinecanal HD
 http://138.59.227.20:8000/play/a089/index.m3u8
 #EXTINF:-1 group-title="-",CINEMAX
@@ -986,10 +986,10 @@ http://181.225.190.242:8000/play/a01f
 http://181.224.255.210:8001/play/a0ny/index.m3u8?hls
 #EXTINF:-1 group-title="Infantiles" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e3/2024_Disney_Jr._Logo.svg",Disney Jr SD (Opc.2)
 http://205.235.6.29:8000/play/a0zj/index.m3u8?hls
-#EXTINF:-1 group-title="Infantiles",Disney Jr.
-http://181.224.200.5:2277/play/a0dm/index.m3u8
 #EXTINF:-1 group-title="-",Disney Jr.
 http://181.224.255.210:8001/play/a0ny/index.m3u8
+#EXTINF:-1 group-title="Infantiles",Disney Jr.
+http://181.224.200.5:2277/play/a0dm/index.m3u8
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e3/2024_Disney_Jr._Logo.svg" group-title="Infantiles", Disney Jr. Latin America South
 #EXTVLCOPT:http-referrer=http://tr.live.clarovtrcdn.vtrplay.com/
 http://tr.live.clarovtrcdn.vtrplay.com/disneyjrhdchi/vxfmt=dp/playlist.m3u8?device_profile=STB_HLS_VCAS_LIVE_HD
@@ -1734,10 +1734,10 @@ http://181.119.185.32:8000/play/a01e/index.m3u8
 http://181.224.255.210:8001/play/a0qo/index.m3u8
 #EXTINF:-1 group-title="-",HTV
 http://138.59.227.20:8000/play/a06t/index.m3u8
-#EXTINF:-1 group-title="Internacional",ID HD
-http://181.224.200.5:2277/play/a00m/index.m3u8
 #EXTINF:-1 group-title="-",ID HD
 http://181.224.255.210:8001/play/a0m9/index.m3u8
+#EXTINF:-1 group-title="Internacional",ID HD
+http://181.224.200.5:2277/play/a00m/index.m3u8
 #EXTINF:-1 group-title="-",Kanal D Drama
 http://181.224.255.210:8001/play/a0sq/index.m3u8
 #EXTINF:-1 group-title="-",KARIBENA
@@ -1810,10 +1810,10 @@ http://138.59.227.20:8000/play/a0fz/index.m3u8
 http://138.59.227.20:8000/play/a0f8/index.m3u8
 #EXTINF:-1 group-title="-",Paravision HD
 http://138.59.227.20:8000/play/a0e4/index.m3u8
-#EXTINF:-1 group-title="Internacional",Pasiones HD
-http://181.224.200.5:2277/play/4324/index.m3u8
 #EXTINF:-1 group-title="-",Pasiones HD
 http://181.224.255.210:8001/play/a0s0/index.m3u8
+#EXTINF:-1 group-title="Internacional",Pasiones HD
+http://181.224.200.5:2277/play/4324/index.m3u8
 #EXTINF:-1 group-title="-",PLAYBOY
 http://181.119.185.32:8000/play/a00q/index.m3u8
 #EXTINF:-1 group-title="-",Playboy
@@ -1828,14 +1828,14 @@ http://138.59.227.20:8000/play/a0fq/index.m3u8
 http://138.59.227.20:8000/play/a0fn/index.m3u8
 #EXTINF:-1 group-title="-",Radio Colmenar Tv
 http://138.59.227.20:8000/play/a0gf/index.m3u8
-#EXTINF:-1 group-title="-",RCC TV
-http://138.59.227.20:8000/play/a0eu/index.m3u8
 #EXTINF:-1 group-title="-",RCC Tv
 http://138.59.227.20:8000/play/a0gh/index.m3u8
-#EXTINF:-1 group-title="-",Red Digital San Pedro
-http://138.59.227.20:8000/play/a0gi/index.m3u8
+#EXTINF:-1 group-title="-",RCC TV
+http://138.59.227.20:8000/play/a0eu/index.m3u8
 #EXTINF:-1 group-title="-",Red Digital San Pedro
 http://138.59.227.20:8000/play/a0ey/index.m3u8
+#EXTINF:-1 group-title="-",Red Digital San Pedro
+http://138.59.227.20:8000/play/a0gi/index.m3u8
 #EXTINF:-1 group-title="-",Republica Tv Vca
 http://138.59.227.20:8000/play/a0gl/index.m3u8
 #EXTINF:-1 group-title="-",RPC Digital
@@ -1938,10 +1938,10 @@ http://138.59.227.20:8000/play/a0g5/index.m3u8
 http://138.59.227.20:8000/play/a0g4/index.m3u8
 #EXTINF:-1 group-title="-",Tv Max Oviedo
 http://138.59.227.20:8000/play/a0ew/index.m3u8
-#EXTINF:-1 group-title="Internacional",TV Perœ
-http://181.224.200.5:2277/play/a0dx/index.m3u8
 #EXTINF:-1 group-title="-",TV Perœ
 http://181.224.255.210:8001/play/a0ss/index.m3u8
+#EXTINF:-1 group-title="Internacional",TV Perœ
+http://181.224.200.5:2277/play/a0dx/index.m3u8
 #EXTINF:-1 group-title="-",TV Publica HD
 http://138.59.227.20:8000/play/a095/index.m3u8
 #EXTINF:-1 group-title="-",TVE
