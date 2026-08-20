@@ -5,11 +5,12 @@ on:
     branches: [main]
     paths:
       - 'main.py'
+      - 'resolve_youtube.py'
       - 'config/**'
       - 'requirements.txt'
       - '.github/workflows/update-playlist.yml'
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -22,7 +23,6 @@ concurrency:
 jobs:
   update-playlist:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -41,16 +41,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Update playlist and audit
+      - name: Update main playlist and audit
         run: python main.py
+
+      - name: Resolve YouTube live entries
+        run: python resolve_youtube.py
 
       - name: Validate generated outputs
         run: |
           set -e
-          test -s playlist.m3u
-          test -s audit.json
+          for f in playlist.m3u audit.json youtube-live.m3u youtube-audit.json; do test -s "$f"; done
           grep -q '^#EXTM3U' playlist.m3u
-          grep -q '^#EXTINF' playlist.m3u
+          grep -q '^#EXTM3U' youtube-live.m3u
           python - <<'PY'
           import json
           from pathlib import Path
@@ -60,9 +62,9 @@ jobs:
           assert not missing, f'audit.json incompleto: {sorted(missing)}'
           entries = sum(1 for line in Path('playlist.m3u').read_text(encoding='utf-8').splitlines() if line.startswith('#EXTINF'))
           assert entries == audit['output_entries'], f'playlist/audit no coinciden: {entries} != {audit["output_entries"]}'
+          ya = json.loads(Path('youtube-audit.json').read_text(encoding='utf-8'))
           print(f'Playlist válida: {entries} entradas')
-          print(f'Entradas web/resolver: {len(audit["web_resolver_entries"])}')
-          print(f'Duplicados exactos eliminados: {len(audit["duplicates_removed"])}')
+          print(f'YouTube resueltos: {len(ya["resolved"])}; fallidos: {len(ya["failed"])}')
           PY
 
       - name: Configure Git
@@ -72,30 +74,20 @@ jobs:
 
       - name: Commit generated outputs
         run: |
-          git add playlist.m3u audit.json
+          git add playlist.m3u audit.json youtube-live.m3u youtube-audit.json
           if git diff --cached --quiet; then
             echo "No hay cambios en los archivos generados."
             exit 0
           fi
-          git commit -m "chore: update playlist and audit [$(date -u +'%Y-%m-%d %H:%M:%S Z')]"
+          git commit -m "chore: refresh IPTV and YouTube live playlists [$(date -u +'%Y-%m-%d %H:%M:%S Z')]"
 
       - name: Rebase and publish generated outputs
         run: |
           set -e
           for attempt in 1 2 3 4 5; do
             git fetch origin main
-            git rebase origin/main || {
-              echo "Rebase conflictivo; abortando y reintentando."
-              git rebase --abort || true
-              sleep 2
-              continue
-            }
-            if git push origin HEAD:main; then
-              echo "Playlist y auditoría publicadas correctamente."
-              exit 0
-            fi
-            echo "Push rechazado; reintentando (${attempt}/5)..."
+            git rebase origin/main || { git rebase --abort || true; sleep 2; continue; }
+            if git push origin HEAD:main; then exit 0; fi
             sleep 5
           done
-          echo "ERROR: no se pudo publicar después de 5 intentos."
           exit 1
