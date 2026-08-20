@@ -36,10 +36,15 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
 
+      - name: Set up Node.js for YouTube JS challenges
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -U -r requirements.txt yt-dlp
 
       - name: Update main playlist and audit
         run: python main.py
