@@ -12,7 +12,7 @@ import requests
 import yaml
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-USER_AGENT = "IPTV-Argentina-Espana/11.0"
+USER_AGENT = "IPTV-Argentina-Espana/11.1"
 PROBE_TIMEOUT = (3, 5)
 WORKERS = 48
 WEB_HOSTS = {"youtube.com","www.youtube.com","youtu.be","m.youtube.com","twitch.tv","www.twitch.tv","facebook.com","www.facebook.com","instagram.com","www.instagram.com","tiktok.com","www.tiktok.com","twitter.com","x.com"}
@@ -25,10 +25,16 @@ def load(p):
     try:
         with open(p,encoding="utf-8") as f:return yaml.safe_load(f) or {}
     except Exception as e: logging.error("No se puede leer %s: %s",p,e); return {}
+def load_reddit_sources():
+    p=Path("config/reddit-sources.json")
+    if not p.exists(): return []
+    try:
+        data=json.loads(p.read_text(encoding="utf-8")); return [x for x in data.get("sources",[]) if isinstance(x,dict)]
+    except Exception as e:
+        logging.warning("No se pueden cargar fuentes descubiertas en Reddit: %s",e); return []
 def attr(line,key):
     m=re.search(rf'{re.escape(key)}=["\']([^"\']*)["\']',line,re.I); return m.group(1).strip() if m else ""
-def channel_name(line):
-    return line[line.rfind(",")+1:].strip()
+def channel_name(line): return line[line.rfind(",")+1:].strip()
 def country(line):
     raw=attr(line,"tvg-country") or attr(line,"country"); return {x for x in re.split(r"[,;|/ ]+",raw.upper()) if x} if raw else set()
 def infer_country(line):
@@ -113,6 +119,8 @@ def allowed_source(src,ext):
     a={str(x).upper() for x in a};return bool(country(ext)&a) or infer_country(ext) in {COUNTRY_NAMES.get(x,"") for x in a}
 def fetch_source(src,order):
     name=str(src.get("name",src.get("url",""))); url=str(src.get("url","")).strip(); audit={"name":name,"url":url,"priority":int(src.get("priority",9999)),"status":"unavailable","entries":0,"accepted":0}
+    for key in ("origin","subreddit","post_url","first_seen"):
+        if src.get(key):audit[key]=src[key]
     try:
         t=int(src.get("timeout_seconds",15)); r=requests.get(url,timeout=(min(5,t),t),headers={"User-Agent":USER_AGENT,"Accept":"*/*"},allow_redirects=True);r.raise_for_status(); es=parse(r.text.splitlines());audit.update(status="ok",entries=len(es));return order,src,es,audit
     except requests.RequestException as e:audit["error"]=type(e).__name__;return order,src,[],audit
@@ -125,11 +133,13 @@ def write_playlist(path,items):
     Path(path).write_text("\n".join(out)+"\n",encoding="utf-8")
 def main():
     cfg,settings=load("config/sources.yml"),load("config/settings.yml");blocked=[norm(x) for x in settings.get("blocked_keywords",[])];allowed=[norm(x) for x in settings.get("allowed_keywords",[])]
-    enabled=[(i,s) for i,s in enumerate(cfg.get("sources",[])) if isinstance(s,dict) and s.get("enabled",True) and s.get("url")]; source_results=[]
+    all_sources=list(cfg.get("sources",[]))+load_reddit_sources()
+    enabled=[(i,s) for i,s in enumerate(all_sources) if isinstance(s,dict) and s.get("enabled",True) and s.get("url")]; source_results=[]
     with ThreadPoolExecutor(max_workers=min(max(1,int(settings.get("source_workers",8))),max(1,len(enabled)))) as ex:
         for f in as_completed([ex.submit(fetch_source,s,i) for i,s in enabled]):source_results.append(f.result())
-    source_results.sort(); candidates=[]; audit={"sources":[],"input_entries":0,"output_entries":0,"stable_entries":0,"quarantined_entries":0,"duplicates_removed":[],"probe_summary":{},"web_resolver_entries":[],"quarantined":[]};eo=0
+    source_results.sort(); candidates=[]; audit={"sources":[],"input_entries":0,"output_entries":0,"stable_entries":0,"quarantined_entries":0,"duplicates_removed":[],"probe_summary":{},"web_resolver_entries":[],"quarantined":[],"reddit_discovery":{"candidates":len(load_reddit_sources()),"accepted_sources":0}};eo=0
     for so,src,entries,sa in source_results:
+        if src.get("origin")=="reddit" and sa.get("status")=="ok":audit["reddit_discovery"]["accepted_sources"]+=1
         for ext,u,ds in entries:
             text=norm(ext+" "+u)
             if not allowed_source(src,ext) or (allowed and not any(x in text for x in allowed)) or any(x in text for x in blocked):continue
