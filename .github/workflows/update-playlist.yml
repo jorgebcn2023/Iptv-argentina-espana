@@ -77,22 +77,27 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-      - name: Commit generated outputs
+      - name: Publish generated outputs safely
         run: |
+          set -euo pipefail
           git add playlist.m3u audit.json youtube-live.m3u youtube-audit.json
           if git diff --cached --quiet; then
             echo "No hay cambios en los archivos generados."
             exit 0
           fi
           git commit -m "chore: refresh IPTV and YouTube live playlists [$(date -u +'%Y-%m-%d %H:%M:%S Z')]"
-
-      - name: Rebase and publish generated outputs
-        run: |
-          set -e
-          for attempt in 1 2 3 4 5; do
-            git fetch origin main
-            git rebase origin/main || { git rebase --abort || true; sleep 2; continue; }
-            if git push origin HEAD:main; then exit 0; fi
-            sleep 5
+          for attempt in 1 2 3 4 5 6 7 8; do
+            git fetch --no-tags origin main
+            if ! git rebase origin/main; then
+              git rebase --abort || true
+              sleep $((attempt * 2))
+              continue
+            fi
+            if git push origin HEAD:refs/heads/main; then
+              echo "Publicación completada."
+              exit 0
+            fi
+            sleep $((attempt * 2))
           done
+          echo "No se pudo publicar después de varios reintentos."
           exit 1
