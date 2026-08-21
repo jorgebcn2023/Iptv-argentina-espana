@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'main.py'
+      - 'discover_reddit.py'
       - 'resolve_youtube.py'
       - 'config/**'
       - 'requirements.txt'
@@ -46,6 +47,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -U -r requirements.txt yt-dlp
 
+      - name: Discover public playlist sources from Reddit
+        run: python discover_reddit.py
+
       - name: Update main playlist and audit
         run: python main.py
 
@@ -55,7 +59,7 @@ jobs:
       - name: Validate generated outputs
         run: |
           set -euo pipefail
-          for f in playlist.m3u playlist-full.m3u playlist-quarantine.m3u audit.json youtube-live.m3u youtube-audit.json; do
+          for f in playlist.m3u playlist-full.m3u playlist-quarantine.m3u audit.json youtube-live.m3u youtube-audit.json config/reddit-sources.json; do
             test -s "$f"
           done
           grep -q '^#EXTM3U' playlist.m3u
@@ -67,44 +71,30 @@ jobs:
           from pathlib import Path
 
           def count_entries(path):
-              return sum(
-                  1 for line in Path(path).read_text(encoding='utf-8').splitlines()
-                  if line.startswith('#EXTINF')
-              )
+              return sum(1 for line in Path(path).read_text(encoding='utf-8').splitlines() if line.startswith('#EXTINF'))
 
           audit = json.loads(Path('audit.json').read_text(encoding='utf-8'))
-          required = {
-              'sources', 'input_entries', 'output_entries', 'duplicates_removed',
-              'probe_summary', 'web_resolver_entries', 'stable_entries',
-              'quarantined_entries'
-          }
+          required = {'sources', 'input_entries', 'output_entries', 'duplicates_removed', 'probe_summary', 'web_resolver_entries', 'stable_entries', 'quarantined_entries', 'reddit_discovery'}
           missing = required - set(audit)
           assert not missing, f'audit.json incompleto: {sorted(missing)}'
+          reddit = json.loads(Path('config/reddit-sources.json').read_text(encoding='utf-8'))
+          assert isinstance(reddit.get('sources'), list), 'reddit-sources.json inválido'
 
           stable = count_entries('playlist.m3u')
           full = count_entries('playlist-full.m3u')
           quarantine = count_entries('playlist-quarantine.m3u')
-
-          assert stable == audit['stable_entries'], (
-              f'playlist estable/audit no coinciden: {stable} != {audit["stable_entries"]}'
-          )
-          assert quarantine == audit['quarantined_entries'], (
-              f'playlist cuarentena/audit no coinciden: {quarantine} != {audit["quarantined_entries"]}'
-          )
-          assert full == audit['output_entries'], (
-              f'playlist completa/audit no coinciden: {full} != {audit["output_entries"]}'
-          )
-          assert stable + quarantine == full, (
-              f'estable + cuarentena no coincide con completa: {stable} + {quarantine} != {full}'
-          )
+          assert stable == audit['stable_entries'], f'playlist estable/audit no coinciden: {stable} != {audit["stable_entries"]}'
+          assert quarantine == audit['quarantined_entries'], f'playlist cuarentena/audit no coinciden: {quarantine} != {audit["quarantined_entries"]}'
+          assert full == audit['output_entries'], f'playlist completa/audit no coinciden: {full} != {audit["output_entries"]}'
+          assert stable + quarantine == full, f'estable + cuarentena no coincide con completa: {stable} + {quarantine} != {full}'
 
           ya = json.loads(Path('youtube-audit.json').read_text(encoding='utf-8'))
           assert isinstance(ya.get('resolved'), list), 'youtube-audit.json sin resolved válido'
           assert isinstance(ya.get('failed'), list), 'youtube-audit.json sin failed válido'
-
           print(f'Playlist estable válida: {stable} entradas')
           print(f'Playlist completa válida: {full} entradas')
           print(f'Playlist cuarentena válida: {quarantine} entradas')
+          print(f'Reddit candidatas: {len(reddit["sources"])}')
           print(f'YouTube resueltos: {len(ya["resolved"])}; fallidos: {len(ya["failed"])}')
           PY
 
@@ -116,18 +106,12 @@ jobs:
       - name: Publish generated outputs safely
         run: |
           set -euo pipefail
-          git add \
-            playlist.m3u \
-            playlist-full.m3u \
-            playlist-quarantine.m3u \
-            audit.json \
-            youtube-live.m3u \
-            youtube-audit.json
+          git add playlist.m3u playlist-full.m3u playlist-quarantine.m3u audit.json youtube-live.m3u youtube-audit.json config/reddit-sources.json
           if git diff --cached --quiet; then
             echo "No hay cambios en los archivos generados."
             exit 0
           fi
-          git commit -m "chore: refresh IPTV and YouTube live playlists [$(date -u +'%Y-%m-%d %H:%M:%S Z')]"
+          git commit -m "chore: refresh IPTV, Reddit and YouTube playlists [$(date -u +'%Y-%m-%d %H:%M:%S Z')]"
           for attempt in 1 2 3 4 5 6 7 8; do
             git fetch --no-tags origin main
             if ! git rebase origin/main; then
