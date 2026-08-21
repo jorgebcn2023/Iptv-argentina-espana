@@ -1,0 +1,12 @@
+# Descubrimiento de listas públicas enlazadas en publicaciones de Reddit.
+enabled: true
+subreddits:
+  - IPTV
+  - cordcutters
+posts_per_subreddit: 25
+priority: 200
+timeout_seconds: 15
+# Se aceptan únicamente HTTPS y hosts explícitamente permitidos.
+allowed_hosts:
+  - raw.githubusercontent.com
+  - github.com
