@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T19:54:57.944994+00:00",
+  "generated_at": "2026-08-21T00:38:39.770106+00:00",
   "resolved": [],
   "failed": [
     {
@@ -12,13 +12,13 @@
       "channel": "América Ⓨ",
       "source_url": "https://www.youtube.com/c/americaenvivo/live",
       "status": "failed",
-      "error": "ERROR: [youtube] zcWXboTnous: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
+      "error": "ERROR: [youtube] RffYajSFGcg: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Barricada TV",
       "source_url": "https://www.youtube.com/channel/UC6YundoLrEuBJaPp_oEPWaA/live",
       "status": "failed",
-      "error": "ERROR: [youtube] RJdsBOyVyY8: This live event will begin in 4 minutes."
+      "error": "ERROR: [youtube:tab] UC6YundoLrEuBJaPp_oEPWaA: The channel is not currently live"
     },
     {
       "channel": "C5N Ⓨ",
@@ -30,7 +30,7 @@
       "channel": "Canal 26 Ⓨ",
       "source_url": "https://www.youtube.com/c/canal26/live",
       "status": "failed",
-      "error": "ERROR: [youtube] u-WTg-pckSQ: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
+      "error": "ERROR: [youtube] IzZfcSiZuEI: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Comarca TV",
@@ -48,7 +48,7 @@
       "channel": "El Destape Ⓨ",
       "source_url": "https://www.youtube.com/c/eldestapetv/live",
       "status": "failed",
-      "error": "ERROR: [youtube] rGYj8yaF2e4: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
+      "error": "ERROR: [youtube] vD4Ag_yzopI: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Encuentro Ⓨ Ⓖ",
@@ -114,7 +114,7 @@
       "channel": "Prima Tivvù Ⓨ",
       "source_url": "https://www.youtube.com/@PrimaTivvucanale17/live",
       "status": "failed",
-      "error": "ERROR: [youtube] 6kDMRAKkTKU: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
+      "error": "ERROR: [youtube:tab] @PrimaTivvucanale17: The channel is not currently live"
     },
     {
       "channel": "Radio Colonna Tv Ⓨ",
