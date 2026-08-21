@@ -54,21 +54,57 @@ jobs:
 
       - name: Validate generated outputs
         run: |
-          set -e
-          for f in playlist.m3u audit.json youtube-live.m3u youtube-audit.json; do test -s "$f"; done
+          set -euo pipefail
+          for f in playlist.m3u playlist-full.m3u playlist-quarantine.m3u audit.json youtube-live.m3u youtube-audit.json; do
+            test -s "$f"
+          done
           grep -q '^#EXTM3U' playlist.m3u
+          grep -q '^#EXTM3U' playlist-full.m3u
+          grep -q '^#EXTM3U' playlist-quarantine.m3u
           grep -q '^#EXTM3U' youtube-live.m3u
           python - <<'PY'
           import json
           from pathlib import Path
+
+          def count_entries(path):
+              return sum(
+                  1 for line in Path(path).read_text(encoding='utf-8').splitlines()
+                  if line.startswith('#EXTINF')
+              )
+
           audit = json.loads(Path('audit.json').read_text(encoding='utf-8'))
-          required = {'sources', 'input_entries', 'output_entries', 'duplicates_removed', 'probe_summary', 'web_resolver_entries'}
+          required = {
+              'sources', 'input_entries', 'output_entries', 'duplicates_removed',
+              'probe_summary', 'web_resolver_entries', 'stable_entries',
+              'quarantined_entries'
+          }
           missing = required - set(audit)
           assert not missing, f'audit.json incompleto: {sorted(missing)}'
-          entries = sum(1 for line in Path('playlist.m3u').read_text(encoding='utf-8').splitlines() if line.startswith('#EXTINF'))
-          assert entries == audit['output_entries'], f'playlist/audit no coinciden: {entries} != {audit["output_entries"]}'
+
+          stable = count_entries('playlist.m3u')
+          full = count_entries('playlist-full.m3u')
+          quarantine = count_entries('playlist-quarantine.m3u')
+
+          assert stable == audit['stable_entries'], (
+              f'playlist estable/audit no coinciden: {stable} != {audit["stable_entries"]}'
+          )
+          assert quarantine == audit['quarantined_entries'], (
+              f'playlist cuarentena/audit no coinciden: {quarantine} != {audit["quarantined_entries"]}'
+          )
+          assert full == audit['output_entries'], (
+              f'playlist completa/audit no coinciden: {full} != {audit["output_entries"]}'
+          )
+          assert stable + quarantine == full, (
+              f'estable + cuarentena no coincide con completa: {stable} + {quarantine} != {full}'
+          )
+
           ya = json.loads(Path('youtube-audit.json').read_text(encoding='utf-8'))
-          print(f'Playlist válida: {entries} entradas')
+          assert isinstance(ya.get('resolved'), list), 'youtube-audit.json sin resolved válido'
+          assert isinstance(ya.get('failed'), list), 'youtube-audit.json sin failed válido'
+
+          print(f'Playlist estable válida: {stable} entradas')
+          print(f'Playlist completa válida: {full} entradas')
+          print(f'Playlist cuarentena válida: {quarantine} entradas')
           print(f'YouTube resueltos: {len(ya["resolved"])}; fallidos: {len(ya["failed"])}')
           PY
 
@@ -80,7 +116,13 @@ jobs:
       - name: Publish generated outputs safely
         run: |
           set -euo pipefail
-          git add playlist.m3u audit.json youtube-live.m3u youtube-audit.json
+          git add \
+            playlist.m3u \
+            playlist-full.m3u \
+            playlist-quarantine.m3u \
+            audit.json \
+            youtube-live.m3u \
+            youtube-audit.json
           if git diff --cached --quiet; then
             echo "No hay cambios en los archivos generados."
             exit 0
