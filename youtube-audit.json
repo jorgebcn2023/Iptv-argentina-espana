@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T00:55:18.115685+00:00",
+  "generated_at": "2026-08-21T06:35:07.049201+00:00",
   "resolved": [],
   "failed": [
     {
@@ -12,7 +12,7 @@
       "channel": "América Ⓨ",
       "source_url": "https://www.youtube.com/c/americaenvivo/live",
       "status": "failed",
-      "error": "ERROR: [youtube] RffYajSFGcg: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
+      "error": "ERROR: [youtube] zcWXboTnous: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Barricada TV",
@@ -30,7 +30,7 @@
       "channel": "Canal 26 Ⓨ",
       "source_url": "https://www.youtube.com/c/canal26/live",
       "status": "failed",
-      "error": "ERROR: [youtube] 15phYzhf458: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
+      "error": "ERROR: [youtube] IzZfcSiZuEI: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Comarca TV",
@@ -48,7 +48,7 @@
       "channel": "El Destape Ⓨ",
       "source_url": "https://www.youtube.com/c/eldestapetv/live",
       "status": "failed",
-      "error": "ERROR: [youtube] vD4Ag_yzopI: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
+      "error": "ERROR: [youtube:tab] eldestapetv: The channel is not currently live"
     },
     {
       "channel": "Encuentro Ⓨ Ⓖ",
@@ -102,7 +102,7 @@
       "channel": "SBT Ⓨ",
       "source_url": "https://www.youtube.com/watch?v=ABVQXgr2LW4",
       "status": "failed",
-      "error": "ERROR: [youtube] ABVQXgr2LW4: The uploader has not made this video available in your country This video is available in Brazil. You might want to use a VPN or a proxy server (with --proxy) to workaround."
+      "error": "ERROR: [youtube] ABVQXgr2LW4: Video unavailable"
     },
     {
       "channel": "Euronews Italian Ⓨ",
