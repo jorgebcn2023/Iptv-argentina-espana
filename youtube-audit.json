@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T00:38:39.770106+00:00",
+  "generated_at": "2026-08-21T00:55:18.115685+00:00",
   "resolved": [],
   "failed": [
     {
@@ -30,7 +30,7 @@
       "channel": "Canal 26 Ⓨ",
       "source_url": "https://www.youtube.com/c/canal26/live",
       "status": "failed",
-      "error": "ERROR: [youtube] IzZfcSiZuEI: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
+      "error": "ERROR: [youtube] 15phYzhf458: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
     },
     {
       "channel": "Comarca TV",
