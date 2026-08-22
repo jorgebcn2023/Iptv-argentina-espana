@@ -5,7 +5,7 @@
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8",
       "priority": 5,
       "status": "ok",
-      "entries": 2045,
+      "entries": 2050,
       "accepted": 729
     },
     {
@@ -52,51 +52,41 @@
       "name": "fuente_1812242005",
       "url": "http://181.224.200.5:2277/playlist.m3u",
       "priority": 60,
-      "status": "ok",
-      "entries": 48,
-      "accepted": 48
+      "status": "unavailable",
+      "entries": 0,
+      "accepted": 0,
+      "error": "ConnectTimeout"
     }
   ],
-  "input_entries": 2934,
-  "output_entries": 2934,
-  "stable_entries": 2303,
-  "quarantined_entries": 631,
+  "input_entries": 2886,
+  "output_entries": 2886,
+  "stable_entries": 2226,
+  "quarantined_entries": 660,
   "duplicates_removed": [],
   "probe_summary": {
-    "web/resolver required": 27,
-    "ok": 2303,
-    "ConnectionError": 64,
-    "HTTP 403": 145,
-    "empty/html response": 1,
+    "web/resolver required": 25,
+    "HTTP 403": 144,
+    "ConnectionError": 65,
     "SSLError": 22,
-    "HTTP 404": 156,
-    "variant unavailable": 86,
-    "ConnectTimeout": 108,
+    "ok": 2226,
+    "empty/html response": 1,
+    "HTTP 404": 164,
+    "variant unavailable": 103,
+    "HTTP 451": 2,
+    "ConnectTimeout": 109,
     "HTML response": 1,
-    "ReadTimeout": 1,
-    "HTTP 400": 12,
-    "HTTP 502": 1,
-    "HTTP 500": 1,
-    "HTTP 504": 5,
-    "HTTP 451": 1
+    "ReadTimeout": 3,
+    "HTTP 400": 10,
+    "HTTP 502": 4,
+    "HTTP 500": 2,
+    "HTTP 504": 4,
+    "HTTP 503": 1
   },
   "web_resolver_entries": [
     {
       "source": "free_tv_seleccionada",
-      "channel": "A24 Ⓨ",
-      "url": "https://www.youtube.com/c/A24com/live",
-      "status": "web/resolver required"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Televisión Pública Ⓨ",
-      "url": "https://www.youtube.com/user/TVPublicaArgentina/live",
-      "status": "web/resolver required"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Urbana Tevé",
-      "url": "https://www.youtube.com/channel/UCTnbbQUGmWEKeCq9wWoyN0g/live",
+      "channel": "Comarca TV",
+      "url": "https://www.youtube.com/c/ComarcaTV/live",
       "status": "web/resolver required"
     },
     {
@@ -107,8 +97,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "América Ⓨ",
-      "url": "https://www.youtube.com/c/americaenvivo/live",
+      "channel": "Televisión Pública Ⓨ",
+      "url": "https://www.youtube.com/user/TVPublicaArgentina/live",
       "status": "web/resolver required"
     },
     {
@@ -119,8 +109,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "TN Todo Noticias Ⓨ",
-      "url": "https://www.youtube.com/c/todonoticias/live",
+      "channel": "A24 Ⓨ",
+      "url": "https://www.youtube.com/c/A24com/live",
       "status": "web/resolver required"
     },
     {
@@ -137,8 +127,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "IP Noticias Ⓨ",
-      "url": "https://www.youtube.com/c/IPNoticiasEnVivo/live",
+      "channel": "TN Todo Noticias Ⓨ",
+      "url": "https://www.youtube.com/c/todonoticias/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Urbana Tevé",
+      "url": "https://www.youtube.com/channel/UCTnbbQUGmWEKeCq9wWoyN0g/live",
       "status": "web/resolver required"
     },
     {
@@ -149,8 +145,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Canal 26 Ⓨ",
-      "url": "https://www.youtube.com/c/canal26/live",
+      "channel": "RBC Ⓨ",
+      "url": "https://www.youtube.com/watch?v=oUdd3CsxYaE",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Crónica TV Ⓨ",
+      "url": "https://www.youtube.com/c/cronicatv/live",
       "status": "web/resolver required"
     },
     {
@@ -167,20 +169,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Crónica TV Ⓨ",
-      "url": "https://www.youtube.com/c/cronicatv/live",
-      "status": "web/resolver required"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "RBC Ⓨ",
-      "url": "https://www.youtube.com/watch?v=oUdd3CsxYaE",
-      "status": "web/resolver required"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Comarca TV",
-      "url": "https://www.youtube.com/c/ComarcaTV/live",
+      "channel": "Argentina 12 Ⓨ",
+      "url": "https://www.youtube.com/c/IPNoticiasEnVivo/live",
       "status": "web/resolver required"
     },
     {
@@ -247,20 +237,8 @@
   "quarantined": [
     {
       "source": "free_tv_seleccionada",
-      "channel": "A24 Ⓨ",
-      "url": "https://www.youtube.com/c/A24com/live",
-      "status": "web/resolver required"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Televisión Pública Ⓨ",
-      "url": "https://www.youtube.com/user/TVPublicaArgentina/live",
-      "status": "web/resolver required"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Urbana Tevé",
-      "url": "https://www.youtube.com/channel/UCTnbbQUGmWEKeCq9wWoyN0g/live",
+      "channel": "Comarca TV",
+      "url": "https://www.youtube.com/c/ComarcaTV/live",
       "status": "web/resolver required"
     },
     {
@@ -271,8 +249,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "América Ⓨ",
-      "url": "https://www.youtube.com/c/americaenvivo/live",
+      "channel": "Televisión Pública Ⓨ",
+      "url": "https://www.youtube.com/user/TVPublicaArgentina/live",
       "status": "web/resolver required"
     },
     {
@@ -283,8 +261,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "TN Todo Noticias Ⓨ",
-      "url": "https://www.youtube.com/c/todonoticias/live",
+      "channel": "A24 Ⓨ",
+      "url": "https://www.youtube.com/c/A24com/live",
       "status": "web/resolver required"
     },
     {
@@ -301,8 +279,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "IP Noticias Ⓨ",
-      "url": "https://www.youtube.com/c/IPNoticiasEnVivo/live",
+      "channel": "TN Todo Noticias Ⓨ",
+      "url": "https://www.youtube.com/c/todonoticias/live",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Urbana Tevé",
+      "url": "https://www.youtube.com/channel/UCTnbbQUGmWEKeCq9wWoyN0g/live",
       "status": "web/resolver required"
     },
     {
@@ -313,8 +297,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Canal 26 Ⓨ",
-      "url": "https://www.youtube.com/c/canal26/live",
+      "channel": "RBC Ⓨ",
+      "url": "https://www.youtube.com/watch?v=oUdd3CsxYaE",
+      "status": "web/resolver required"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Crónica TV Ⓨ",
+      "url": "https://www.youtube.com/c/cronicatv/live",
       "status": "web/resolver required"
     },
     {
@@ -331,92 +321,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Crónica TV Ⓨ",
-      "url": "https://www.youtube.com/c/cronicatv/live",
+      "channel": "Argentina 12 Ⓨ",
+      "url": "https://www.youtube.com/c/IPNoticiasEnVivo/live",
       "status": "web/resolver required"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "RBC Ⓨ",
-      "url": "https://www.youtube.com/watch?v=oUdd3CsxYaE",
-      "status": "web/resolver required"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Comarca TV",
-      "url": "https://www.youtube.com/c/ComarcaTV/live",
-      "status": "web/resolver required"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Tec TV",
-      "url": "https://tv.initium.net.ar:3939/live/tectvmainlive.m3u8",
-      "status": "ConnectionError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Focus Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-fu/fu-clr.isml/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Cine34   Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-b6/b6-clr.isml/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Iris Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-ki/ki-clr.isml/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "El Trece",
-      "url": "https://live-01-02-eltrece.vodgc.net/eltrecetv/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Italia 1 Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-i1/i1-clr.isml/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Canale 5 Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "27 Twentyseven Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-ts/ts-clr.isml/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "La 5 Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-ka/ka-clr.isml/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Rete 4 Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "20 Mediaset Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-lb/lb-clr.isml/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Top Crime   Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-lt/lt-clr.isml/index.m3u8",
+      "channel": "Cielo Ⓖ",
+      "url": "https://hlslive-web-gcdn-skycdn-it.akamaized.net/TACT/11219/cieloweb/master.m3u8?hdnts=st=1764666351~exp=1829466206~acl=/*~hmac=b0e9165b6c55027903ad103c8219f363d8765eb300c0d9a339e9767fc3509556",
       "status": "HTTP 403"
     },
     {
@@ -427,8 +339,86 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Cielo Ⓖ",
-      "url": "https://hlslive-web-gcdn-skycdn-it.akamaized.net/TACT/11219/cieloweb/master.m3u8?hdnts=st=1764666351~exp=1829466206~acl=/*~hmac=b0e9165b6c55027903ad103c8219f363d8765eb300c0d9a339e9767fc3509556",
+      "channel": "Tec TV",
+      "url": "https://tv.initium.net.ar:3939/live/tectvmainlive.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Cine34   Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-b6/b6-clr.isml/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Focus Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-fu/fu-clr.isml/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Aunar",
+      "url": "https://5fb24b460df87.streamlock.net/live-cont.ar/mirador/playlist.m3u8",
+      "status": "SSLError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "27 Twentyseven Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-ts/ts-clr.isml/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Canale 5 Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Cine.AR",
+      "url": "https://5fb24b460df87.streamlock.net/live-cont.ar/cinear/playlist.m3u8",
+      "status": "SSLError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Iris Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-ki/ki-clr.isml/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "20 Mediaset Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-lb/lb-clr.isml/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Rete 4 Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "La 5 Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-ka/ka-clr.isml/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Italia 1 Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-i1/i1-clr.isml/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "DeporTV",
+      "url": "https://5fb24b460df87.streamlock.net/live-cont.ar/deportv/playlist.m3u8",
+      "status": "SSLError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Top Crime   Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-lt/lt-clr.isml/index.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -451,44 +441,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Rai Premium Ⓖ",
-      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746992&output=7&forceUserAgent=rainet/4.0.5",
-      "status": "HTTP 403"
+      "channel": "Telemax",
+      "url": "https://stream-gtlc.telecentro.net.ar/hls/telemaxhls/main.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Rai 3 Ⓖ",
-      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=308709&output=7&forceUserAgent=rainet/4.0.5",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Italia 2 Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-i2/i2-clr.isml/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Rai 4 Ⓖ",
-      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746966&output=7&forceUserAgent=rainet/4.0.5",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Rai 2 Ⓖ",
-      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=308718&output=7&forceUserAgent=rainet/4.0.5",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Rai 1 Ⓖ",
-      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=2606803&output=7&forceUserAgent=rainet/4.0.5",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Rai 5 Ⓖ",
-      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=395276&output=7&forceUserAgent=rainet/4.0.5",
+      "channel": "TGCOM 24 Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-kf/kf-clr.isml/index.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -499,26 +459,20 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Sky TG24 Ⓖ",
-      "url": "https://hlslive-web-gcdn-skycdn-it.akamaized.net/TACT/12221/web/master.m3u8?hdnts=st=1764666351~exp=1829466206~acl=/*~hmac=b0e9165b6c55027903ad103c8219f363d8765eb300c0d9a339e9767fc3509556",
+      "channel": "Rai 2 Ⓖ",
+      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=308718&output=7&forceUserAgent=rainet/4.0.5",
       "status": "HTTP 403"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Mediaset Extra Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-kq/kq-clr.isml/index.m3u8",
+      "channel": "Rai 3 Ⓖ",
+      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=308709&output=7&forceUserAgent=rainet/4.0.5",
       "status": "HTTP 403"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "TGCOM 24 Ⓖ",
-      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-kf/kf-clr.isml/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Rai YoYo Ⓖ",
-      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746899&output=7&forceUserAgent=rainet/4.0.5",
+      "channel": "Rai Premium Ⓖ",
+      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746992&output=7&forceUserAgent=rainet/4.0.5",
       "status": "HTTP 403"
     },
     {
@@ -529,32 +483,56 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Rai Scuola Ⓖ",
-      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=747011&output=7&forceUserAgent=rainet/4.0.5",
+      "channel": "Rai 4 Ⓖ",
+      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746966&output=7&forceUserAgent=rainet/4.0.5",
       "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Aunar",
-      "url": "https://5fb24b460df87.streamlock.net/live-cont.ar/mirador/playlist.m3u8",
-      "status": "SSLError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "DeporTV",
-      "url": "https://5fb24b460df87.streamlock.net/live-cont.ar/deportv/playlist.m3u8",
-      "status": "SSLError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Cine.AR",
-      "url": "https://5fb24b460df87.streamlock.net/live-cont.ar/cinear/playlist.m3u8",
-      "status": "SSLError"
     },
     {
       "source": "free_tv_seleccionada",
       "channel": "Rai News 24 Ⓖ",
       "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=1&output=7&forceUserAgent=rainet/4.0.5",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Sky TG24 Ⓖ",
+      "url": "https://hlslive-web-gcdn-skycdn-it.akamaized.net/TACT/12221/web/master.m3u8?hdnts=st=1764666351~exp=1829466206~acl=/*~hmac=b0e9165b6c55027903ad103c8219f363d8765eb300c0d9a339e9767fc3509556",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Rai YoYo Ⓖ",
+      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746899&output=7&forceUserAgent=rainet/4.0.5",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Canal 26",
+      "url": "https://stream-gtlc.telecentro.net.ar/hls/canal26hls/main.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Rai 1 Ⓖ",
+      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=2606803&output=7&forceUserAgent=rainet/4.0.5",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Mediaset Extra Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-kq/kq-clr.isml/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Italia 2 Ⓖ",
+      "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-i2/i2-clr.isml/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Rai 5 Ⓖ",
+      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=395276&output=7&forceUserAgent=rainet/4.0.5",
       "status": "HTTP 403"
     },
     {
@@ -565,15 +543,21 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Rai Sport Ⓖ",
-      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=358025&output=7&forceUserAgent=rainet/4.0.5",
+      "channel": "Radio TV Serie A con RDS",
+      "url": "https://stream.radioseriea.com/50773f0d0070476a8612d9984c6059d8/index.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Rai Scuola Ⓖ",
+      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=747011&output=7&forceUserAgent=rainet/4.0.5",
       "status": "HTTP 403"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Radio TV Serie A con RDS",
-      "url": "https://stream.radioseriea.com/50773f0d0070476a8612d9984c6059d8/index.m3u8",
-      "status": "ConnectionError"
+      "channel": "Rai Sport Ⓖ",
+      "url": "https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=358025&output=7&forceUserAgent=rainet/4.0.5",
+      "status": "HTTP 403"
     },
     {
       "source": "free_tv_seleccionada",
@@ -595,8 +579,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Gambero Rosso",
-      "url": "https://2018f6355a15442ebb37007fa4f6c064.msvdn.net/live/S7530969/XWerenuxbSdW/playlist.m3u8",
+      "channel": "Rai 4K Ⓖ",
+      "url": "https://raievent10-elem-live.akamaized.net/hls/live/619189/raievent10/raievent10/playlist.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -607,38 +591,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Rai 4K Ⓖ",
-      "url": "https://raievent10-elem-live.akamaized.net/hls/live/619189/raievent10/raievent10/playlist.m3u8",
+      "channel": "Gambero Rosso",
+      "url": "https://2018f6355a15442ebb37007fa4f6c064.msvdn.net/live/S7530969/XWerenuxbSdW/playlist.m3u8",
       "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Abc Tv",
-      "url": "https://diretta.arcapuglia.it:8080/live/abctv/index.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Radio 105 TV Ⓖ",
-      "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-ec/ec-clr.isml/index.m3u8",
-      "status": "variant unavailable"
     },
     {
       "source": "free_tv_seleccionada",
       "channel": "TV 2000",
       "url": "https://hls-live-tv2000.akamaized.net/hls/live/2028510/tv2000/master.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Virgin Radio TV Ⓖ",
-      "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-ew/ew-clr.isml/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Radio Montecarlo TV Ⓖ",
-      "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-bb/bb-clr.isml/index.m3u8",
       "status": "variant unavailable"
     },
     {
@@ -649,20 +609,26 @@
     },
     {
       "source": "free_tv_seleccionada",
+      "channel": "Basilicata 1 Tv",
+      "url": "http://77.68.40.210:8888/hls/basilicata1.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
       "channel": "R101 TV Ⓖ",
       "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-er/er-clr.isml/index.m3u8",
-      "status": "variant unavailable"
+      "status": "HTTP 451"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Abc Tv",
+      "url": "https://diretta.arcapuglia.it:8080/live/abctv/index.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
       "channel": "AB Channel",
       "url": "https://tsw.streamingwebtv24.it:1936/abchanneltv/abchanneltv/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Basilicata 1 Tv",
-      "url": "http://77.68.40.210:8888/hls/basilicata1.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -673,15 +639,39 @@
     },
     {
       "source": "free_tv_seleccionada",
+      "channel": "Calabria Uno Tv",
+      "url": "https://635320cd397eb.streamlock.net/live/ngrp:calabriaunolive_all/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Radio Montecarlo TV Ⓖ",
+      "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-bb/bb-clr.isml/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "free_tv_seleccionada",
       "channel": "Castrovillari Tv",
       "url": "http://msh0062.stream.seeweb.it/live/flv:stream00.sdp/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Calabria Uno Tv",
-      "url": "https://635320cd397eb.streamlock.net/live/ngrp:calabriaunolive_all/playlist.m3u8",
-      "status": "HTTP 404"
+      "channel": "Radio 105 TV Ⓖ",
+      "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-ec/ec-clr.isml/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Virgin Radio TV Ⓖ",
+      "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-ew/ew-clr.isml/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "AgroBrasil TV",
+      "url": "http://45.162.230.234:1935/agrobrasiltv/agrobrasiltv/playlist.m3u8",
+      "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
@@ -694,12 +684,6 @@
       "channel": "Canale 21",
       "url": "https://0ff9dd7fe9b64bc08a5fc4ed525454c3.msvdn.net/live/S38994111/B7j0ql4XaZtE/playlist.m3u8",
       "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "AgroBrasil TV",
-      "url": "http://45.162.230.234:1935/agrobrasiltv/agrobrasiltv/playlist.m3u8",
-      "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
@@ -733,20 +717,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "TVE RS",
-      "url": "http://streaming.procergs.com.br:1935/tve/stve/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
       "channel": "GS Channel",
       "url": "https://rst.saiuzwebnetwork.it:8081/retereggio/index.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Idea Plus",
-      "url": "https://rst.saiuzwebnetwork.it:19360/teleidea/teleidea.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -757,9 +729,27 @@
     },
     {
       "source": "free_tv_seleccionada",
+      "channel": "Idea Plus",
+      "url": "https://rst.saiuzwebnetwork.it:19360/teleidea/teleidea.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
       "channel": "News24 City",
       "url": "https://dc3.telesveva.com:4433/news24.mp4",
       "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Lucania Tv",
+      "url": "https://cdn15.streamshow.it/cloud-lucaniatv/lucaniatv/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Casa Sanremo Tv",
+      "url": "https://router.xdevel.com/video0s975911-633/stream/playlist_dvr.m3u8",
+      "status": "variant unavailable"
     },
     {
       "source": "free_tv_seleccionada",
@@ -775,20 +765,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Casa Sanremo Tv",
-      "url": "https://router.xdevel.com/video0s975911-633/stream/playlist_dvr.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "free_tv_seleccionada",
       "channel": "Italia Channel",
       "url": "https://stream1.aswifi.it/italiachannel/stream/index.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Lucania Tv",
-      "url": "https://cdn15.streamshow.it/cloud-lucaniatv/lucaniatv/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -799,26 +777,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Ofanto Tv",
-      "url": "https://videostream.isgm.it:3276/live/tvofantolive.m3u8",
-      "status": "ConnectionError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Nuova TV Nazionale",
-      "url": "https://stream4.xdevel.com/video0s975955-782/stream/playlist.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Nuova Tv 1",
-      "url": "https://nuovatv.net:8443/tv/stream.m3u8",
+      "channel": "Nuova Tv 2",
+      "url": "https://nuovatv.net:8443/tv2/stream.m3u8",
       "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Nuova Tv 2",
-      "url": "https://nuovatv.net:8443/tv2/stream.m3u8",
+      "channel": "LaC Tv Calabria",
+      "url": "https://f5842579ff984c1c98d63b8d789673eb.msvdn.net/live/S47282891/JWjL3xqPf4bX/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -829,8 +795,20 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Otto Channel",
-      "url": "https://ottop-live-meride.akamaized.net/hls/live/2039996/ch1/playlist.m3u8",
+      "channel": "Nuova TV Nazionale",
+      "url": "https://stream4.xdevel.com/video0s975955-782/stream/playlist.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Ofanto Tv",
+      "url": "https://videostream.isgm.it:3276/live/tvofantolive.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Le Cronache Lucane Tv",
+      "url": "http://stucazz.com:8888/hls/cronache.m3u8",
       "status": "variant unavailable"
     },
     {
@@ -841,14 +819,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Le Cronache Lucane Tv",
-      "url": "http://stucazz.com:8888/hls/cronache.m3u8",
-      "status": "variant unavailable"
+      "channel": "Canale 74 Sicilia",
+      "url": "https://stream.cp.ets-sistemi.it:1936/canale74/canale74/playlist.m3u8",
+      "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Orler Tv",
-      "url": "https://w1.mediastreaming.it/orlertv/livestream/playlist.m3u8",
+      "channel": "Partenope Tv",
+      "url": "https://diretta.arcapuglia.it:8080/live/partenope/index.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -865,8 +843,26 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Canale 74 Sicilia",
-      "url": "https://stream.cp.ets-sistemi.it:1936/canale74/canale74/playlist.m3u8",
+      "channel": "La7 Cinema",
+      "url": "https://viamotionhsi.netplus.ch/live/eds/la7d/browser-HLS8/la7d.m3u8",
+      "status": "ReadTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Quarto Canale Flegreo",
+      "url": "http://live.mariatvcdn.com/dialogos/171e41deedf405f10c7dd6311387fb43.sdp/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "FM Tv Marche",
+      "url": "https://bbtv.intvstream.net:3988/hybrid/play.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "GarganoTv",
+      "url": "https://cdn80-ger.azotosolutions.com:8443/cdnedge3/smil:live3.smil/playlist.m3u8",
       "status": "ConnectTimeout"
     },
     {
@@ -877,9 +873,9 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Radio Roma",
-      "url": "https://585b674743bbb.streamlock.net/9044/9044/playlist.m3u8",
-      "status": "HTTP 404"
+      "channel": "Di.Tv 80",
+      "url": "https://5f22d76e220e1.streamlock.net/ditv80/ditv80/playlist.m3u8",
+      "status": "variant unavailable"
     },
     {
       "source": "free_tv_seleccionada",
@@ -889,63 +885,15 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Quarto Canale Flegreo",
-      "url": "http://live.mariatvcdn.com/dialogos/171e41deedf405f10c7dd6311387fb43.sdp/playlist.m3u8",
+      "channel": "Radio Roma",
+      "url": "https://585b674743bbb.streamlock.net/9044/9044/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "La7 Cinema",
-      "url": "https://viamotionhsi.netplus.ch/live/eds/la7d/browser-HLS8/la7d.m3u8",
-      "status": "ReadTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Sardegna 1",
-      "url": "https://7e1cc2454f2242afabe05cc0a2f483cd.msvdn.net/live/S30721796/ZS3Xu8mn5f0J/playlist.m3u8",
-      "status": "ConnectionError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "SL 48 Tv",
-      "url": "http://media.velcom.it:1935/sl48/sl48/playlist.m3u8",
-      "status": "ConnectionError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Radio Radiosa Tv",
-      "url": "https://stream7.zivoli.it/radiosatv/radiosatv/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Di.Tv 80",
-      "url": "https://5f22d76e220e1.streamlock.net/ditv80/ditv80/playlist.m3u8",
+      "channel": "Otto Channel",
+      "url": "https://ottop-live-meride.akamaized.net/hls/live/2039996/ch1/playlist.m3u8",
       "status": "variant unavailable"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Radio Libertà",
-      "url": "https://router.xdevel.com/video0s975360-67/stream/playlist_dvr.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "GarganoTv",
-      "url": "https://cdn80-ger.azotosolutions.com:8443/cdnedge3/smil:live3.smil/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Radio Bruno Tv",
-      "url": "https://router.xdevel.com/video0s975758-473/stream/playlist.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "FM Tv Marche",
-      "url": "https://bbtv.intvstream.net:3988/hybrid/play.m3u8",
-      "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
@@ -955,38 +903,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Radio Norba Tv",
-      "url": "https://router.xdevel.com/video0s975885-462/stream/playlist_dvr.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Roma Tv 82",
-      "url": "https://streaming.softwarecreation.it/RomaCH71/RomaCH71/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Tci",
-      "url": "https://tbn-jw.cdn.vustreams.com/live/tci/live.isml/2b7d53c5-b504-4d26-b25f-a70deb8d0faf.m3u8",
-      "status": "ConnectionError"
-    },
-    {
-      "source": "free_tv_seleccionada",
       "channel": "Entella Tv",
       "url": "https://5f22d76e220e1.streamlock.net:443/EntellaTV/EntellaTV/playlist.m3u8",
       "status": "variant unavailable"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "TVL (TV Libera Pistoia)",
-      "url": "http://live.mariatvcdn.com/mariatvcdn/70564e1c6884c007c76f0c128d679eed.sdp/mono.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Tele A",
-      "url": "https://lostream.it/hls/telea/video.m3u8",
+      "channel": "Sardegna 1",
+      "url": "https://7e1cc2454f2242afabe05cc0a2f483cd.msvdn.net/live/S30721796/ZS3Xu8mn5f0J/playlist.m3u8",
       "status": "ConnectionError"
     },
     {
@@ -1003,9 +927,15 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Sicilia Tv",
-      "url": "https://stream9.xdevel.com/video0s976441-1226/stream/playlist.m3u8",
-      "status": "HTTP 404"
+      "channel": "Radio Libertà",
+      "url": "https://router.xdevel.com/video0s975360-67/stream/playlist_dvr.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Radio Bruno Tv",
+      "url": "https://router.xdevel.com/video0s975758-473/stream/playlist.m3u8",
+      "status": "variant unavailable"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1027,21 +957,81 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Teatro Tv",
-      "url": "https://m.iostream.it/hls/teatrotv/teatrotv.m3u8",
-      "status": "SSLError"
-    },
-    {
-      "source": "free_tv_seleccionada",
       "channel": "Motori Tv",
       "url": "https://5f22d76e220e1.streamlock.net/servizio01/servizio01/playlist.m3u8",
       "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
+      "channel": "TVL (TV Libera Pistoia)",
+      "url": "http://live.mariatvcdn.com/mariatvcdn/70564e1c6884c007c76f0c128d679eed.sdp/mono.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Tci",
+      "url": "https://tbn-jw.cdn.vustreams.com/live/tci/live.isml/2b7d53c5-b504-4d26-b25f-a70deb8d0faf.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Roma Tv 82",
+      "url": "https://streaming.softwarecreation.it/RomaCH71/RomaCH71/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Tele A",
+      "url": "https://lostream.it/hls/telea/video.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Radio Norba Tv",
+      "url": "https://router.xdevel.com/video0s975885-462/stream/playlist_dvr.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Sicilia Tv",
+      "url": "https://stream9.xdevel.com/video0s976441-1226/stream/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "SL 48 Tv",
+      "url": "http://media.velcom.it:1935/sl48/sl48/playlist.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "PrimaFREE",
+      "url": "https://5f22d76e220e1.streamlock.net/primafree/primafree/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Primantenna Torino",
+      "url": "https://5f22d76e220e1.streamlock.net/primantenna14/primantenna14/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Teatro Tv",
+      "url": "https://m.iostream.it/hls/teatrotv/teatrotv.m3u8",
+      "status": "SSLError"
+    },
+    {
+      "source": "free_tv_seleccionada",
       "channel": "Tele Liberta' HD",
       "url": "https://streaming.liberta.it/hls/liberta.m3u8",
       "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Tele Ischia",
+      "url": "https://rst.saiuzwebnetwork.it:8081/teleischia/index.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1057,12 +1047,6 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Tele Ischia",
-      "url": "https://rst.saiuzwebnetwork.it:8081/teleischia/index.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
       "channel": "Sienatv",
       "url": "https://router.xdevel.com/video0s976727-1441/stream/playlist.m3u8",
       "status": "variant unavailable"
@@ -1075,27 +1059,21 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Primantenna Torino",
-      "url": "https://5f22d76e220e1.streamlock.net/primantenna14/primantenna14/playlist.m3u8",
+      "channel": "Prima Tv Sicilia",
+      "url": "https://5db313b643fd8.streamlock.net/PrimaTV/PrimaTV/playlist.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Ran Friul",
+      "url": "https://5f22d76e220e1.streamlock.net/RanFriul/RanFriul/playlist.m3u8",
       "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "PrimaFREE",
-      "url": "https://5f22d76e220e1.streamlock.net/primafree/primafree/playlist.m3u8",
+      "channel": "Rei Tv",
+      "url": "https://5f22d76e220e1.streamlock.net/reitv/reitv/playlist.m3u8",
       "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Tele Pordenone",
-      "url": "https://video.wifi4all.it/telepn/telepn.m3u8",
-      "status": "SSLError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Tele Occidente",
-      "url": "https://stream9.xdevel.com/video0s976532-1292/stream/playlist.m3u8",
-      "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1105,9 +1083,15 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Tele Radio Ercolano",
-      "url": "https://rst.saiuzwebnetwork.it:19360/teleradioercolano-1/teleradioercolano-1.m3u8",
-      "status": "HTTP 404"
+      "channel": "Tele Pordenone",
+      "url": "https://video.wifi4all.it/telepn/telepn.m3u8",
+      "status": "SSLError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Rete Mia",
+      "url": "https://5db313b643fd8.streamlock.net/rete/rete/playlist.m3u8",
+      "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1117,8 +1101,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Tele Radio Orte",
-      "url": "https://flash2.xdevel.com/ortetv/ortetv/index.m3u8",
+      "channel": "Tele Radio Ercolano",
+      "url": "https://rst.saiuzwebnetwork.it:19360/teleradioercolano-1/teleradioercolano-1.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -1129,26 +1113,20 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Ran Friul",
-      "url": "https://5f22d76e220e1.streamlock.net/RanFriul/RanFriul/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Tele Venezia",
-      "url": "https://59d7d6f47d7fc.streamlock.net/televenezia/televenezia/playlist.m3u8",
+      "channel": "Tele Tutto",
+      "url": "https://600f07e114306.streamlock.net/TT_TELETUTTO/smil:TT.smil/playlist.m3u8",
       "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Prima Tv Sicilia",
-      "url": "https://5db313b643fd8.streamlock.net/PrimaTV/PrimaTV/playlist.m3u8",
-      "status": "variant unavailable"
     },
     {
       "source": "free_tv_seleccionada",
       "channel": "Tele Tutto 2",
       "url": "https://600f07e114306.streamlock.net/TT2_TELETUTTO/livestream/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Tele Radio Orte",
+      "url": "https://flash2.xdevel.com/ortetv/ortetv/index.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -1159,21 +1137,33 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Tele Tutto",
-      "url": "https://600f07e114306.streamlock.net/TT_TELETUTTO/smil:TT.smil/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
       "channel": "Tele Sirio",
       "url": "https://www.telesirio.it/live/stream.m3u8",
       "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Rei Tv",
-      "url": "https://5f22d76e220e1.streamlock.net/reitv/reitv/playlist.m3u8",
+      "channel": "RTM Manduria",
+      "url": "https://5f22d76e220e1.streamlock.net/rtm/rtm/playlist.m3u8",
       "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Tele Occidente",
+      "url": "https://stream9.xdevel.com/video0s976532-1292/stream/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "RTR99 Tv",
+      "url": "https://5e73cf528f404.streamlock.net/RTR99TV/livestream/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Tele Venezia",
+      "url": "https://59d7d6f47d7fc.streamlock.net/televenezia/televenezia/playlist.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1183,14 +1173,20 @@
     },
     {
       "source": "free_tv_seleccionada",
+      "channel": "ST Europe Channel",
+      "url": "https://5f22d76e220e1.streamlock.net/steuropetv/steuropetv/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
       "channel": "Telesveva",
       "url": "https://dc3.telesveva.com:4433/cmaf/livetv/index.mpd",
       "status": "ConnectionError"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Rete Mia",
-      "url": "https://5db313b643fd8.streamlock.net/rete/rete/playlist.m3u8",
+      "channel": "Sicilia 24 Tv",
+      "url": "https://5f22d76e220e1.streamlock.net/sicilia24/sicilia24/playlist.m3u8",
       "status": "ConnectTimeout"
     },
     {
@@ -1207,32 +1203,14 @@
     },
     {
       "source": "free_tv_seleccionada",
+      "channel": "Super Six",
+      "url": "https://5db313b643fd8.streamlock.net/SUPERSIXLombardia/SUPERSIXLombardia/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
       "channel": "TeleRent 7Gold",
       "url": "https://router.xdevel.com/video0s86-21/stream/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "RTM Manduria",
-      "url": "https://5f22d76e220e1.streamlock.net/rtm/rtm/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "RTR99 Tv",
-      "url": "https://5e73cf528f404.streamlock.net/RTR99TV/livestream/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "TG Norba 24",
-      "url": "https://router.xdevel.com/video0s976570-1326/stream/playlist_dvr.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "TeleRomaDue",
-      "url": "https://57068da1deb21.streamlock.net/teletibur/teletibur/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -1243,50 +1221,20 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Tremedia Tv",
-      "url": "https://stream4.xdevel.com/video0s976062-1263/stream/playlist_dvr.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "ST Europe Channel",
-      "url": "https://5f22d76e220e1.streamlock.net/steuropetv/steuropetv/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Umbria+ TRT",
-      "url": "https://diretta.teleterni.it:8080//show/show.m3u8",
-      "status": "ConnectionError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Sicilia 24 Tv",
-      "url": "https://5f22d76e220e1.streamlock.net/sicilia24/sicilia24/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Super Six",
-      "url": "https://5db313b643fd8.streamlock.net/SUPERSIXLombardia/SUPERSIXLombardia/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Vera Tv",
-      "url": "http://wms.shared.streamshow.it/veratv/veratv/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
       "channel": "TRL Tele Radio Leo",
       "url": "https://5db313b643fd8.streamlock.net/TRL/TRL/playlist.m3u8",
       "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Video Touring Tv",
-      "url": "https://streamingvideo.auranex.cloud/memfs/70baacad-47c6-41a6-aee0-86530c31e080.m3u8",
+      "channel": "TG Norba 24",
+      "url": "https://router.xdevel.com/video0s976570-1326/stream/playlist_dvr.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Umbria+ TRT",
+      "url": "https://diretta.teleterni.it:8080//show/show.m3u8",
       "status": "ConnectionError"
     },
     {
@@ -1297,21 +1245,15 @@
     },
     {
       "source": "free_tv_seleccionada",
+      "channel": "Tremedia Tv",
+      "url": "https://stream4.xdevel.com/video0s976062-1263/stream/playlist_dvr.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
       "channel": "Tele Arena",
       "url": "https://5e73cf528f404.streamlock.net/TeleArena/TeleArena.stream/playlist.m3u8",
       "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "VB33",
-      "url": "https://live.ipstream.it/vb33/vb33.stream/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Uno Tv",
-      "url": "https://stream1.aswifi.it/unotv/live/index.m3u8",
-      "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1324,6 +1266,24 @@
       "channel": "Tele Estense",
       "url": "https://5e73cf528f404.streamlock.net/TeleEstense/livestream/playlist.m3u8",
       "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Vera Tv",
+      "url": "http://wms.shared.streamshow.it/veratv/veratv/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Video Touring Tv",
+      "url": "https://streamingvideo.auranex.cloud/memfs/70baacad-47c6-41a6-aee0-86530c31e080.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "VB33",
+      "url": "https://live.ipstream.it/vb33/vb33.stream/playlist.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1369,15 +1329,21 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Tv Uno",
-      "url": "http://ftp.tiscali.it/francescovernata/TVUNO/monoscopioTvUNOint-1.wmv",
-      "status": "SSLError"
-    },
-    {
-      "source": "free_tv_seleccionada",
       "channel": "Canale 58",
       "url": "https://dotfvxkfj90ca.cloudfront.net/live/canale58_aac/master.m3u8",
       "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Uno Tv",
+      "url": "https://stream1.aswifi.it/unotv/live/index.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Yvii Tv",
+      "url": "https://stream.wired-shop.com/hls/yviitv.m3u8",
+      "status": "SSLError"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1387,9 +1353,21 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Yvii Tv",
-      "url": "https://stream.wired-shop.com/hls/yviitv.m3u8",
-      "status": "SSLError"
+      "channel": "Tele Radio Sciacca",
+      "url": "https://5db313b643fd8.streamlock.net/teleradiosciaccatv/teleradiosciaccatv/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Video Nola",
+      "url": "https://videonola.aswifi.it/videonolaabr/live.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "24h",
+      "url": "https://rtvelivestream.rtve.es/rtvesec/24h/24h_main_dvr.m3u8",
+      "status": "HTTP 403"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1405,14 +1383,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Webcom Tv",
-      "url": "https://www.webcomiptv.it/mistserver/passionelotto/index.m3u8",
-      "status": "SSLError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "24h",
-      "url": "https://rtvelivestream.rtve.es/rtvesec/24h/24h_main_dvr.m3u8",
+      "channel": "clan",
+      "url": "https://rtvelivestream.rtve.es/rtvesec/clan/clan_main_dvr.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -1423,21 +1395,15 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "TV Câmara",
-      "url": "https://stream3.camara.gov.br/tv1/manifest.m3u8",
+      "channel": "Tele Nord Genova",
+      "url": "https://64b16f23efbee.streamlock.net/telenord/telenord/playlist.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Tele Sud Puglia",
+      "url": "https://64b16f23efbee.streamlock.net/telesud/telesud/playlist.m3u8",
       "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Video Nola",
-      "url": "https://videonola.aswifi.it/videonolaabr/live.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "clan",
-      "url": "https://rtvelivestream.rtve.es/rtvesec/clan/clan_main_dvr.m3u8",
-      "status": "HTTP 403"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1453,8 +1419,20 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Be Mad Ⓖ",
-      "url": "https://directos.bemad.es/orilinear02/live/linear02/main/main.isml/main-audio_spa=128000-video=1500000.m3u8",
+      "channel": "Tv Uno",
+      "url": "http://ftp.tiscali.it/francescovernata/TVUNO/monoscopioTvUNOint-1.wmv",
+      "status": "SSLError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Webcom Tv",
+      "url": "https://www.webcomiptv.it/mistserver/passionelotto/index.m3u8",
+      "status": "SSLError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Divinity Ⓖ",
+      "url": "https://directos.divinity.es/orilinear04/live/linear04/main/main.isml/main-audio_spa=128000-video=1500000.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -1465,20 +1443,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Divinity Ⓖ",
-      "url": "https://directos.divinity.es/orilinear04/live/linear04/main/main.isml/main-audio_spa=128000-video=1500000.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Tele Liguria Sud",
-      "url": "https://64b16f23efbee.streamlock.net/teleliguriasud/teleliguriasud/playlist.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Tele Radio Sciacca",
-      "url": "https://5db313b643fd8.streamlock.net/teleradiosciaccatv/teleradiosciaccatv/playlist.m3u8",
+      "channel": "TeleAmbiente",
+      "url": "https://5f22d76e220e1.streamlock.net/teleambiente2024/teleambiente2024/playlist.m3u8",
       "status": "ConnectTimeout"
     },
     {
@@ -1495,9 +1461,39 @@
     },
     {
       "source": "free_tv_seleccionada",
+      "channel": "La Sexta",
+      "url": "http://a3live-lh.akamaihd.net/i/lasexta_1@35272/master.m3u8",
+      "status": "HTTP 400"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Neox Ⓢ",
+      "url": "http://a3live-lh.akamaihd.net/i/nxhds/geoneox_1@35261/master.m3u8",
+      "status": "HTTP 400"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Telecampione",
+      "url": "https://5f22d76e220e1.streamlock.net/telecampione/telecampione/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Mega Ⓢ",
+      "url": "http://a3live-lh.akamaihd.net/i/mghds/geomega_1@328914/master.m3u8",
+      "status": "HTTP 400"
+    },
+    {
+      "source": "free_tv_seleccionada",
       "channel": "Nova Ⓢ",
       "url": "http://40.160.24.55/Nova/index.m3u8",
       "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "IB3 Global Ⓨ",
+      "url": "https://www.youtube.com/c/ib3/live",
+      "status": "web/resolver required"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1513,62 +1509,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "La Sexta",
-      "url": "http://a3live-lh.akamaihd.net/i/lasexta_1@35272/master.m3u8",
-      "status": "HTTP 400"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Mega Ⓢ",
-      "url": "http://a3live-lh.akamaihd.net/i/mghds/geomega_1@328914/master.m3u8",
-      "status": "HTTP 400"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Neox Ⓢ",
-      "url": "http://a3live-lh.akamaihd.net/i/nxhds/geoneox_1@35261/master.m3u8",
-      "status": "HTTP 400"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "IB3 Global Ⓨ",
-      "url": "https://www.youtube.com/c/ib3/live",
-      "status": "web/resolver required"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Tele Nord Genova",
-      "url": "https://64b16f23efbee.streamlock.net/telenord/telenord/playlist.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Tele Sud Puglia",
-      "url": "https://64b16f23efbee.streamlock.net/telesud/telesud/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Telemadrid",
-      "url": "https://telemadrid-23-secure2.akamaized.net/master.m3u8",
-      "status": "HTTP 400"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "La Otra",
-      "url": "https://laotra-1-23-secure2.akamaized.net/master.m3u8",
-      "status": "HTTP 400"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "TeleAmbiente",
-      "url": "https://5f22d76e220e1.streamlock.net/teleambiente2024/teleambiente2024/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Telecampione",
-      "url": "https://5f22d76e220e1.streamlock.net/telecampione/telecampione/playlist.m3u8",
+      "channel": "Telecity Valle D'Aosta",
+      "url": "https://64b16f23efbee.streamlock.net/telecityvda/telecityvda/playlist.m3u8",
       "status": "ConnectTimeout"
     },
     {
@@ -1579,8 +1521,68 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Esport3 Ⓖ",
-      "url": "https://directes-tv-es.3catdirectes.cat/live-origin/esport3-hls/master.m3u8",
+      "channel": "Telecity Piemonte",
+      "url": "https://64b16f23efbee.streamlock.net/telecitypiemonte/telecitypiemonte/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "La Otra",
+      "url": "https://laotra-1-23-secure2.akamaized.net/master.m3u8",
+      "status": "HTTP 400"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Telemadrid",
+      "url": "https://telemadrid-23-secure2.akamaized.net/master.m3u8",
+      "status": "HTTP 400"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Telegenova",
+      "url": "https://64b16f23efbee.streamlock.net/telegenova/telegenova/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Teleiblea",
+      "url": "https://5f22d76e220e1.streamlock.net/teleiblea/teleiblea/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Be Mad Ⓖ",
+      "url": "https://directos.bemad.es/orilinear02/live/linear02/main/main.isml/main-audio_spa=128000-video=1500000.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Telecittà Padova",
+      "url": "https://tango.wifi4all.it/telecitta/telecitta.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Telenova",
+      "url": "https://64b16f23efbee.streamlock.net/telenova/telenova/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "TeleRegione Live",
+      "url": "https://5f22d76e220e1.streamlock.net/galluralive/galluralive/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Telereporter",
+      "url": "https://5f22d76e220e1.streamlock.net/telereporter/telereporter/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Squirrel",
+      "url": "https://tsw.streamingwebtv24.it:1936/inteccdn1/inteccdn1/playlist.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -1603,14 +1605,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Squirrel",
-      "url": "https://tsw.streamingwebtv24.it:1936/inteccdn1/inteccdn1/playlist.m3u8",
-      "status": "HTTP 403"
+      "channel": "Telesud Trapani",
+      "url": "https://64b16f23efbee.streamlock.net/telesudtrapani/telesudtrapani/playlist.m3u8",
+      "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "BBC One Ⓖ",
-      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_one_yorks/iptv_hd_abr_v1.m3u8",
+      "channel": "El 33 Ⓖ",
+      "url": "https://directes-tv-cat.3catdirectes.cat/live-origin/c33-super3-hls/master.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -1621,176 +1623,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "BOM Cine",
-      "url": "https://tsw.streamingwebtv24.it:1936/inteccdn3/inteccdn3/playlist.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Telecity Piemonte",
-      "url": "https://64b16f23efbee.streamlock.net/telecitypiemonte/telecitypiemonte/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Telecity Valle D'Aosta",
-      "url": "https://64b16f23efbee.streamlock.net/telecityvda/telecityvda/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "BBC Two Ⓖ",
-      "url": "https://vs-hls-push-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_two_hd/iptv_hd_abr_v1.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Teleiblea",
-      "url": "https://5f22d76e220e1.streamlock.net/teleiblea/teleiblea/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Telegenova",
-      "url": "https://64b16f23efbee.streamlock.net/telegenova/telegenova/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Telecittà Padova",
-      "url": "https://tango.wifi4all.it/telecitta/telecitta.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "La 7 CYLTV",
-      "url": "http://nws.nice264.com/ilive/cyl/cyl_cyltvlivem_MB_348/playlist.m3u8",
-      "status": "SSLError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "BBC Alba Ⓖ",
-      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_alba/iptv_hd_abr_v1.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "BBC Four Ⓖ",
-      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_four_hd/iptv_hd_abr_v1.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "BBC Scotland Ⓢ Ⓖ",
-      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_scotland_hd/pc_hd_abr_v2.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "BBC Three Ⓖ",
-      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_three_hd/iptv_hd_abr_v1.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Canal 4 Tenerife",
-      "url": "https://videoserver.tmcreativos.com:19360/hkbpjryheu/hkbpjryheu.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "TeleRegione Live",
-      "url": "https://5f22d76e220e1.streamlock.net/galluralive/galluralive/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Telenova",
-      "url": "https://64b16f23efbee.streamlock.net/telenova/telenova/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "À Punt TV",
-      "url": "https://bcovlive-a.akamaihd.net/8499d938ef904e39b58a4adec2ddeada/eu-west-1/6057955885001/playlist_dvr.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Channel 5 Ⓢ",
-      "url": "http://193.46.58.239:8080/Channel5/index.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Blaze Ⓖ",
-      "url": "https://live.blaze.tv/live7/blaze/bitrate1.isml/live.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Telereporter",
-      "url": "https://5f22d76e220e1.streamlock.net/telereporter/telereporter/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "S4C Ⓖ",
-      "url": "https://live-uk.s4c-cdn.co.uk/out/v1/a0134f1fd5a2461b9422b574566d4442/live_uk.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "CBeebies Ⓖ",
-      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:cbeebies_hd/t=3840/v=pv14/b=5070016/main.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "CBBC Ⓖ",
-      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:cbbc_hd/t=3840/v=pv14/b=5070016/main.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "France 24 Ⓨ",
-      "url": "https://www.youtube.com/c/france24english/live",
-      "status": "web/resolver required"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "BBC Parliament Ⓢ Ⓖ",
-      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_parliament/pc_hd_abr_v2.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Telesud Trapani",
-      "url": "https://64b16f23efbee.streamlock.net/telesudtrapani/telesudtrapani/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Talking Pictures TV Ⓢ",
-      "url": "http://92.114.85.72:8000/play/a0la",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Together TV Ⓢ",
-      "url": "http://92.114.85.72:8000/play/a0j8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "TeleRegione Color",
-      "url": "https://live.antennasudwebtv.it:9443/hls/vodtele.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "SX3 Ⓖ",
-      "url": "https://directes-tv-cat.3catdirectes.cat/live-content/super3-hls/master.m3u8",
+      "channel": "Esport3 Ⓖ",
+      "url": "https://directes-tv-es.3catdirectes.cat/live-origin/esport3-hls/master.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -1807,27 +1641,93 @@
     },
     {
       "source": "free_tv_seleccionada",
+      "channel": "BBC One Ⓖ",
+      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_one_yorks/iptv_hd_abr_v1.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "TeleRegione Color",
+      "url": "https://live.antennasudwebtv.it:9443/hls/vodtele.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "BBC Two Ⓖ",
+      "url": "https://vs-hls-push-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_two_hd/iptv_hd_abr_v1.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "À Punt TV",
+      "url": "https://bcovlive-a.akamaihd.net/8499d938ef904e39b58a4adec2ddeada/eu-west-1/6057955885001/playlist_dvr.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
       "channel": "Trentino Tv",
       "url": "https://5e73cf528f404.streamlock.net/TrentinoTV/livestream/playlist.m3u8",
       "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "El 33 Ⓖ",
-      "url": "https://directes-tv-cat.3catdirectes.cat/live-origin/c33-super3-hls/master.m3u8",
+      "channel": "La 7 CYLTV",
+      "url": "http://nws.nice264.com/ilive/cyl/cyl_cyltvlivem_MB_348/playlist.m3u8",
+      "status": "SSLError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "S4C Ⓖ",
+      "url": "https://live-uk.s4c-cdn.co.uk/out/v1/a0134f1fd5a2461b9422b574566d4442/live_uk.m3u8",
       "status": "HTTP 403"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Canal TE24",
-      "url": "https://ingest1-video.streaming-pro.com/esportsteABR/etestream/playlist.m3u8",
+      "channel": "BBC Scotland Ⓢ Ⓖ",
+      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_scotland_hd/pc_hd_abr_v2.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Canal 4 Tenerife",
+      "url": "https://videoserver.tmcreativos.com:19360/hkbpjryheu/hkbpjryheu.m3u8",
       "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Sky News Ⓖ",
-      "url": "https://linear021-gb-hls1-prd-ak.cdn.skycdp.com/Content/HLS_001_hd/Live/channel(skynews)/index_mob.m3u8",
+      "channel": "BBC Alba Ⓖ",
+      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_alba/iptv_hd_abr_v1.m3u8",
       "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "BBC Four Ⓖ",
+      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_four_hd/iptv_hd_abr_v1.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Equos Tv",
+      "url": "https://dacastmmd.mmdlive.lldns.net/dacastmmd/2824fb123d5e44b797232c7abf8195da/playlist.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "BBC Three Ⓖ",
+      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_three_hd/iptv_hd_abr_v1.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Channel 5 Ⓢ",
+      "url": "http://193.46.58.239:8080/Channel5/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "France 24 Ⓨ",
+      "url": "https://www.youtube.com/c/france24english/live",
+      "status": "web/resolver required"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1837,9 +1737,69 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "STV Ⓖ",
-      "url": "https://csm-e-stv-eb.tls1.yospace.com/csm/live/139900483.m3u8",
-      "status": "HTTP 400"
+      "channel": "CBBC Ⓖ",
+      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:cbbc_hd/t=3840/v=pv14/b=5070016/main.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "BOM Cine",
+      "url": "https://tsw.streamingwebtv24.it:1936/inteccdn3/inteccdn3/playlist.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "SX3 Ⓖ",
+      "url": "https://directes-tv-cat.3catdirectes.cat/live-content/super3-hls/master.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Together TV Ⓢ",
+      "url": "http://92.114.85.72:8000/play/a0j8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "BBC Parliament Ⓢ Ⓖ",
+      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_parliament/pc_hd_abr_v2.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Talking Pictures TV Ⓢ",
+      "url": "http://92.114.85.72:8000/play/a0la",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Blaze Ⓖ",
+      "url": "https://live.blaze.tv/live7/blaze/bitrate1.isml/live.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Tvr Xenon",
+      "url": "https://cdn107-ita.azotosolutions.com:8443/cdnedge4/smil:live4.smil/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "CBeebies Ⓖ",
+      "url": "https://vs-hls-pushb-uk-live.akamaized.net/x=4/i=urn:bbc:pips:service:cbeebies_hd/t=3840/v=pv14/b=5070016/main.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Sky News Ⓖ",
+      "url": "https://linear021-gb-hls1-prd-ak.cdn.skycdp.com/Content/HLS_001_hd/Live/channel(skynews)/index_mob.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Canal TE24",
+      "url": "https://ingest1-video.streaming-pro.com/esportsteABR/etestream/playlist.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1855,9 +1815,9 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Tvr Xenon",
-      "url": "https://cdn107-ita.azotosolutions.com:8443/cdnedge4/smil:live4.smil/playlist.m3u8",
-      "status": "ConnectTimeout"
+      "channel": "STV Ⓖ",
+      "url": "https://csm-e-stv-eb.tls1.yospace.com/csm/live/139900483.m3u8",
+      "status": "HTTP 400"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1867,21 +1827,15 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Paramount Network",
-      "url": "https://jmp2.uk/plu-68d566603d3a9580eb461251.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "free_tv_seleccionada",
       "channel": "Docurama",
       "url": "https://cinedigm.vo.llnwd.net/conssui/amagi_hls_data_xumo1234A-docuramaA/CDN/master.m3u8",
       "status": "ConnectionError"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Stadium",
-      "url": "https://bcovlive-a.akamaihd.net/e64d564b9275484f85981d8c146fb915/us-east-1/5994000126001/profile_1/976f34cf5a614518b7b539cbf9812080/chunklist_ssaiV.m3u8",
-      "status": "HTTP 502"
+      "channel": "Vintage Radio Tv",
+      "url": "https://5f22d76e220e1.streamlock.net/vintageradiotv/vintageradiotv/playlist.m3u8",
+      "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1891,21 +1845,15 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "NASA TV Media",
-      "url": "https://ntv2.akamaized.net/hls/live/2013923/NASA-NTV2-HLS/master.m3u8",
-      "status": "variant unavailable"
+      "channel": "Vuemme Tv",
+      "url": "https://5db313b643fd8.streamlock.net/Vuemme/Vuemme/playlist.m3u8",
+      "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Sportitalia LIVE24",
-      "url": "https://di-g7ij0rwh.vo.lswcdn.net/sportitalia/silive24.smil/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Stories – Rakuten TV",
-      "url": "https://rakuten-spotlight-6-eu.rakuten.wurl.tv/playlist.m3u8",
-      "status": "ConnectionError"
+      "channel": "WLTV",
+      "url": "https://5db313b643fd8.streamlock.net/WLTV/WLTV/playlist.m3u8",
+      "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1915,8 +1863,26 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Classico – Rakuten TV",
-      "url": "https://rakuten-classico-1-eu.rakuten.wurl.tv/playlist.m3u8",
+      "channel": "Zerouno Tv Music",
+      "url": "https://5f22d76e220e1.streamlock.net/zerounotvmusic/zerounotvmusic/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Zerouno Tv News",
+      "url": "https://5f22d76e220e1.streamlock.net/01news/01news/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Stadium",
+      "url": "https://bcovlive-a.akamaihd.net/e64d564b9275484f85981d8c146fb915/us-east-1/5994000126001/profile_1/976f34cf5a614518b7b539cbf9812080/chunklist_ssaiV.m3u8",
+      "status": "HTTP 502"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Grande Fratello Vip Regia 2 Ⓢ Ⓖ",
+      "url": "https://live3.msf.cdn.mediaset.net/content/dash_d0_clr_vos/live/channel(b8)/manifest.mpd",
       "status": "ConnectionError"
     },
     {
@@ -1933,8 +1899,26 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Grande Fratello Vip Regia 2 Ⓢ Ⓖ",
-      "url": "https://live3.msf.cdn.mediaset.net/content/dash_d0_clr_vos/live/channel(b8)/manifest.mpd",
+      "channel": "Videolina",
+      "url": "http://livestreaming.videolina.it/live/Videolina/playlist.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Classico – Rakuten TV",
+      "url": "https://rakuten-classico-1-eu.rakuten.wurl.tv/playlist.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Stories – Rakuten TV",
+      "url": "https://rakuten-spotlight-6-eu.rakuten.wurl.tv/playlist.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Thriller – Rakuten TV",
+      "url": "https://rakuten-thriller-6-eu.rakuten.wurl.tv/playlist.m3u8",
       "status": "ConnectionError"
     },
     {
@@ -1945,9 +1929,15 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Vintage Radio Tv",
-      "url": "https://5f22d76e220e1.streamlock.net/vintageradiotv/vintageradiotv/playlist.m3u8",
-      "status": "ConnectTimeout"
+      "channel": "Sportitalia LIVE24",
+      "url": "https://di-g7ij0rwh.vo.lswcdn.net/sportitalia/silive24.smil/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "NASA TV Media",
+      "url": "https://ntv2.akamaized.net/hls/live/2013923/NASA-NTV2-HLS/master.m3u8",
+      "status": "variant unavailable"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1957,33 +1947,21 @@
     },
     {
       "source": "free_tv_seleccionada",
+      "channel": "NHK World Japan",
+      "url": "https://master.nhkworld.jp/nhkworld-tv/playlist/live.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "free_tv_seleccionada",
       "channel": "Canale Europa",
       "url": "https://canaleeuropa-canaleeuropa-1-it.samsung.wurl.tv/playlist.m3u8",
       "status": "ConnectionError"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Zerouno Tv Music",
-      "url": "https://5f22d76e220e1.streamlock.net/zerounotvmusic/zerounotvmusic/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Fashion TV",
-      "url": "https://fashiontv-fashiontv-3-it.samsung.wurl.com/manifest/playlist.m3u8",
-      "status": "ConnectionError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Vuemme Tv",
-      "url": "https://5db313b643fd8.streamlock.net/Vuemme/Vuemme/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "WLTV",
-      "url": "https://5db313b643fd8.streamlock.net/WLTV/WLTV/playlist.m3u8",
-      "status": "ConnectTimeout"
+      "channel": "BBC Radio 1Xtra",
+      "url": "https://lsn.lv/bbcradio.m3u8?station=bbc_1xtra&bitrate=320000",
+      "status": "HTTP 500"
     },
     {
       "source": "free_tv_seleccionada",
@@ -1999,20 +1977,32 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Zerouno Tv News",
-      "url": "https://5f22d76e220e1.streamlock.net/01news/01news/playlist.m3u8",
+      "channel": "Tele Gela",
+      "url": "https://64b16f23efbee.streamlock.net/telegela/telegela/playlist.m3u8",
       "status": "ConnectTimeout"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Thriller – Rakuten TV",
-      "url": "https://rakuten-thriller-6-eu.rakuten.wurl.tv/playlist.m3u8",
+      "channel": "FUEL TV",
+      "url": "https://fueltv-fueltv-6-it.samsung.wurl.com/manifest/playlist.m3u8",
       "status": "ConnectionError"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Motor1TV",
-      "url": "https://motorsportnetwork-motor1tv-1-it.samsung.wurl.tv/playlist.m3u8",
+      "channel": "Fashion TV",
+      "url": "https://fashiontv-fashiontv-3-it.samsung.wurl.com/manifest/playlist.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Paramount Network",
+      "url": "https://jmp2.uk/plu-68d566603d3a9580eb461251.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "free_tv_seleccionada",
+      "channel": "Teletubbies",
+      "url": "https://dhx-teletubbies-2-it.samsung.wurl.tv/playlist.m3u8",
       "status": "ConnectionError"
     },
     {
@@ -2023,14 +2013,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Teletubbies",
-      "url": "https://dhx-teletubbies-2-it.samsung.wurl.tv/playlist.m3u8",
-      "status": "ConnectionError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "FUEL TV",
-      "url": "https://fueltv-fueltv-6-it.samsung.wurl.com/manifest/playlist.m3u8",
+      "channel": "Motor1TV",
+      "url": "https://motorsportnetwork-motor1tv-1-it.samsung.wurl.tv/playlist.m3u8",
       "status": "ConnectionError"
     },
     {
@@ -2041,14 +2025,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "SuperToons TV",
-      "url": "https://kedoo-supertoonstv-4-it.samsung.wurl.tv/playlist.m3u8",
+      "channel": "MONDO TV KIDS",
+      "url": "https://mondotv-mondotvkids-1-it.samsung.wurl.tv/playlist.m3u8",
       "status": "ConnectionError"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "MONDO TV KIDS",
-      "url": "https://mondotv-mondotvkids-1-it.samsung.wurl.tv/playlist.m3u8",
+      "channel": "SuperToons TV",
+      "url": "https://kedoo-supertoonstv-4-it.samsung.wurl.tv/playlist.m3u8",
       "status": "ConnectionError"
     },
     {
@@ -2059,26 +2043,20 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Videolina",
-      "url": "http://livestreaming.videolina.it/live/Videolina/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
       "channel": "Clubbing TV",
       "url": "https://clubbingtv-samsunguk.amagi.tv/playlist.m3u8",
       "status": "ConnectionError"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Cinema Segreto",
-      "url": "https://minerva-cinemasegreto-1-it.samsung.wurl.tv/playlist.m3u8",
+      "channel": "Bizzarro Movies",
+      "url": "https://minerva-bizzarromovies-1-it.samsung.wurl.tv/playlist.m3u8",
       "status": "ConnectionError"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Equos Tv",
-      "url": "https://dacastmmd.mmdlive.lldns.net/dacastmmd/2824fb123d5e44b797232c7abf8195da/playlist.m3u8",
+      "channel": "Cinema Segreto",
+      "url": "https://minerva-cinemasegreto-1-it.samsung.wurl.tv/playlist.m3u8",
       "status": "ConnectionError"
     },
     {
@@ -2095,32 +2073,14 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "BBC Radio 5 Sports Extra",
-      "url": "https://lsn.lv/bbcradio.m3u8?station=bbc_radio_five_live_sports_extra&bitrate=320000",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "Tele Gela",
-      "url": "https://64b16f23efbee.streamlock.net/telegela/telegela/playlist.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "free_tv_seleccionada",
       "channel": "Sofy.tv",
       "url": "https://sofytv-samsungit.amagi.tv/playlist.m3u8",
       "status": "ConnectionError"
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Bizzarro Movies",
-      "url": "https://minerva-bizzarromovies-1-it.samsung.wurl.tv/playlist.m3u8",
-      "status": "ConnectionError"
-    },
-    {
-      "source": "free_tv_seleccionada",
-      "channel": "NHK World Japan",
-      "url": "https://master.nhkworld.jp/nhkworld-tv/playlist/live.m3u8",
+      "channel": "BBC Radio 5 Sports Extra",
+      "url": "https://lsn.lv/bbcradio.m3u8?station=bbc_radio_five_live_sports_extra&bitrate=320000",
       "status": "variant unavailable"
     },
     {
@@ -2131,9 +2091,9 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Deluxe Lounge HD",
-      "url": "https://d46c0ebf9ef94053848fdd7b1f2f6b90.mediatailor.eu-central-1.amazonaws.com/v1/master/81bfcafb76f9c947b24574657a9ce7fe14ad75c0/live-prod/9f58b8c3-80c1-11eb-908d-533d39655269/0/master.m3u8",
-      "status": "HTTP 504"
+      "channel": "Shorts Ⓖ",
+      "url": "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00784-shortsinternati-shortstv-fast-italy-samsungit/playlist.m3u8",
+      "status": "ConnectionError"
     },
     {
       "source": "free_tv_seleccionada",
@@ -2143,9 +2103,9 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "Shorts Ⓖ",
-      "url": "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00784-shortsinternati-shortstv-fast-italy-samsungit/playlist.m3u8",
-      "status": "ConnectionError"
+      "channel": "Deluxe Lounge HD",
+      "url": "https://d46c0ebf9ef94053848fdd7b1f2f6b90.mediatailor.eu-central-1.amazonaws.com/v1/master/81bfcafb76f9c947b24574657a9ce7fe14ad75c0/live-prod/9f58b8c3-80c1-11eb-908d-533d39655269/0/master.m3u8",
+      "status": "HTTP 504"
     },
     {
       "source": "free_tv_seleccionada",
@@ -2161,8 +2121,8 @@
     },
     {
       "source": "free_tv_seleccionada",
-      "channel": "ITV 4",
-      "url": "http://45.14.84.37/itv4/index.m3u8",
+      "channel": "Aragón TV Ⓢ",
+      "url": "https://cartv.streaming.aranova.es/hls/live/aragontv_canal1.m3u8",
       "status": "ConnectTimeout"
     },
     {
@@ -2173,21 +2133,27 @@
     },
     {
       "source": "free_tv_seleccionada",
+      "channel": "ITV 4",
+      "url": "http://45.14.84.37/itv4/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "free_tv_seleccionada",
       "channel": "Tele Nostra",
       "url": "https://13574-8.b.cdn12.com/hls/f099fa8883.ulive/_c/master.m3u8",
       "status": "ConnectionError"
     },
     {
       "source": "fuente_138",
-      "channel": "GEN HD2",
-      "url": "http://138.59.227.20:8000/play/a0ej/index.m3u8",
-      "status": "HTTP 404"
+      "channel": "Adult swim HD",
+      "url": "http://138.59.227.20:8000/play/a08d/index.m3u8",
+      "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
-      "channel": "Guaira Tv",
-      "url": "http://138.59.227.20:8000/play/a0ga/index.m3u8",
-      "status": "HTTP 404"
+      "channel": "Albirroja Tv",
+      "url": "http://138.59.227.20:8000/play/a0dx/index.m3u8",
+      "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
@@ -2203,38 +2169,32 @@
     },
     {
       "source": "fuente_138",
-      "channel": "C5N",
-      "url": "http://138.59.227.20:8000/play/a05v/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "C9N Digital",
-      "url": "http://138.59.227.20:8000/play/a0e6/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "CAMARA Camboriu",
-      "url": "http://138.59.227.20:8000/play/a0fw/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
       "channel": "Bruno Masi Tv",
       "url": "http://138.59.227.20:8000/play/a0gg/index.m3u8",
       "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
-      "channel": "CNN en Espaæol",
-      "url": "http://138.59.227.20:8000/play/a093/index.m3u8",
+      "channel": "C9N HD",
+      "url": "http://138.59.227.20:8000/play/a0fy/index.m3u8",
       "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
-      "channel": "Cadena Master Tv",
-      "url": "http://138.59.227.20:8000/play/a0ez/index.m3u8",
+      "channel": "Canal 8 Villarrica",
+      "url": "http://138.59.227.20:8000/play/a0fu/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Canal a",
+      "url": "http://138.59.227.20:8000/play/a06d/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Cambyreta Tv",
+      "url": "http://138.59.227.20:8000/play/a0gd/index.m3u8",
       "status": "variant unavailable"
     },
     {
@@ -2245,8 +2205,20 @@
     },
     {
       "source": "fuente_138",
-      "channel": "Comedy Central HD",
-      "url": "http://138.59.227.20:8000/play/a072/index.m3u8",
+      "channel": "Cartoon Network HD",
+      "url": "http://138.59.227.20:8000/play/a083/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Cine.AR",
+      "url": "http://138.59.227.20:8000/play/a069/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Crðnica",
+      "url": "http://138.59.227.20:8000/play/a05w/index.m3u8",
       "status": "variant unavailable"
     },
     {
@@ -2269,32 +2241,8 @@
     },
     {
       "source": "fuente_138",
-      "channel": "Crðnica",
-      "url": "http://138.59.227.20:8000/play/a05w/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
       "channel": "DirecTv Sports",
       "url": "http://138.59.227.20:8000/play/a0ft/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Discovery Turbo",
-      "url": "http://138.59.227.20:8000/play/a062/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Discovery Kids",
-      "url": "http://138.59.227.20:8000/play/a07r/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Discovery H&H HD",
-      "url": "http://138.59.227.20:8000/play/a08f/index.m3u8",
       "status": "variant unavailable"
     },
     {
@@ -2305,26 +2253,32 @@
     },
     {
       "source": "fuente_138",
-      "channel": "Natalicio Tv",
-      "url": "http://138.59.227.20:8000/play/a0dh/index.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Discovery Science",
-      "url": "http://138.59.227.20:8000/play/a06p/index.m3u8",
+      "channel": "Discovery H&H HD",
+      "url": "http://138.59.227.20:8000/play/a08f/index.m3u8",
       "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
-      "channel": "ESPN 4 HD",
-      "url": "http://138.59.227.20:8000/play/a084/index.m3u8",
-      "status": "ConnectTimeout"
+      "channel": "Discovery Turbo",
+      "url": "http://138.59.227.20:8000/play/a062/index.m3u8",
+      "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
       "channel": "Discovery Theater HD",
       "url": "http://138.59.227.20:8000/play/a074/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Discovery Kids",
+      "url": "http://138.59.227.20:8000/play/a07r/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Discovery Science",
+      "url": "http://138.59.227.20:8000/play/a06p/index.m3u8",
       "status": "variant unavailable"
     },
     {
@@ -2347,81 +2301,171 @@
     },
     {
       "source": "fuente_138",
-      "channel": "ESPN HD",
-      "url": "http://138.59.227.20:8000/play/a099/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
       "channel": "E! Entertainment",
       "url": "http://138.59.227.20:8000/play/a08z/index.m3u8",
       "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
-      "channel": "RPC HD",
-      "url": "http://138.59.227.20:8000/play/a0fl/index.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "SNT HD",
-      "url": "http://138.59.227.20:8000/play/a0e2/index.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "HBO 2",
-      "url": "http://138.59.227.20:8000/play/a07o/index.m3u8",
+      "channel": "ESPN 2 HD",
+      "url": "http://138.59.227.20:8000/play/a098/index.m3u8",
       "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
-      "channel": "HBO",
-      "url": "http://138.59.227.20:8000/play/a07m/index.m3u8",
+      "channel": "ESPN 3 HD",
+      "url": "http://138.59.227.20:8000/play/a09a/index.m3u8",
       "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
-      "channel": "La Nacion TV",
-      "url": "http://138.59.227.20:8000/play/a05y/index.m3u8",
+      "channel": "E40 DIGITAL",
+      "url": "http://138.59.227.20:8000/play/a0fp/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "ESPN 4 HD",
+      "url": "http://138.59.227.20:8000/play/a084/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "ESPN HD",
+      "url": "http://138.59.227.20:8000/play/a099/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "ESPN Premium HD",
+      "url": "http://138.59.227.20:8000/play/a086/index.m3u8",
       "status": "ConnectTimeout"
     },
     {
       "source": "fuente_138",
-      "channel": "Latele Digital",
-      "url": "http://138.59.227.20:8000/play/a0fi/index.m3u8",
+      "channel": "EWTN",
+      "url": "http://138.59.227.20:8000/play/a0g0/index.m3u8",
       "status": "ConnectTimeout"
     },
     {
       "source": "fuente_138",
-      "channel": "Latele HD",
-      "url": "http://138.59.227.20:8000/play/a0fg/index.m3u8",
+      "channel": "EWTN HD",
+      "url": "http://138.59.227.20:8000/play/a0fv/index.m3u8",
       "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "El Canal  de las Estrellas",
+      "url": "http://138.59.227.20:8000/play/a07x/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "El Gourmet",
+      "url": "http://138.59.227.20:8000/play/a07u/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Encuentro",
+      "url": "http://138.59.227.20:8000/play/a05s/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Europa Europa",
+      "url": "http://138.59.227.20:8000/play/a07t/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Comedy Central HD",
+      "url": "http://138.59.227.20:8000/play/a072/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "FX HD",
+      "url": "http://138.59.227.20:8000/play/a070/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "GEN HD2",
+      "url": "http://138.59.227.20:8000/play/a0ej/index.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Farra Play Tv",
+      "url": "http://138.59.227.20:8000/play/a0gj/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Film & Arts HD",
+      "url": "http://138.59.227.20:8000/play/a075/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Fox Sports 2 HD",
+      "url": "http://138.59.227.20:8000/play/a09b/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Mbocayaty Tv",
+      "url": "http://138.59.227.20:8000/play/a0gk/index.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "fuente_138",
       "channel": "Latina Tv",
       "url": "http://138.59.227.20:8000/play/a0gz/index.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Monumental Tv Digital",
+      "url": "http://138.59.227.20:8000/play/a0fr/index.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Natalicio Tv",
+      "url": "http://138.59.227.20:8000/play/a0dh/index.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Fox Sports 3 HD",
+      "url": "http://138.59.227.20:8000/play/a06y/index.m3u8",
       "status": "ConnectTimeout"
     },
     {
       "source": "fuente_138",
-      "channel": "Lifetime",
-      "url": "http://138.59.227.20:8000/play/a07l/index.m3u8",
+      "channel": "Fox Sports HD",
+      "url": "http://138.59.227.20:8000/play/a085/index.m3u8",
       "status": "ConnectTimeout"
     },
     {
       "source": "fuente_138",
-      "channel": "MTV",
-      "url": "http://138.59.227.20:8000/play/a06r/index.m3u8",
+      "channel": "Foz de Yguazu",
+      "url": "http://138.59.227.20:8000/play/a0gv/index.m3u8",
       "status": "ConnectTimeout"
     },
     {
       "source": "fuente_138",
-      "channel": "Maria Vision Tv",
-      "url": "http://138.59.227.20:8000/play/a0f7/index.m3u8",
+      "channel": "Futbol Total",
+      "url": "http://138.59.227.20:8000/play/a0fs/index.m3u8",
       "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Guaira Tv",
+      "url": "http://138.59.227.20:8000/play/a0ga/index.m3u8",
+      "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
@@ -2431,39 +2475,15 @@
     },
     {
       "source": "fuente_138",
-      "channel": "Mbocayaty Tv",
-      "url": "http://138.59.227.20:8000/play/a0gk/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "HBO Mundi",
-      "url": "http://138.59.227.20:8000/play/a06f/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Mega Tv HD",
-      "url": "http://138.59.227.20:8000/play/a0g8/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Metro",
-      "url": "http://138.59.227.20:8000/play/a06l/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
       "channel": "HBO Plus",
       "url": "http://138.59.227.20:8000/play/a07n/index.m3u8",
       "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
-      "channel": "HBO Signature",
-      "url": "http://138.59.227.20:8000/play/a06h/index.m3u8",
-      "status": "variant unavailable"
+      "channel": "Quiero Musica",
+      "url": "http://138.59.227.20:8000/play/a06s/index.m3u8",
+      "status": "ConnectTimeout"
     },
     {
       "source": "fuente_138",
@@ -2479,14 +2499,20 @@
     },
     {
       "source": "fuente_138",
+      "channel": "History 2",
+      "url": "http://138.59.227.20:8000/play/a06n/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
       "channel": "HGTV",
       "url": "http://138.59.227.20:8000/play/a06o/index.m3u8",
       "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
-      "channel": "History 2",
-      "url": "http://138.59.227.20:8000/play/a06n/index.m3u8",
+      "channel": "La Nacion TV",
+      "url": "http://138.59.227.20:8000/play/a05y/index.m3u8",
       "status": "variant unavailable"
     },
     {
@@ -2497,21 +2523,237 @@
     },
     {
       "source": "fuente_138",
-      "channel": "Monumental Tv Digital",
-      "url": "http://138.59.227.20:8000/play/a0fr/index.m3u8",
+      "channel": "Latele Digital",
+      "url": "http://138.59.227.20:8000/play/a0fi/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Latele HD",
+      "url": "http://138.59.227.20:8000/play/a0fg/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "RAI Italia",
+      "url": "http://138.59.227.20:8000/play/a06u/index.m3u8",
       "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "MTV",
+      "url": "http://138.59.227.20:8000/play/a06r/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "RCC TV",
+      "url": "http://138.59.227.20:8000/play/a0eu/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Maria Vision Tv",
+      "url": "http://138.59.227.20:8000/play/a0f7/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Lifetime",
+      "url": "http://138.59.227.20:8000/play/a07l/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Mega Tv HD",
+      "url": "http://138.59.227.20:8000/play/a0g8/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "RCC Tv",
+      "url": "http://138.59.227.20:8000/play/a0gh/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Metro",
+      "url": "http://138.59.227.20:8000/play/a06l/index.m3u8",
+      "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
       "channel": "Motor Sur Media",
       "url": "http://138.59.227.20:8000/play/a0do/index.m3u8",
-      "status": "ConnectTimeout"
+      "status": "variant unavailable"
     },
     {
       "source": "fuente_138",
       "channel": "NPY HD",
       "url": "http://138.59.227.20:8000/play/a0fm/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "RPC Digital",
+      "url": "http://138.59.227.20:8000/play/a0e3/index.m3u8",
       "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Nat Geo HD",
+      "url": "http://138.59.227.20:8000/play/a09f/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Nanduti Tv",
+      "url": "http://138.59.227.20:8000/play/a0eq/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "RPC HD",
+      "url": "http://138.59.227.20:8000/play/a0fl/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Next Tv",
+      "url": "http://138.59.227.20:8000/play/a0dp/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Nick Jr",
+      "url": "http://138.59.227.20:8000/play/a07s/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Nickelodeon",
+      "url": "http://138.59.227.20:8000/play/a08y/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Nuevo Tiempo",
+      "url": "http://138.59.227.20:8000/play/a0en/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Obedira Tv HD",
+      "url": "http://138.59.227.20:8000/play/a0g2/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "POPU TV HD",
+      "url": "http://138.59.227.20:8000/play/a0fq/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Pakapaka",
+      "url": "http://138.59.227.20:8000/play/a05t/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "PRO TV HD",
+      "url": "http://138.59.227.20:8000/play/a0fn/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "RT en Espaæol",
+      "url": "http://138.59.227.20:8000/play/a07d/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Radio Colmenar Tv",
+      "url": "http://138.59.227.20:8000/play/a0gf/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Paraguari Tv",
+      "url": "http://138.59.227.20:8000/play/a0fz/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Paraguay Tv",
+      "url": "http://138.59.227.20:8000/play/a0f8/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Red Digital San Pedro",
+      "url": "http://138.59.227.20:8000/play/a0gi/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Red Digital San Pedro",
+      "url": "http://138.59.227.20:8000/play/a0ey/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Paramount HD",
+      "url": "http://138.59.227.20:8000/play/a073/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Republica Tv Vca",
+      "url": "http://138.59.227.20:8000/play/a0gl/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Paravision HD",
+      "url": "http://138.59.227.20:8000/play/a0e4/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Playboy",
+      "url": "http://138.59.227.20:8000/play/a077/index.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "Rural",
+      "url": "http://138.59.227.20:8000/play/a06k/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "SNT",
+      "url": "http://138.59.227.20:8000/play/a0e7/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "SNT HD",
+      "url": "http://138.59.227.20:8000/play/a0e2/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "SNT IPTV",
+      "url": "http://138.59.227.20:8000/play/a0h4/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_45",
+      "channel": "CANAL 100 CHINIQUE",
+      "url": "http://45.5.118.152:8000/play/a05x/index.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "fuente_138",
@@ -2530,156 +2772,6 @@
       "channel": "Unicanal HD",
       "url": "http://138.59.227.20:8000/play/a0dy/index.m3u8",
       "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Rural",
-      "url": "http://138.59.227.20:8000/play/a06k/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "San Cristobal Tv",
-      "url": "http://138.59.227.20:8000/play/a0ex/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "SNT IPTV",
-      "url": "http://138.59.227.20:8000/play/a0h4/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Sextreme",
-      "url": "http://138.59.227.20:8000/play/a079/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Sony HD",
-      "url": "http://138.59.227.20:8000/play/a09c/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Radio Colmenar Tv",
-      "url": "http://138.59.227.20:8000/play/a0gf/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Sony Movies HD",
-      "url": "http://138.59.227.20:8000/play/a09j/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Space HD",
-      "url": "http://138.59.227.20:8000/play/a071/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Star Channel HD",
-      "url": "http://138.59.227.20:8000/play/a087/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Studio Universal",
-      "url": "http://138.59.227.20:8000/play/a067/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Suceso Tv",
-      "url": "http://138.59.227.20:8000/play/a0gc/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Sur Tv",
-      "url": "http://138.59.227.20:8000/play/a0e9/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_45",
-      "channel": "CANAL 100 CHINIQUE",
-      "url": "http://45.5.118.152:8000/play/a05x/index.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Red Digital San Pedro",
-      "url": "http://138.59.227.20:8000/play/a0gi/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Red Digital San Pedro",
-      "url": "http://138.59.227.20:8000/play/a0ey/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "TCM",
-      "url": "http://138.59.227.20:8000/play/a065/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Republica Tv Vca",
-      "url": "http://138.59.227.20:8000/play/a0gl/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "TLNovelas",
-      "url": "http://138.59.227.20:8000/play/a07y/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "TN HD",
-      "url": "http://138.59.227.20:8000/play/a097/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Nickelodeon",
-      "url": "http://138.59.227.20:8000/play/a08y/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "TNT HD",
-      "url": "http://138.59.227.20:8000/play/a08b/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "TNT Novelas HD",
-      "url": "http://138.59.227.20:8000/play/a08e/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "SNT",
-      "url": "http://138.59.227.20:8000/play/a0e7/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "TNT Series HD",
-      "url": "http://138.59.227.20:8000/play/a08c/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "TNT Sports HD",
-      "url": "http://138.59.227.20:8000/play/a06z/index.m3u8",
-      "status": "ConnectTimeout"
     },
     {
       "source": "fuente_45",
@@ -2725,32 +2817,8 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal 26 TV IAP HD",
-      "url": "https://vdo.tecnoservix.stream:3899/live/canal26tvlive.m3u8",
-      "status": "ConnectionError"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "TVM 25 SD [24/7](MPV)",
-      "url": "http://45.167.2.101:8000/play/a0nx/index.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "WOW TV HD",
-      "url": "https://service.cdn-stream.com/wow/wow_tv/playlist.m3u8",
-      "status": "SSLError"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Canal 3 El Super Canal SD (MPV)[Geo-blocked]",
-      "url": "https://d3jocgwjuhw91y.cloudfront.net/ts:abr.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Sol TV [No 24/7]",
-      "url": "https://videostream.shockmedia.com.ar/hls/canalsoltv/canalsoltv.m3u8",
+      "channel": "Canal 10 TVES [No 24/7]",
+      "url": "https://streamingcws30.com/tves/videotves/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -2761,26 +2829,14 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal 10 TVES [No 24/7]",
-      "url": "https://streamingcws30.com/tves/videotves/playlist.m3u8",
-      "status": "HTTP 404"
+      "channel": "Canal 3 El Super Canal SD (MPV)[Geo-blocked]",
+      "url": "https://d3jocgwjuhw91y.cloudfront.net/ts:abr.m3u8",
+      "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
       "channel": "Canal 7 Televisiete SD (MPV)[Geo-blocked]",
       "url": "https://d1zq2gydd8y59v.cloudfront.net/ts:abr.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Canal 4 TCS SD",
-      "url": "https://signal.teleon.live/play/rP9_TAOqGedqe0XHS4ZRgYZBI9V78fDojJfie5Ph5WuMlJ_XA_TDw0mimsmUS9v6VgHDGGg6UyM5QuQOztz59w6e_WwQI3YXBVVIPh7zAQ.m3u8?token=test",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Canal 12 HD [No 24/7][Opc.2]",
-      "url": "https://signal.teleon.live/play/WC3TjfK19uZWPrkJDdjF0CQxK8f8shHuniUetoUuIV37irVISR1VJtQ0T3Z9ECV5Xk5BvZfILYJ8TPyAxuPHMHmcGW7DRccdru4xIuRmVVozJFZrRAkazGHlKGv_gJLYV9QiH9vbxMolJYLIdyznKQ7MOHcGhcc.m3u8?token=test",
       "status": "HTTP 403"
     },
     {
@@ -2791,9 +2847,57 @@
     },
     {
       "source": "fuente_iptvsv",
+      "channel": "WOW TV HD",
+      "url": "https://service.cdn-stream.com/wow/wow_tv/playlist.m3u8",
+      "status": "SSLError"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canal 4 TCS SD",
+      "url": "https://signal.teleon.live/play/rP9_TAOqGedqe0XHS4ZRgYZBI9V78fDojJfie5Ph5WuMlJ_XA_TDw0mimsmUS9v6VgHDGGg6UyM5QuQOztz59w6e_WwQI3YXBVVIPh7zAQ.m3u8?token=test",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
       "channel": "Canal 6 TCS SD",
       "url": "https://signal.teleon.live/play/M-SFF5mIPhehGo_D8i6uMR6Bd-27NSk1CyGcC_RH3IU9KPSyUtE_LcTwpMg5b-Tf8SItAtfc-wgEZ3ikZvLWoUTNvdURyOyD.m3u8?token=test",
       "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "el nueve HD",
+      "url": "http://138.59.227.20:8000/play/a08k/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Sol TV [No 24/7]",
+      "url": "https://videostream.shockmedia.com.ar/hls/canalsoltv/canalsoltv.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canal 12 HD [No 24/7][Opc.2]",
+      "url": "https://signal.teleon.live/play/WC3TjfK19uZWPrkJDdjF0CQxK8f8shHuniUetoUuIV37irVISR1VJtQ0T3Z9ECV5Xk5BvZfILYJ8TPyAxuPHMHmcGW7DRccdru4xIuRmVVozJFZrRAkazGHlKGv_gJLYV9QiH9vbxMolJYLIdyznKQ7MOHcGhcc.m3u8?token=test",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canal 26 TV IAP HD",
+      "url": "https://vdo.tecnoservix.stream:3899/live/canal26tvlive.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "el trece HD",
+      "url": "http://138.59.227.20:8000/play/a07b/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_138",
+      "channel": "San Cristobal Tv",
+      "url": "http://138.59.227.20:8000/play/a0ex/index.m3u8",
+      "status": "variant unavailable"
     },
     {
       "source": "fuente_iptvsv",
@@ -2809,21 +2913,21 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal 13 HD [No 24/7](Esquipulas)",
-      "url": "https://tv91.hostingnuclear.com:19360/intercable/intercable.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_iptvsv",
       "channel": "Canal 6 SD [No 24/7](Panajachel)",
       "url": "https://stream.meteorito.cloud:1947/canal6/smil:canal6.smil/playlist.m3u8",
       "status": "SSLError"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal 5 El Líder HD (Nacional)",
-      "url": "https://mdstrm.com/live-stream-playlist/6287fdc9303e3008289ab711.m3u8",
-      "status": "HTTP 400"
+      "channel": "Canal 13 HD [No 24/7](Esquipulas)",
+      "url": "https://tv91.hostingnuclear.com:19360/intercable/intercable.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "EDN TV HD (Nacional)",
+      "url": "https://60417ddeaf0d9.streamlock.net/edntv/videoedntv/playlist.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
@@ -2833,15 +2937,15 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "TSi HD(Nacional)",
-      "url": "https://mdstrm.com/live-stream-playlist/6287fda8ea3b8b397d1ca2ed.m3u8",
-      "status": "HTTP 400"
-    },
-    {
-      "source": "fuente_iptvsv",
       "channel": "Omega TV [No 24/7] (Nacional)",
       "url": "https://5caf24a595d94.streamlock.net:1937/8142/8142/playlist.m3u8",
       "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canal 4 Repretel HD  (Nacional)[Geo-Blocked][Opc.1]",
+      "url": "https://dlhn7gdemxofz.cloudfront.net/ts:abr.m3u8",
+      "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
@@ -2851,8 +2955,8 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal 6 Repretel HD (Nacional)[Geo-Blocked][Opc.1]",
-      "url": "https://d3xpfoln9sj56.cloudfront.net/ts:abr.m3u8",
+      "channel": "Canal 11 Repretel HD (Nacional)[Geo-Blocked][Opc.1]",
+      "url": "https://d3mstgwjcwqz1y.cloudfront.net/ts:abr.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -2863,33 +2967,9 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal 4 Repretel HD  (Nacional)[Geo-Blocked][Opc.1]",
-      "url": "https://dlhn7gdemxofz.cloudfront.net/ts:abr.m3u8",
+      "channel": "Canal 6 Repretel HD (Nacional)[Geo-Blocked][Opc.1]",
+      "url": "https://d3xpfoln9sj56.cloudfront.net/ts:abr.m3u8",
       "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "EDN TV HD (Nacional)",
-      "url": "https://60417ddeaf0d9.streamlock.net/edntv/videoedntv/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Canal 11 Repretel HD (Nacional)[Geo-Blocked][Opc.1]",
-      "url": "https://d3mstgwjcwqz1y.cloudfront.net/ts:abr.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "La Top 102.9 HD (Tegucigalpa)",
-      "url": "https://59d39900ebfb8.streamlock.net/top102/top102/playlist.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Televisión Olanchana HD [No 24/7] (Olancho)",
-      "url": "https://viewhn.com/canal30/live/playlist.m3u8",
-      "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
@@ -2899,15 +2979,15 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Cartago Medios TV HD [No 24/7] (Cartago)",
-      "url": "https://acceso.mediosdecostarica.com:3511/stream/play.m3u8",
-      "status": "ConnectionError"
+      "channel": "La Top 107.7 HD [No 24/7](San Pedro Sula)",
+      "url": "https://59d39900ebfb8.streamlock.net/top107/top107/playlist.m3u8",
+      "status": "variant unavailable"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Las Estrellas HD (Nacional)[v1]",
-      "url": "https://channel01-onlymex.akamaized.net/hls/live/2022749/event01/index.m3u8",
-      "status": "HTTP 403"
+      "channel": "Cartago Medios TV HD [No 24/7] (Cartago)",
+      "url": "https://acceso.mediosdecostarica.com:3511/stream/play.m3u8",
+      "status": "ConnectionError"
     },
     {
       "source": "fuente_iptvsv",
@@ -2917,45 +2997,33 @@
     },
     {
       "source": "fuente_iptvsv",
+      "channel": "Las Estrellas HD (Nacional)[v1]",
+      "url": "https://channel01-onlymex.akamaized.net/hls/live/2022749/event01/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
       "channel": "Multimedios Canal 6 HD (CDMX)",
       "url": "https://mdstrm.com/live-stream-playlist/5f2d9d6ff17144074bd8a284.m3u8",
       "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "SQCS Canal 4 SD (Quintana Roo)",
-      "url": "https://video0.rogohosting.com:19360/4982/4982.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Warner Channel HD",
-      "url": "http://138.59.227.20:8000/play/a09d/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "Yguazu Tv",
-      "url": "http://138.59.227.20:8000/play/a0ge/index.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_138",
-      "channel": "ciudad magazine",
-      "url": "http://138.59.227.20:8000/play/a06m/index.m3u8",
-      "status": "variant unavailable"
+      "channel": "Canal 11 Internacional HD (Nacional)",
+      "url": "https://vivo.canaloncelive.tv/secureoncedos/oncedigital/playlist.m3u8",
+      "status": "HTTP 504"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Unison TV Canal 8 SD [No 24/7] (Sonora)",
-      "url": "https://stream.unison.mx/hls/unisontvatem.m3u8",
-      "status": "SSLError"
+      "channel": "Canal 15 ILCE HD (Nacional)",
+      "url": "https://live-ilce.ovp-vivaro.digital/ovp-origin-abr/ngrp:6359ef999f3fb_all/playlist.m3u8",
+      "status": "HTTP 404"
     },
     {
-      "source": "fuente_138",
-      "channel": "el trece HD",
-      "url": "http://138.59.227.20:8000/play/a07b/index.m3u8",
-      "status": "variant unavailable"
+      "source": "fuente_iptvsv",
+      "channel": "SQCS Canal 4 SD (Quintana Roo)",
+      "url": "https://video0.rogohosting.com:19360/4982/4982.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
@@ -2965,14 +3033,38 @@
     },
     {
       "source": "fuente_iptvsv",
+      "channel": "Unison TV Canal 8 SD [No 24/7] (Sonora)",
+      "url": "https://stream.unison.mx/hls/unisontvatem.m3u8",
+      "status": "SSLError"
+    },
+    {
+      "source": "fuente_iptvsv",
       "channel": "TV San Jorge HD [No 24/7] (Ocaña - Norte de Santander)",
       "url": "http://americatvbc.hopto.org:8080/hls/television/index.m3u8",
       "status": "ConnectionError"
     },
     {
       "source": "fuente_iptvsv",
+      "channel": "CNC Santander de Quilichao SD (Cauca)",
+      "url": "https://movil.ejeserver.com/live/cncsantander.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
       "channel": "Canal Mundo Visión HD [No 24/7] (Pereira - Risaralda)",
       "url": "https://movil.ejeserver.com/live/mundovisiontv.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canal PyC HD (Ibagué)",
+      "url": "https://live20.bozztv.com/akamaissh101/ssh101/pyctelevision/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canica TV SD [No 24.7](Cundinamarca)",
+      "url": "https://stmv4.voxtvhd.com.br/canicatv/canicatv/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -2983,21 +3075,9 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canica TV SD [No 24.7](Cundinamarca)",
-      "url": "https://stmv4.voxtvhd.com.br/canicatv/canicatv/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "CNC Santander de Quilichao SD (Cauca)",
-      "url": "https://movil.ejeserver.com/live/cncsantander.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Canal PyC HD (Ibagué)",
-      "url": "https://live20.bozztv.com/akamaissh101/ssh101/pyctelevision/playlist.m3u8",
-      "status": "HTTP 404"
+      "channel": "VitoTVO HD (Guayas) [Geo-Blocked]",
+      "url": "http://iptv.vitotvo.video.makrodigital.com:8081/vitotvo/iptv/playlist.m3u8",
+      "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
@@ -3013,21 +3093,9 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "VitoTVO HD (Guayas) [Geo-Blocked]",
-      "url": "http://iptv.vitotvo.video.makrodigital.com:8081/vitotvo/iptv/playlist.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
       "channel": "Teleantioquia HD (Antioquia / Regional) [Geo-Blocked]",
       "url": "https://liveingesta361.cdnmedia.tv/teleantioquialive/smil:dvrlive.smil/playlist.m3u8?DVR",
       "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "RTRTV HD (Guayas)",
-      "url": "https://tv3ecuador.site/hls/stream/index.m3u8",
-      "status": "SSLError"
     },
     {
       "source": "fuente_iptvsv",
@@ -3037,9 +3105,9 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Lo Nuestro TV",
-      "url": "https://vivatv.juanjuiserver.com:3669/live/lonuestrolive.m3u8",
-      "status": "ConnectionError"
+      "channel": "RTRTV HD (Guayas)",
+      "url": "https://tv3ecuador.site/hls/stream/index.m3u8",
+      "status": "SSLError"
     },
     {
       "source": "fuente_iptvsv",
@@ -3049,8 +3117,14 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Mega TV HD (Arequipa)",
-      "url": "https://183.bozztv.com/giatv/giatv-megatv/megatv/playlist.m3u8",
+      "channel": "Lo Nuestro TV",
+      "url": "https://vivatv.juanjuiserver.com:3669/live/lonuestrolive.m3u8",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Señal Positiva TV HD [No 24/7](Guayas)",
+      "url": "https://eu1.servers10.com:8081/8108/index.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3061,8 +3135,14 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Señal Positiva TV HD [No 24/7](Guayas)",
-      "url": "https://eu1.servers10.com:8081/8108/index.m3u8",
+      "channel": "Mega TV HD (Arequipa)",
+      "url": "https://183.bozztv.com/giatv/giatv-megatv/megatv/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "BHTV HD (Lima)",
+      "url": "https://5949aa132c8fb.streamlock.net:1963/iptvbhtv/livebhtvtv/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3073,26 +3153,14 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal 15 ILCE HD (Nacional)",
-      "url": "https://live-ilce.ovp-vivaro.digital/ovp-origin-abr/ngrp:6359ef999f3fb_all/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_iptvsv",
       "channel": "Onda Digital 3 HD [No 24/7](Lima / Nacional)",
       "url": "https://live.ondadigitaltv.com/ODTV3/index.fmp4.m3u8",
       "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "ChileVisión HD (Geo-Blocked)[Opc.2]",
-      "url": "https://redirector.rudo.video/hls-video/10b92cafdf3646cbc1e727f3dc76863621a327fd/chv/chv.smil/playlist.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "ChileVisión Deportes (Nacional) [Geo-Blocked]",
-      "url": "https://redirector.rudo.video/hls-video/10b92cafdf3646cbc1e727f3dc76863621a327fd/chvdeportes/chvdeportes.smil/playlist.m3u8",
+      "channel": "Visión Sur TV HD [No 24/7] (Arequipa)",
+      "url": "https://ott1.hdlatam.tv/live_abr/webtvVisionSur/playlist.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -3103,15 +3171,15 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Visión Sur TV HD [No 24/7] (Arequipa)",
-      "url": "https://ott1.hdlatam.tv/live_abr/webtvVisionSur/playlist.m3u8",
+      "channel": "ChileVisión Deportes (Nacional) [Geo-Blocked]",
+      "url": "https://redirector.rudo.video/hls-video/10b92cafdf3646cbc1e727f3dc76863621a327fd/chvdeportes/chvdeportes.smil/playlist.m3u8",
       "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal 3 Las Heras [No 24/7](Santa Cruz)",
-      "url": "https://stream.arcast.com.ar/canal3/canal3/playlist.m3u8",
-      "status": "HTTP 404"
+      "channel": "ClickTV [No24/7](Coronel - Biobío)",
+      "url": "https://v2.tustreaming.cl/clicktv/playlist.m3u8",
+      "status": "HTTP 503"
     },
     {
       "source": "fuente_iptvsv",
@@ -3121,27 +3189,21 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal 9 Tele Vida Mendoza SD [Geo-Blocked]",
-      "url": "https://unlimited1-saopaulo.dps.live/televidaar/livestream2/chunks.m3u8",
+      "channel": "La Red HD (Nacional)[Geo-Blocked]",
+      "url": "https://clbpktstvhls-1.clarovideo.com/bpk-tv/LAREDHD/hls_fk/index.m3u8",
       "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal 9 Tele Vida Mendoza HD [Geo-Blocked]",
-      "url": "https://unlimited1-saopaulo.dps.live/televidaar/livestream1/chunks.m3u8",
-      "status": "HTTP 403"
+      "channel": "Telefe Buenos Aires HD (Argentina)",
+      "url": "http://45.134.141.161:2200/ARG/TELEFE_HD/index.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Willax TV SD(Nacional)[Opc.2]",
-      "url": "http://181.78.192.238:8000/play/a1r5/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "América Televisión HD [Opc.3]",
-      "url": "http://190.238.43.117:9000/play/a0dg/index.m3u8",
-      "status": "ConnectTimeout"
+      "channel": "U Los Lagos TV HD [Not 24/7] (Osorno - Los Lagos)",
+      "url": "https://tv.ulagos.cl/web/live.m3u8",
+      "status": "SSLError"
     },
     {
       "source": "fuente_iptvsv",
@@ -3157,20 +3219,74 @@
     },
     {
       "source": "fuente_iptvsv",
+      "channel": "ATV SD (MPV)(Nacional)[Opc.3]",
+      "url": "http://181.224.200.5:2277/play/3232/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Global TV SD (MPV)(Nacional) [Opc.3]",
+      "url": "http://181.224.200.5:2277/play/a0co/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "América Televisión HD [Opc.3]",
+      "url": "http://190.238.43.117:9000/play/a0dg/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "ChileVisión HD (Geo-Blocked)[Opc.2]",
+      "url": "https://redirector.rudo.video/hls-video/10b92cafdf3646cbc1e727f3dc76863621a327fd/chv/chv.smil/playlist.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Willax TV SD(Nacional)[Opc.2]",
+      "url": "http://181.78.192.238:8000/play/a1r5/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Panamericana Televisión SD [Opc.3]",
+      "url": "http://181.224.200.5:2277/play/kkio/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canal 3 Las Heras [No 24/7](Santa Cruz)",
+      "url": "https://stream.arcast.com.ar/canal3/canal3/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canal 9 Tele Vida Mendoza HD [Geo-Blocked]",
+      "url": "https://unlimited1-saopaulo.dps.live/televidaar/livestream1/chunks.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canal 9 Tele Vida Mendoza SD [Geo-Blocked]",
+      "url": "https://unlimited1-saopaulo.dps.live/televidaar/livestream2/chunks.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
       "channel": "Antena 7 SD [Geo-Blocked]",
       "url": "https://d3gie3ig6argu.cloudfront.net/ts:abr.m3u8",
       "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "U Los Lagos TV HD [Not 24/7] (Osorno - Los Lagos)",
-      "url": "https://tv.ulagos.cl/web/live.m3u8",
-      "status": "SSLError"
+      "channel": "Orbit TV HD [No 24/7]",
+      "url": "https://edge.essastream.com/orbittv/index.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "La Red HD (Nacional)[Geo-Blocked]",
-      "url": "https://clbpktstvhls-1.clarovideo.com/bpk-tv/LAREDHD/hls_fk/index.m3u8",
+      "channel": "La 1 de TVE (Nacional)",
+      "url": "https://rtvelivestream.rtve.es/rtvesec/la1/la1_main.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -3181,8 +3297,8 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "La 1 de TVE (Nacional)",
-      "url": "https://rtvelivestream.rtve.es/rtvesec/la1/la1_main.m3u8",
+      "channel": "La 1 Canarias (Canarias)",
+      "url": "https://rtvelivestream.rtve.es/rtvesec/can/la1_can_main.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -3199,44 +3315,8 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "TeleMicro SD (MPV)",
-      "url": "https://live2.telemicro.com.do/live/55/playlist.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "La 1 Canarias (Canarias)",
-      "url": "https://rtvelivestream.rtve.es/rtvesec/can/la1_can_main.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "RNE para todos",
-      "url": "https://ztnr.rtve.es/ztnr/6688753.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "RNE para todos[Opc.2]",
-      "url": "https://rtvelivestream.rtve.es/rtvesec/rne/rne_para_todos_main.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "24h",
-      "url": "https://rtvelivestream.rtve.es/rtvesec/24h/24h_main_dvr.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
       "channel": "La 2 Canarias (Canarias)",
       "url": "https://rtvelivestream.rtve.es/rtvesec/can/la2_can_main.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "24h Catalunya",
-      "url": "https://ztnr.rtve.es/ztnr/4952053.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -3247,32 +3327,26 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "24h Canarias",
-      "url": "https://ztnr.rtve.es/ztnr/5473142.m3u8",
+      "channel": "RNE para todos[Opc.2]",
+      "url": "https://rtvelivestream.rtve.es/rtvesec/rne/rne_para_todos_main.m3u8",
       "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "+tdp",
-      "url": "https://ztnr.rtve.es/ztnr/6712456.m3u8",
+      "channel": "24h Catalunya",
+      "url": "https://ztnr.rtve.es/ztnr/4952053.m3u8",
       "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "+24",
-      "url": "https://ztnr.rtve.es/ztnr/6108696.m3u8",
+      "channel": "24h",
+      "url": "https://rtvelivestream.rtve.es/rtvesec/24h/24h_main_dvr.m3u8",
       "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "+24 [Opc.2]",
-      "url": "https://ztnr.rtve.es/ztnr/6108704.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Conciertos Radio 3 (RTVE)[Geo-Blocked]",
-      "url": "https://ztnr.rtve.es/ztnr/6924117.m3u8",
+      "channel": "RNE para todos",
+      "url": "https://ztnr.rtve.es/ztnr/6688753.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -3283,14 +3357,20 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "La Revuelta (RTVE)[Geo-Blocked]",
-      "url": "https://ztnr.rtve.es/ztnr/16464388.m3u8",
+      "channel": "+24 [Opc.2]",
+      "url": "https://ztnr.rtve.es/ztnr/6108704.m3u8",
       "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal Sur Andalucía",
-      "url": "https://live-24-canalsur.interactvty.pro/9bb0f4edcb8946e79f5017ddca6c02b0/26af5488cda642ed2eddd27a6328c93b9c03e9181b9d0a825147a7d978e69202.m3u8",
+      "channel": "24h Canarias",
+      "url": "https://ztnr.rtve.es/ztnr/5473142.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "+24",
+      "url": "https://ztnr.rtve.es/ztnr/6108696.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -3301,32 +3381,20 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Cuéntame (RTVE)[Geo-Blocked]",
-      "url": "https://ztnr.rtve.es/ztnr/6909843.m3u8",
+      "channel": "+tdp",
+      "url": "https://ztnr.rtve.es/ztnr/6712456.m3u8",
       "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Radio Nacional[Geo-blocked]",
-      "url": "https://ztnr.rtve.es/ztnr/6982891.m3u8",
+      "channel": "Conciertos Radio 3 (RTVE)[Geo-Blocked]",
+      "url": "https://ztnr.rtve.es/ztnr/6924117.m3u8",
       "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "San Fermín (RTVE)[Geo-blocked]",
-      "url": "https://ztnr.rtve.es/ztnr/16641913.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Al cielo con ella (RTVE)[Geo-blocked]",
-      "url": "https://ztnr.rtve.es/ztnr/16862827.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Somos Cine (RTVE)[Geo-blocked]",
-      "url": "https://ztnr.rtve.es/ztnr/6909845.m3u8",
+      "channel": "La Revuelta (RTVE)[Geo-Blocked]",
+      "url": "https://ztnr.rtve.es/ztnr/16464388.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -3337,14 +3405,26 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Radio 5 [Geo-blocked]",
-      "url": "https://ztnr.rtve.es/ztnr/6982917.m3u8",
+      "channel": "Ràdio 4 [Geo-Blocked]",
+      "url": "https://ztnr.rtve.es/ztnr/6982935.m3u8",
       "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Cocina (RTVE)[Geo-blocked]",
-      "url": "https://ztnr.rtve.es/ztnr/16656232.m3u8",
+      "channel": "San Fermín (RTVE)[Geo-blocked]",
+      "url": "https://ztnr.rtve.es/ztnr/16641913.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canal Sur Andalucía",
+      "url": "https://live-24-canalsur.interactvty.pro/9bb0f4edcb8946e79f5017ddca6c02b0/26af5488cda642ed2eddd27a6328c93b9c03e9181b9d0a825147a7d978e69202.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Radio 5 [Geo-blocked]",
+      "url": "https://ztnr.rtve.es/ztnr/6982917.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -3355,8 +3435,14 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Ràdio 4 [Geo-Blocked]",
-      "url": "https://ztnr.rtve.es/ztnr/6982935.m3u8",
+      "channel": "Cuéntame (RTVE)[Geo-Blocked]",
+      "url": "https://ztnr.rtve.es/ztnr/6909843.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Cocina (RTVE)[Geo-blocked]",
+      "url": "https://ztnr.rtve.es/ztnr/16656232.m3u8",
       "status": "HTTP 403"
     },
     {
@@ -3367,9 +3453,21 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal Coín TV Málaga (Coín - Málaga)",
-      "url": "https://canalcoin.garjim.es/hls/directo.m3u8",
-      "status": "SSLError"
+      "channel": "Al cielo con ella (RTVE)[Geo-blocked]",
+      "url": "https://ztnr.rtve.es/ztnr/16862827.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Radio Nacional[Geo-blocked]",
+      "url": "https://ztnr.rtve.es/ztnr/6982891.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Somos Cine (RTVE)[Geo-blocked]",
+      "url": "https://ztnr.rtve.es/ztnr/6909845.m3u8",
+      "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
@@ -3379,9 +3477,9 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "STZ Telebista (Santurtzi - Vizcaya)",
-      "url": "https://cloudvideo.servers10.com:8081/stztelebista/index.m3u8",
-      "status": "HTTP 404"
+      "channel": "Canal Coín TV Málaga (Coín - Málaga)",
+      "url": "https://canalcoin.garjim.es/hls/directo.m3u8",
+      "status": "SSLError"
     },
     {
       "source": "fuente_iptvsv",
@@ -3397,14 +3495,14 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Arabí TV Yecla (Yecla - Murcia)",
-      "url": "https://streamtv2.elitecomunicacion.cloud:3628/live/arabitv2025live.m3u8",
+      "channel": "STZ Telebista (Santurtzi - Vizcaya)",
+      "url": "https://cloudvideo.servers10.com:8081/stztelebista/index.m3u8",
       "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Tele 7 Vizcaya (Barakaldo - Vizcaya)",
-      "url": "https://ingest2-video.streaming-pro.com/tele7_ABR/stream/playlist.m3u8",
+      "channel": "Arabí TV Yecla (Yecla - Murcia)",
+      "url": "https://streamtv2.elitecomunicacion.cloud:3628/live/arabitv2025live.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3415,14 +3513,32 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "LIRA TV",
-      "url": "https://cloud2.streaminglivehd.com:1936/liratv/liratv/playlist.m3u8",
+      "channel": "Tele 7 Vizcaya (Barakaldo - Vizcaya)",
+      "url": "https://ingest2-video.streaming-pro.com/tele7_ABR/stream/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Imás TV [No 24/7]",
-      "url": "https://secure3.todostreaming.es/live/imastv-livestream.m3u8",
+      "channel": "ETB Eventos 2 [Geo-Blocked] (País Vasco)",
+      "url": "https://cdn1.etbon.eus/oc2/index.m3u8",
+      "status": "HTTP 451"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "TVE Int. Europa [Geo-Blocked][Opc.2]",
+      "url": "https://rtvelivestream.rtve.es/rtvesec/int/tvei_eu_main_dvr.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Anime Station (América Latina) [No 24/7]",
+      "url": "https://live20.bozztv.com/akamaissh101/ssh101/livestreamingtv/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Goierri Irrati TV (País Vasco)",
+      "url": "https://streaming.gitb.eus/hls/z.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3433,21 +3549,9 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "TVE Int. Europa [Geo-Blocked][Opc.2]",
-      "url": "https://rtvelivestream.rtve.es/rtvesec/int/tvei_eu_main_dvr.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Goierri Irrati TV (País Vasco)",
-      "url": "https://streaming.gitb.eus/hls/z.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Anime Station (América Latina) [No 24/7]",
-      "url": "https://live20.bozztv.com/akamaissh101/ssh101/livestreamingtv/playlist.m3u8",
-      "status": "HTTP 404"
+      "channel": "K-POP SD",
+      "url": "https://newidco-newkid-1-eu.xiaomi.wurl.tv/playlist.m3u8",
+      "status": "ConnectionError"
     },
     {
       "source": "fuente_iptvsv",
@@ -3457,33 +3561,21 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "K-POP SD",
-      "url": "https://newidco-newkid-1-eu.xiaomi.wurl.tv/playlist.m3u8",
-      "status": "ConnectionError"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "K-Drama+ (Rakuten)",
-      "url": "https://ca7c8b78.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWVzX0tEcmFtYV9ITFM/manifest.m3u8",
-      "status": "HTTP 504"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "ETB Eventos 2 [Geo-Blocked] (País Vasco)",
-      "url": "https://cdn1.etbon.eus/oc2/index.m3u8",
-      "status": "HTTP 451"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Zioon TV (Chile)",
-      "url": "https://live20.bozztv.com/giatv/giatv-ZYOONTV/ZYOONTV/playlist.m3u8",
-      "status": "variant unavailable"
+      "channel": "Cáritas TV HD",
+      "url": "https://rds3.desdeparaguay.net/caritastv/caritastv/playlist.m3u8",
+      "status": "ReadTimeout"
     },
     {
       "source": "fuente_iptvsv",
       "channel": "KPOP TV Play",
       "url": "https://183.bozztv.com/giatv/giatv-kpoptvplay/kpoptvplay/playlist.m3u8",
       "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "K-Drama+ (Rakuten)",
+      "url": "https://ca7c8b78.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWVzX0tEcmFtYV9ITFM/manifest.m3u8",
+      "status": "HTTP 504"
     },
     {
       "source": "fuente_iptvsv",
@@ -3499,8 +3591,8 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal Onza TV [No 24/7](Venezuela)",
-      "url": "https://live20.bozztv.com/giatv/giatv-onzatv1234/onzatv1234/chunks.m3u8",
+      "channel": "Canal Telemax RD [No 24/7] (Rep. Dominicana)",
+      "url": "https://edge.essastream.com/telemax/index.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3511,14 +3603,14 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Mittos TV [No 24/7]",
-      "url": "https://lbgo.bozztv.com/ssh101/ssh101/tv777lv/playlist.m3u8",
+      "channel": "Codigo TV [No 24/7](Rep. Dominicana)",
+      "url": "https://edge.essastream.com/codigotv/index.m3u8",
       "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "El 70 TV [No 24/7](Rep. Dominicana)",
-      "url": "https://183.bozztv.com/giatv/giatv-cnal70tv/cnal70tv/playlist.m3u8",
+      "channel": "Canal Onza TV [No 24/7](Venezuela)",
+      "url": "https://live20.bozztv.com/giatv/giatv-onzatv1234/onzatv1234/chunks.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3529,27 +3621,33 @@
     },
     {
       "source": "fuente_iptvsv",
+      "channel": "PRITV [No 24/7]",
+      "url": "https://lbgo.bozztv.com/ssh101/ssh101/tv1251master/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
       "channel": "RETROX PLUS [No 24/7]",
       "url": "https://lbgo.bozztv.com/ssh101/ssh101/retp/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "MiamiTV Models",
-      "url": "https://158c4a71a80948ceb6c3c0696f90f164.mediatailor.us-east-2.amazonaws.com/v1/master/c3d3fd1c31fa281b88eab2cd253e2ca576b6628b/fast-models/playlist.m3u8",
-      "status": "HTTP 504"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "MiamiTV Fashion",
-      "url": "https://cd3ab99e1e2247709dfc4c19848e7915.mediatailor.us-east-2.amazonaws.com/v1/master/c3d3fd1c31fa281b88eab2cd253e2ca576b6628b/fast-fashion/playlist.m3u8",
-      "status": "HTTP 504"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "EnerGeek Retro (América Latina)[Opc.2]",
-      "url": "https://cl-2.backend.energeek.cl/bkp/egretro/mobile/index.m3u8?token=W3bEnerG33k2026",
+      "channel": "Almería TV",
+      "url": "https://broadcast1.radioponiente.org/atv/index.m3u8",
       "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Telemundo USA",
+      "url": "http://45.5.117.188:8000/play/a077/index.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Telemundo USA [Opc.3]",
+      "url": "http://45.5.117.187:8000/play/a077/index.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
@@ -3571,14 +3669,38 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Almería TV",
-      "url": "https://broadcast1.radioponiente.org/atv/index.m3u8",
-      "status": "variant unavailable"
+      "channel": "Chespirito TV",
+      "url": "https://live20.bozztv.com/giatvplayout7/giatv-211111/playlist.m3u8",
+      "status": "HTTP 502"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Xtra TV [No 24/7](Rep. Dominicana)",
+      "url": "https://edge.essastream.com/xtratv/index.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Boreal (Internacional)",
+      "url": "https://edge.essastream.com/borealtelevision/tracks-v1a1/index.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
       "channel": "TEF (España)",
       "url": "https://tef.servertv.online:3268/live/teflive.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "B4U Music APAC",
+      "url": "https://s3.itcnbd.live/channel/6f6b7b6d25fbd0e6.m3u8",
+      "status": "ReadTimeout"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canal 9 Litoral (Entre Ríos / Argentina)",
+      "url": "https://stream.arcast.live/ahora/ahora/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3595,20 +3717,8 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal 9 Litoral (Entre Ríos / Argentina)",
-      "url": "https://stream.arcast.live/ahora/ahora/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_iptvsv",
       "channel": "Tiva TV (Puerto Rico)",
       "url": "https://link.frontlayer.com/services/hls2/fl496518/index.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "CEACOM TV (Not 24/7) (Yacuiba - Tarija)",
-      "url": "https://eu1.servers10.com:8081/ceacom/index.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3619,8 +3729,26 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Quielpue OnLine",
-      "url": "https://183.bozztv.com/giatv/giatv-quilpueo196208/quilpueo196208/playlist.m3u8",
+      "channel": "Venevisión [V3](Venezuela)",
+      "url": "https://jmp2.uk/rok-cc04d77fd589a818cd036c850b6be867.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Telemax (Argentina)",
+      "url": "https://stream-gtlc.telecentro.net.ar/hls/telemaxhls/main.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Azteca UNO SD (MPV)",
+      "url": "http://209.87.175.160:5001/play/a0cc/index.m3u8?hls",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Power Vision TV [No 24/7]",
+      "url": "https://lbgo.bozztv.com/ssh101/ssh101/powervision/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3631,33 +3759,9 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Venevisión [V3](Venezuela)",
-      "url": "https://jmp2.uk/rok-cc04d77fd589a818cd036c850b6be867.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Power Vision TV [No 24/7]",
-      "url": "https://lbgo.bozztv.com/ssh101/ssh101/powervision/playlist.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_iptvsv",
       "channel": "Ondas Quevedeñas TV [No 24/7] (Ecuador - Los Ríos)",
       "url": "https://stmv6.voxtvhd.com.br/radiosuprema/radiosuprema/playlist.m3u8",
       "status": "ConnectionError"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Azteca UNO SD (MPV)",
-      "url": "http://209.87.175.160:5001/play/a0cc/index.m3u8?hls",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "UPP TV / Bolivisión SCZ  [Not 24/7] (Santa Cruz)",
-      "url": "https://d1mws3umreue1g.cloudfront.net/_token/v1.1787190294.5NBNe6E7ov4YP0pXMd84Tqwkclbg5213yJ67yiSubk4/index.m3u8",
-      "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
@@ -3667,8 +3771,44 @@
     },
     {
       "source": "fuente_iptvsv",
+      "channel": "UPP TV / Bolivisión SCZ  [Not 24/7] (Santa Cruz)",
+      "url": "https://d1mws3umreue1g.cloudfront.net/_token/v1.1787190294.5NBNe6E7ov4YP0pXMd84Tqwkclbg5213yJ67yiSubk4/index.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "FilmRise Series Gratis",
+      "url": "https://live-manifest.production-public.tubi.io/live/5b66e78a-fc9e-4ffb-bbb0-00d4d2af2c53/playlist.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Cheaters en Español",
+      "url": "https://live-manifest.production-public.tubi.io/live/eca7fc67-ab6a-4d29-a25f-d8d77b7467a4/playlist.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "FilmRise Crímenes Verdaderos",
+      "url": "https://live-manifest.production-public.tubi.io/live/957d00c2-f581-4ec1-a49f-f571ad30faa8/playlist.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Alternativa TV [No 24/7](Colombia - Huasco - Atacama)",
+      "url": "https://live20.bozztv.com/giatv/giatv-alternativatv/alternativatv/playlist.m3u8",
+      "status": "HTTP 502"
+    },
+    {
+      "source": "fuente_iptvsv",
       "channel": "Planeta Radio TV [No 24/7](Ecuador - Guayas)[Opc.2]",
       "url": "https://lbgo.bozztv.com/ssh101/ssh101/planeta55tv/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "ContacTV [no 24/7]",
+      "url": "https://lbgo.bozztv.com/ssh101/ssh101/contactv/playlist.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3691,32 +3831,8 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "FilmRise Crímenes Verdaderos",
-      "url": "https://live-manifest.production-public.tubi.io/live/957d00c2-f581-4ec1-a49f-f571ad30faa8/playlist.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "FilmRise Series Gratis",
-      "url": "https://live-manifest.production-public.tubi.io/live/5b66e78a-fc9e-4ffb-bbb0-00d4d2af2c53/playlist.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_iptvsv",
       "channel": "Telefórmula (Nacional)",
       "url": "https://mdstrm.com/live-stream-playlist/62f2c855f7981b5a5a2d8763.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "RPP TV (Perú - Nacional)",
-      "url": "https://cdn-ssai.smartbit.co/rpp/index.m3u8",
-      "status": "ConnectionError"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "N+ Guadalajara (Jalisco)",
-      "url": "https://notusaauth.univision.com/api/v3/akamai-auth/token-auth?url=https://channel08secure-notusa.akamaized.net/hls/live/2037034-b/event01/index.m3u8&redirect=true",
       "status": "HTTP 403"
     },
     {
@@ -3733,20 +3849,26 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal CVI Cubavision (Cuba)",
-      "url": "https://cdn.teveo.cu/live/video/A36pWmuWvZBQskuZ/ngrp:gppfydfzpSUn9Udy.stream/playlist.m3u8",
-      "status": "HTTP 404"
+      "channel": "RPP TV (Perú - Nacional)",
+      "url": "https://cdn-ssai.smartbit.co/rpp/index.m3u8",
+      "status": "ConnectionError"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal 2000 La Solana HD (Ciudad Real - Castilla-La Mancha)",
-      "url": "https://signal.teleon.live/play/bC2WgQVzHlF-JVEm_8KOFWfQmrCFjGo8M_iTYywTkfpaEJ0xdI2l5kN0C4ctxBFBsnmabeLPHCgkbcq0PxbdOYlsbrcITMMQMqm42rrbnnQ09WMAOw9EnOLPGqkKjKwVRg.m3u8?token=test",
+      "channel": "N+ Guadalajara (Jalisco)",
+      "url": "https://notusaauth.univision.com/api/v3/akamai-auth/token-auth?url=https://channel08secure-notusa.akamaized.net/hls/live/2037034-b/event01/index.m3u8&redirect=true",
       "status": "HTTP 403"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Pequeradio TV (ES)",
-      "url": "https://live20.bozztv.com/akamaissh101/ssh101/pequeradiotv/playlist.m3u8",
+      "channel": "WIPR (Puerto Rico)",
+      "url": "https://streamwipr.pr/hls/stream/index.m3u8",
+      "status": "SSLError"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canal 26 (Nacional)",
+      "url": "https://stream-gtlc.telecentro.net.ar/hls/canal26hls/main.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3757,15 +3879,21 @@
     },
     {
       "source": "fuente_iptvsv",
+      "channel": "Canal 2000 La Solana HD (Ciudad Real - Castilla-La Mancha)",
+      "url": "https://signal.teleon.live/play/bC2WgQVzHlF-JVEm_8KOFWfQmrCFjGo8M_iTYywTkfpaEJ0xdI2l5kN0C4ctxBFBsnmabeLPHCgkbcq0PxbdOYlsbrcITMMQMqm42rrbnnQ09WMAOw9EnOLPGqkKjKwVRg.m3u8?token=test",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
       "channel": "Canal Provincial (Buenos Aires)",
       "url": "https://streaming.telered.com.ar/provincial/streaming/mystream.m3u8",
       "status": "SSLError"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Canal LMS",
-      "url": "https://live20.bozztv.com/akamaissh101/ssh101/canallms/playlist.m3u8",
-      "status": "HTTP 404"
+      "channel": "Pequeradio TV (ES)",
+      "url": "https://live20.bozztv.com/akamaissh101/ssh101/pequeradiotv/playlist.m3u8",
+      "status": "HTTP 502"
     },
     {
       "source": "fuente_iptvsv",
@@ -3775,21 +3903,27 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "WIPR (Puerto Rico)",
-      "url": "https://streamwipr.pr/hls/stream/index.m3u8",
-      "status": "SSLError"
+      "channel": "Canal LMS",
+      "url": "https://live20.bozztv.com/akamaissh101/ssh101/canallms/playlist.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Teleritmo (México)",
-      "url": "https://mdstrm.com/live-stream-playlist/57b4dc126338448314449d0c.m3u8",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Cheaters en Español",
-      "url": "https://live-manifest.production-public.tubi.io/live/eca7fc67-ab6a-4d29-a25f-d8d77b7467a4/playlist.m3u8",
+      "channel": "MAXC KIDS TV",
+      "url": "https://live20.bozztv.com/giatvplayout7/giatv-209909/playlist.m3u8",
       "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "MusicTop",
+      "url": "http://stream-gtlc.telecentro.net.ar/hls/musictophls/main.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Tierramia TV",
+      "url": "http://stream-gtlc.telecentro.net.ar/hls/tierramiahls/main.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
@@ -3799,8 +3933,32 @@
     },
     {
       "source": "fuente_iptvsv",
+      "channel": "Teleritmo (México)",
+      "url": "https://mdstrm.com/live-stream-playlist/57b4dc126338448314449d0c.m3u8",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Paréntesis TV (Chile)",
+      "url": "https://freya.mivideo.pro/parentesistv/index.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Canal CVI Cubavision (Cuba)",
+      "url": "https://cdn.teveo.cu/live/video/A36pWmuWvZBQskuZ/ngrp:gppfydfzpSUn9Udy.stream/playlist.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
       "channel": "MegaBox (Nicaragua) [No 24/7]",
       "url": "https://hdbox.chunklistv.com/live?stream=megabox",
+      "status": "HTTP 403"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "TVONE (Nicaragua) [No 24/7]",
+      "url": "https://hdbox.chunklistv.com/live?stream=tvone",
       "status": "HTTP 403"
     },
     {
@@ -3811,15 +3969,15 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "TVONE (Nicaragua) [No 24/7]",
-      "url": "https://hdbox.chunklistv.com/live?stream=tvone",
-      "status": "HTTP 403"
-    },
-    {
-      "source": "fuente_iptvsv",
       "channel": "Latinos TV [No 24/7]",
       "url": "https://v4.tustreaming.cl/latinostv/index.m3u8",
       "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Dreamswork HD",
+      "url": "http://190.238.43.117:9000/play/a0iq/index.m3u8",
+      "status": "ConnectTimeout"
     },
     {
       "source": "fuente_iptvsv",
@@ -3841,15 +3999,33 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "Dreamswork HD",
-      "url": "http://190.238.43.117:9000/play/a0iq/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_iptvsv",
       "channel": "Mundo Deportivo [No 24/7]",
       "url": "http://181.78.50.91:8000/play/a069/index.m3u8",
       "status": "ConnectionError"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "FOX (TUBI CEAM)",
+      "url": "https://live-manifest.production-public.tubi.io/live/350b89fa-8786-4dd8-9707-37d3e41cf0aa/playlist.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Nitro HD Eventos Deportivos [No 24/7]",
+      "url": "http://205.235.6.29:8000/play/a0y3/index.m3u8?hls",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Fox en tubi Xtra (Internacional) [No 24/7]",
+      "url": "https://live-manifest.production-public.tubi.io/live/13a764a8-a91d-4a17-a7f7-ee99250598b5/playlist.m3u8",
+      "status": "variant unavailable"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Azteca Deportes Network 3 HD",
+      "url": "https://live-manifest.production-public.tubi.io/live/6bf131c3-d664-424c-93c9-49188a788980/playlist.m3u8",
+      "status": "variant unavailable"
     },
     {
       "source": "fuente_iptvsv",
@@ -3859,8 +4035,8 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "FOX Sports 2 (USA)[Opc.2]",
-      "url": "http://186.33.26.18:8000/play/a0rt/index.m3u8",
+      "channel": "Win Sports HD [Opc.3]",
+      "url": "http://181.79.87.130:8000/play/a0ez/index.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3883,12 +4059,6 @@
     },
     {
       "source": "fuente_iptvsv",
-      "channel": "FOX (TUBI CEAM)",
-      "url": "https://live-manifest.production-public.tubi.io/live/350b89fa-8786-4dd8-9707-37d3e41cf0aa/playlist.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_iptvsv",
       "channel": "FOX [Opc.12]",
       "url": "http://181.78.192.238:8000/play/a2a5/index.m3u8",
       "status": "ConnectTimeout"
@@ -3903,6 +4073,12 @@
       "source": "fuente_iptvsv",
       "channel": "FOX NIC [Opc.2]",
       "url": "http://181.78.192.238:8000/play/a2hu/index.m3u8",
+      "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "Eventos PRO HD  [No 24/7]",
+      "url": "http://181.78.192.238:8000/play/a2hc/index.m3u8",
       "status": "ConnectTimeout"
     },
     {
@@ -3924,39 +4100,9 @@
       "status": "ConnectTimeout"
     },
     {
-      "source": "fuente_iptvsv",
-      "channel": "Eventos PRO HD  [No 24/7]",
-      "url": "http://181.78.192.238:8000/play/a2hc/index.m3u8",
-      "status": "ConnectTimeout"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Fox en tubi Xtra (Internacional) [No 24/7]",
-      "url": "https://live-manifest.production-public.tubi.io/live/13a764a8-a91d-4a17-a7f7-ee99250598b5/playlist.m3u8",
-      "status": "variant unavailable"
-    },
-    {
-      "source": "fuente_iptvsv",
-      "channel": "Azteca Deportes Network 3 HD",
-      "url": "https://live-manifest.production-public.tubi.io/live/6bf131c3-d664-424c-93c9-49188a788980/playlist.m3u8",
-      "status": "variant unavailable"
-    },
-    {
       "source": "fuente_181224255210",
       "channel": "39 TV",
       "url": "http://181.224.255.210:8001/play/axrv/index.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_181224255210",
-      "channel": "A1 TV",
-      "url": "http://181.224.255.210:8001/play/a0rz/index.m3u8",
-      "status": "HTTP 404"
-    },
-    {
-      "source": "fuente_181224255210",
-      "channel": "CANAL 39",
-      "url": "http://181.224.255.210:8001/play/a0t0/index.m3u8",
       "status": "HTTP 404"
     },
     {
@@ -3970,6 +4116,18 @@
       "channel": "DSports + (MPV)",
       "url": "http://190.238.43.117:9000/play/a09d/index.m3u8",
       "status": "ConnectTimeout"
+    },
+    {
+      "source": "fuente_181224255210",
+      "channel": "A1 TV",
+      "url": "http://181.224.255.210:8001/play/a0rz/index.m3u8",
+      "status": "HTTP 404"
+    },
+    {
+      "source": "fuente_181224255210",
+      "channel": "CANAL 39",
+      "url": "http://181.224.255.210:8001/play/a0t0/index.m3u8",
+      "status": "HTTP 404"
     },
     {
       "source": "fuente_iptvsv",
@@ -4029,6 +4187,12 @@
       "source": "fuente_iptvsv",
       "channel": "DSports (MPV) [Opc. 6]",
       "url": "http://157.100.9.51:8000/play/a26e",
+      "status": "ConnectionError"
+    },
+    {
+      "source": "fuente_iptvsv",
+      "channel": "DSports + (MPV) [Opc.2]",
+      "url": "http://157.100.9.51:8000/play/a26d",
       "status": "ConnectionError"
     }
   ],
