@@ -1,0 +1,34 @@
+version: 1
+sources:
+  - id: iptv_org
+    type: github
+    url: https://iptv-org.github.io/iptv/index.m3u
+    enabled: true
+    trust: high
+  - id: free_tv
+    type: github
+    url: https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8
+    enabled: true
+    trust: high
+  - id: reddit_discovery
+    type: reddit
+    enabled: true
+    trust: low
+    policy: discovery_only
+
+countries:
+  - AR
+  - ES
+  - IT
+  - GB
+  - US
+  - BR
+
+policy:
+  dedupe_key: normalized_url
+  preserve_distinct_urls: true
+  production_path: playlists/current/playlist.m3u
+  titan_path: playlists/titan/all.m3u
+  quarantine_failed: true
+  allow_private_credentials: false
+  allow_paid_streams: false
