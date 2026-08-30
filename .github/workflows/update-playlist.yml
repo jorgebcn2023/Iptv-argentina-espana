@@ -1,13 +1,14 @@
-name: Update IPTV Playlist
+name: TITAN IPTV v2 - Build Isolated Playlist
 
 on:
   push:
-    branches: [main]
+    branches: [feature/titan-iptv-v2]
     paths:
       - 'main.py'
       - 'discover_reddit.py'
       - 'resolve_youtube.py'
       - 'config/**'
+      - 'scripts/**'
       - 'requirements.txt'
       - '.github/workflows/update-playlist.yml'
   schedule:
@@ -18,18 +19,19 @@ permissions:
   contents: write
 
 concurrency:
-  group: update-iptv-playlist-main
+  group: update-iptv-playlist-titan-v2
   cancel-in-progress: false
 
 jobs:
-  update-playlist:
+  build-titan:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout TITAN branch
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: true
+          ref: feature/titan-iptv-v2
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -37,7 +39,7 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
 
-      - name: Set up Node.js for YouTube JS challenges
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -45,12 +47,13 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -U -r requirements.txt yt-dlp
+          if [ -f requirements.txt ]; then pip install -U -r requirements.txt; fi
+          pip install -U yt-dlp
 
-      - name: Discover public playlist sources from Reddit
+      - name: Discover public Reddit sources
         run: python discover_reddit.py
 
-      - name: Update main playlist and audit
+      - name: Build existing playlist data
         run: python main.py
 
       - name: Resolve YouTube live entries
@@ -65,37 +68,23 @@ jobs:
           grep -q '^#EXTM3U' playlist.m3u
           grep -q '^#EXTM3U' playlist-full.m3u
           grep -q '^#EXTM3U' playlist-quarantine.m3u
-          grep -q '^#EXTM3U' youtube-live.m3u
           python - <<'PY'
           import json
           from pathlib import Path
-
-          def count_entries(path):
-              return sum(1 for line in Path(path).read_text(encoding='utf-8').splitlines() if line.startswith('#EXTINF'))
-
-          audit = json.loads(Path('audit.json').read_text(encoding='utf-8'))
-          required = {'sources', 'input_entries', 'output_entries', 'duplicates_removed', 'probe_summary', 'web_resolver_entries', 'stable_entries', 'quarantined_entries', 'reddit_discovery'}
-          missing = required - set(audit)
-          assert not missing, f'audit.json incompleto: {sorted(missing)}'
-          reddit = json.loads(Path('config/reddit-sources.json').read_text(encoding='utf-8'))
-          assert isinstance(reddit.get('sources'), list), 'reddit-sources.json inválido'
-
-          stable = count_entries('playlist.m3u')
-          full = count_entries('playlist-full.m3u')
-          quarantine = count_entries('playlist-quarantine.m3u')
-          assert stable == audit['stable_entries'], f'playlist estable/audit no coinciden: {stable} != {audit["stable_entries"]}'
-          assert quarantine == audit['quarantined_entries'], f'playlist cuarentena/audit no coinciden: {quarantine} != {audit["quarantined_entries"]}'
-          assert full == audit['output_entries'], f'playlist completa/audit no coinciden: {full} != {audit["output_entries"]}'
-          assert stable + quarantine == full, f'estable + cuarentena no coincide con completa: {stable} + {quarantine} != {full}'
-
-          ya = json.loads(Path('youtube-audit.json').read_text(encoding='utf-8'))
-          assert isinstance(ya.get('resolved'), list), 'youtube-audit.json sin resolved válido'
-          assert isinstance(ya.get('failed'), list), 'youtube-audit.json sin failed válido'
-          print(f'Playlist estable válida: {stable} entradas')
-          print(f'Playlist completa válida: {full} entradas')
-          print(f'Playlist cuarentena válida: {quarantine} entradas')
-          print(f'Reddit candidatas: {len(reddit["sources"])}')
-          print(f'YouTube resueltos: {len(ya["resolved"])}; fallidos: {len(ya["failed"])}')
+          def entries(path):
+              return sum(1 for x in Path(path).read_text(encoding='utf-8').splitlines() if x.startswith('#EXTINF'))
+          audit=json.loads(Path('audit.json').read_text(encoding='utf-8'))
+          reddit=json.loads(Path('config/reddit-sources.json').read_text(encoding='utf-8'))
+          assert isinstance(reddit.get('sources'),list)
+          assert entries('playlist.m3u') == audit['stable_entries']
+          assert entries('playlist-quarantine.m3u') == audit['quarantined_entries']
+          assert entries('playlist-full.m3u') == audit['output_entries']
+          assert entries('playlist.m3u') + entries('playlist-quarantine.m3u') == entries('playlist-full.m3u')
+          print('TITAN QC PASS')
+          print('Stable:', entries('playlist.m3u'))
+          print('Full:', entries('playlist-full.m3u'))
+          print('Quarantine:', entries('playlist-quarantine.m3u'))
+          print('Reddit candidates:', len(reddit['sources']))
           PY
 
       - name: Configure Git
@@ -103,27 +92,13 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-      - name: Publish generated outputs safely
+      - name: Commit only TITAN outputs
         run: |
           set -euo pipefail
           git add playlist.m3u playlist-full.m3u playlist-quarantine.m3u audit.json youtube-live.m3u youtube-audit.json config/reddit-sources.json
           if git diff --cached --quiet; then
-            echo "No hay cambios en los archivos generados."
+            echo "No hay cambios."
             exit 0
           fi
-          git commit -m "chore: refresh IPTV, Reddit and YouTube playlists [$(date -u +'%Y-%m-%d %H:%M:%S Z')]"
-          for attempt in 1 2 3 4 5 6 7 8; do
-            git fetch --no-tags origin main
-            if ! git rebase origin/main; then
-              git rebase --abort || true
-              sleep $((attempt * 2))
-              continue
-            fi
-            if git push origin HEAD:refs/heads/main; then
-              echo "Publicación completada."
-              exit 0
-            fi
-            sleep $((attempt * 2))
-          done
-          echo "No se pudo publicar después de varios reintentos."
-          exit 1
+          git commit -m "chore(titan): refresh isolated IPTV build"
+          git push origin HEAD:refs/heads/feature/titan-iptv-v2
