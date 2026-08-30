@@ -6,7 +6,7 @@ from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from time import monotonic
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, urlsplit, urlunsplit
 
 import requests
 import yaml
@@ -71,6 +71,12 @@ def parse(lines):
         i=max(j,i+1)
     return out
 def base_url(u):return u.split("|",1)[0].strip()
+def normalize_url(u):
+    raw=base_url(u); p=urlsplit(raw)
+    if p.scheme.lower() in {"http","https"}:
+        return urlunsplit((p.scheme.lower(),p.netloc.lower(),p.path or "/",p.query,""))
+    return raw
+
 def headers(ds,u):
     h={"User-Agent":USER_AGENT,"Accept":"*/*","Connection":"close"}
     if "|" in u:
@@ -145,11 +151,12 @@ def main():
             if not allowed_source(src,ext) or (allowed and not any(x in text for x in allowed)) or any(x in text for x in blocked):continue
             candidates.append((ext,u,ds,int(src.get("priority",9999)),sa["name"],so,eo));sa["accepted"]+=1;eo+=1
         audit["sources"].append(sa)
-    audit["input_entries"]=len(candidates);seen=set();uniq=[]
+    audit["input_entries"]=len(candidates);seen={};uniq=[]
     for x in candidates:
-        key=(x[0].strip(),x[1].strip(),tuple(x[2]))
-        if key in seen:audit["duplicates_removed"].append({"source":x[4],"channel":channel_name(x[0]),"url":x[1],"reason":"exact duplicate"});continue
-        seen.add(key);uniq.append(x)
+        key=normalize_url(x[1])
+        if key in seen:
+            audit["duplicates_removed"].append({"source":x[4],"channel":channel_name(x[0]),"url":x[1],"kept":seen[key][1],"reason":"duplicate URL"});continue
+        seen[key]=x;uniq.append(x)
     results=[]
     with ThreadPoolExecutor(max_workers=min(max(1,int(settings.get("probe_workers",WORKERS))),max(1,len(uniq)))) as ex:
         for f in as_completed([ex.submit(probe,x) for x in uniq]):results.append(f.result())
@@ -162,7 +169,7 @@ def main():
             quarantine.append(record);audit["quarantined"].append(q)
             if k==2:audit["web_resolver_entries"].append(q)
     write_playlist("playlist.m3u",stable);write_playlist("playlist-full.m3u",full);write_playlist("playlist-quarantine.m3u",quarantine)
-    audit["probe_summary"]=dict(statuses);audit["output_entries"]=len(full);audit["stable_entries"]=len(stable);audit["quarantined_entries"]=len(quarantine)
+    audit["probe_summary"]=dict(statuses);audit["output_entries"]=len(full);audit["stable_entries"]=len(stable);audit["quarantined_entries"]=len(quarantine);audit["unique_urls"]=len(uniq)
     Path("audit.json").write_text(json.dumps(audit,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    logging.info("Estable: %s; cuarentena: %s; total: %s",len(stable),len(quarantine),len(full));return 0
+    logging.info("Entradas: %s; URLs únicas: %s; estables: %s; cuarentena: %s; duplicados eliminados: %s",len(candidates),len(uniq),len(stable),len(quarantine),len(audit["duplicates_removed"]));return 0
 if __name__=="__main__":raise SystemExit(main())
