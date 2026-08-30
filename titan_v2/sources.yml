@@ -1,0 +1,46 @@
+version: 1
+policy:
+  public_only: true
+  dedupe_key: normalized_url
+  quarantine_on_failure: true
+  allowed_countries: [AR, ES, IT, GB, US, BR]
+sources:
+  - id: iptv-org-all
+    type: github
+    url: https://iptv-org.github.io/iptv/index.m3u
+    enabled: true
+  - id: iptv-org-ar
+    type: github
+    url: https://iptv-org.github.io/iptv/countries/ar.m3u
+    country: AR
+    enabled: true
+  - id: iptv-org-es
+    type: github
+    url: https://iptv-org.github.io/iptv/countries/es.m3u
+    country: ES
+    enabled: true
+  - id: iptv-org-it
+    type: github
+    url: https://iptv-org.github.io/iptv/countries/it.m3u
+    country: IT
+    enabled: true
+  - id: iptv-org-gb
+    type: github
+    url: https://iptv-org.github.io/iptv/countries/gb.m3u
+    country: GB
+    enabled: true
+  - id: iptv-org-us
+    type: github
+    url: https://iptv-org.github.io/iptv/countries/us.m3u
+    country: US
+    enabled: true
+  - id: iptv-org-br
+    type: github
+    url: https://iptv-org.github.io/iptv/countries/br.m3u
+    country: BR
+    enabled: true
+  - id: reddit-discovery
+    type: reddit
+    url: https://www.reddit.com/r/IPTV/
+    enabled: true
+    require_public_direct_stream: true

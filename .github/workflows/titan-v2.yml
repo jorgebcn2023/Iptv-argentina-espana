@@ -1,0 +1,86 @@
+name: TITAN IPTV v2
+
+on:
+  push:
+    branches: [feature/titan-iptv-v2]
+    paths:
+      - 'main.py'
+      - 'discover_reddit.py'
+      - 'resolve_youtube.py'
+      - 'config/**'
+      - 'scripts/**'
+      - 'requirements.txt'
+      - '.github/workflows/titan-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: titan-iptv-v2
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout TITAN branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/titan-iptv-v2
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Discover public Reddit sources
+        run: python discover_reddit.py
+
+      - name: Build playlist candidates
+        run: python main.py
+
+      - name: Enforce URL-only deduplication
+        run: python scripts/titan_postprocess.py
+
+      - name: Validate TITAN outputs
+        run: |
+          set -euo pipefail
+          test -s playlist.m3u
+          test -s playlist-full.m3u
+          test -s playlist-quarantine.m3u
+          test -s audit.json
+          test -s titan-dedupe-report.json
+          grep -q '^#EXTM3U' playlist.m3u
+          grep -q '^#EXTM3U' playlist-full.m3u
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for name in ['audit.json', 'titan-dedupe-report.json']:
+              json.loads(Path(name).read_text(encoding='utf-8'))
+          def urls(path):
+              return [x.strip().lower() for x in Path(path).read_text(encoding='utf-8').splitlines() if x.strip() and not x.startswith('#')]
+          for name in ['playlist.m3u', 'playlist-full.m3u', 'playlist-quarantine.m3u']:
+              u = urls(name)
+              assert len(u) == len(set(u)), f'URL duplicada en {name}'
+              print(f'{name}: {len(u)} URLs únicas')
+          PY
+
+      - name: Commit TITAN generated artifacts
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add playlist.m3u playlist-full.m3u playlist-quarantine.m3u audit.json titan-dedupe-report.json config/reddit-sources.json
+          if git diff --cached --quiet; then
+            echo 'Sin cambios generados.'
+            exit 0
+          fi
+          git commit -m "chore(titan): refresh isolated IPTV v2 artifacts"
+          git push origin HEAD:feature/titan-iptv-v2

@@ -1,0 +1,9 @@
+# Canonical channel record
+fields:
+  name: required
+  url: required
+  country: required
+  group: optional
+  logo: optional
+  source: required
+  status: required
