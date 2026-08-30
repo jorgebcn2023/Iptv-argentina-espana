@@ -1,0 +1,25 @@
+countries:
+  AR: Argentina
+  ES: España
+  IT: Italia
+  GB: Reino Unido
+  US: Estados Unidos
+  BR: Brasil
+
+aliases:
+  argentina: AR
+  argentina: AR
+  espana: ES
+  españa: ES
+  spain: ES
+  italia: IT
+  italy: IT
+  reino unido: GB
+  united kingdom: GB
+  uk: GB
+  inglaterra: GB
+  estados unidos: US
+  united states: US
+  usa: US
+  brasil: BR
+  brazil: BR
