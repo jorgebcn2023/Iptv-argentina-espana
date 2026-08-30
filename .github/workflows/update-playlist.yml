@@ -53,11 +53,17 @@ jobs:
       - name: Discover public Reddit sources
         run: python discover_reddit.py
 
-      - name: Build existing playlist data
+      - name: Build TITAN playlists
         run: python main.py
 
       - name: Resolve YouTube live entries
         run: python resolve_youtube.py
+
+      - name: Static URL QC
+        run: |
+          python scripts/titan_qc.py playlist.m3u
+          python scripts/titan_qc.py playlist-full.m3u
+          python scripts/titan_qc.py playlist-quarantine.m3u
 
       - name: Validate generated outputs
         run: |
@@ -80,7 +86,12 @@ jobs:
           assert entries('playlist-quarantine.m3u') == audit['quarantined_entries']
           assert entries('playlist-full.m3u') == audit['output_entries']
           assert entries('playlist.m3u') + entries('playlist-quarantine.m3u') == entries('playlist-full.m3u')
+          assert audit['unique_urls'] <= audit['input_entries']
+          assert audit['unique_urls'] - len(audit['duplicates_removed']) == audit['output_entries']
           print('TITAN QC PASS')
+          print('Input:', audit['input_entries'])
+          print('Unique URLs:', audit['unique_urls'])
+          print('Duplicates removed:', len(audit['duplicates_removed']))
           print('Stable:', entries('playlist.m3u'))
           print('Full:', entries('playlist-full.m3u'))
           print('Quarantine:', entries('playlist-quarantine.m3u'))
