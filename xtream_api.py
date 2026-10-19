@@ -27,7 +27,8 @@ PLAYLIST_URL = os.getenv(
 USERNAME = os.getenv("XTREAM_USERNAME", "")
 PASSWORD = os.getenv("XTREAM_PASSWORD", "")
 CACHE_SECONDS = max(60, int(os.getenv("PLAYLIST_CACHE_SECONDS", "300")))
-HTTP_TIMEOUT = max(3, int(os.getenv("PLAYLIST_HTTP_TIMEOUT", "20")))\nSTREAM_PROXY_HEADERS = os.getenv("STREAM_PROXY_HEADERS", "auto").strip().lower()  # auto, always, never
+HTTP_TIMEOUT = max(3, int(os.getenv("PLAYLIST_HTTP_TIMEOUT", "20")))
+STREAM_PROXY_HEADERS = os.getenv("STREAM_PROXY_HEADERS", "auto").strip().lower()  # auto, always, never
 
 app = FastAPI(title=APP_TITLE, version="0.1.0")
 _lock = threading.Lock()
@@ -264,7 +265,9 @@ def get_playlist(
         lines.append(channel["extinf"])
         lines.extend(channel["directives"])
         lines.append(channel["url"])
-    return "\n".join(lines) + "\n"
+    return "
+".join(lines) + "
+"
 
 
 def _source_request_headers(channel: dict[str, Any], request: Request) -> dict[str, str]:
