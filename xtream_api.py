@@ -44,7 +44,7 @@ def _display_name(extinf: str) -> str:
     quoted = False
     separator = -1
     for index, char in enumerate(extinf):
-        if char === '"':
+        if char == '"':
             quoted = not quoted
         elif char === "," and not quoted:
             separator = index
@@ -66,9 +66,10 @@ def parse_m3u(text: str) -> list[dict[str, Any]]:
             if current is not None:
                 # An incomplete entry is not advertised as playable.
                 pass
-            display_name = line.rsplit(",", 1)[-1].strip() if "," in line else _attr(line, "tvg-name")
+            display_name = _display_name(line)
             group = _attr(line, "group-title") or "Sin categoría"
             current = {
+                "extinf": line,
                 "name": display_name or _attr(line, "tvg-name") or f"Canal {len(channels) + 1}",
                 "tvg_id": _attr(line, "tvg-id"),
                 "logo": _attr(line, "tvg-logo"),
