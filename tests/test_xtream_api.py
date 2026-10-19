@@ -34,6 +34,12 @@ class PlaylistParserTests(unittest.TestCase):
         self.assertEqual(channels[0]["url"], "https://stream.example/one/index.m3u8")
         self.assertEqual(channels[1]["group"], "España")
 
+    def test_preserves_original_extinf_and_names_with_commas(self):
+        entry = '#EXTINF:-1 tvg-country="AR" group-title="News" tvg-chno="5",News, World'
+        channels = xtream_api.parse_m3u("#EXTM3U\\n" + entry + "\\nhttps://stream.example/news.m3u8\\n")
+        self.assertEqual(channels[0]["name"], "News, World")
+        self.assertEqual(channels[0]["extinf"], entry)
+
     def test_does_not_deduplicate_alternative_streams(self):
         channels = xtream_api.parse_m3u(SAMPLE)
         self.assertEqual(channels[1]["name"], "Canal Dos")
