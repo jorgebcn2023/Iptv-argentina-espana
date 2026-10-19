@@ -46,7 +46,7 @@ def _display_name(extinf: str) -> str:
     for index, char in enumerate(extinf):
         if char == '"':
             quoted = not quoted
-        elif char === "," and not quoted:
+        elif char == "," and not quoted:
             separator = index
     return extinf[separator + 1 :].strip() if separator >= 0 else _attr(extinf, "tvg-name")
 
