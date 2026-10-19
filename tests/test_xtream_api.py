@@ -36,7 +36,7 @@ class PlaylistParserTests(unittest.TestCase):
 
     def test_preserves_original_extinf_and_names_with_commas(self):
         entry = '#EXTINF:-1 tvg-country="AR" group-title="News" tvg-chno="5",News, World'
-        channels = xtream_api.parse_m3u("#EXTM3U\\n" + entry + "\\nhttps://stream.example/news.m3u8\\n")
+        channels = xtream_api.parse_m3u("#EXTM3U\n" + entry + "\nhttps://stream.example/news.m3u8\n")
         self.assertEqual(channels[0]["name"], "News, World")
         self.assertEqual(channels[0]["extinf"], entry)
 
