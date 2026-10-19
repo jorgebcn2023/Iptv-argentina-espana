@@ -39,8 +39,21 @@ def _attr(line: str, key: str) -> str:
     return match.group(1).strip() if match else ""
 
 
+def _display_name(extinf: str) -> str:
+    """Return the text after the last comma outside quoted attributes."""
+    quoted = False
+    separator = -1
+    for index, char in enumerate(extinf):
+        if char === '"':
+            quoted = not quoted
+        elif char === "," and not quoted:
+            separator = index
+    return extinf[separator + 1 :].strip() if separator >= 0 else _attr(extinf, "tvg-name")
+
+
 def parse_m3u(text: str) -> list[dict[str, Any]]:
-    """Parse entries conservatively; keep source URL and adjacent client directives."""
+    """Parse entries conservatively while retaining the original EXTINF line and directives."""
+
     channels: list[dict[str, Any]] = []
     current: dict[str, Any] | None = None
     pending_directives: list[str] = []
@@ -67,10 +80,11 @@ def parse_m3u(text: str) -> list[dict[str, Any]]:
             continue
         if line.startswith("#"):
             if current is not None and (
-                line.startswith("#EXTVLCOPT:")
-                or line.startswith("#KODIPROP:")
-                or line.startswith("#EXTHTTP:")
-                or line.startswith("#EXTGRP:")
+                line.startswith((
+                    "#EXTVLCOPT:", "#KODIPROP:", "#EXTHTTP:", "#EXTGRP:",
+                    "#EXTBG:", "#EXTIMG:", "#EXTALB:", "#EXTART:",
+                    "#EXTGENRE:", "#EXTURL:",
+                ))
             ):
                 current["directives"].append(line)
             continue
@@ -223,10 +237,12 @@ def player_api(
     if action == "get_live_streams":
         items = [c for c in channels if not category_id or groups.get(c["group"]) == category_id]
         return [stream_record(c, groups, request) for c in items]
-    if action == "get_short_epg":
-        return {"epg_listings": []}
-    if action == "get_simple_data_table":
-        return {"data": []}
+    if action in {"get_vod_categories", "get_vod_streams", "get_series_categories", "get_series"}:
+        # This source is live-only; advertise empty catalogs rather than fail on apps
+        # that probe VOD/series actions during login.
+        return []
+    if action in {"get_short_epg", "get_simple_data_table", "get_vod_info", "get_series_info"}:
+        return {"epg_listings": []} if action == "get_short_epg" else {}
     raise HTTPException(status_code=400, detail=f"Acción no implementada: {action}")
 
 
@@ -242,10 +258,9 @@ def get_playlist(
     lines = ["#EXTM3U"]
     for channel in channels:
         # Preserve supported VLC/Kodi/HTTP directives in this M3U export.
-        lines.append(
-            f'#EXTINF:-1 tvg-id="{channel["tvg_id"]}" tvg-name="{channel["name"]}" '
-            f'tvg-logo="{channel["logo"]}" group-title="{channel["group"]}",{channel["name"]}'
-        )
+        # Retain the source EXTINF line verbatim to preserve tvg-country, tvg-chno,
+        # tvg-id, tvg-logo, custom attributes, and the original display name.
+        lines.append(channel["extinf"])
         lines.extend(channel["directives"])
         lines.append(channel["url"])
     return "\n".join(lines) + "\n"
