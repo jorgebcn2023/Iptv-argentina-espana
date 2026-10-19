@@ -265,9 +265,7 @@ def get_playlist(
         lines.append(channel["extinf"])
         lines.extend(channel["directives"])
         lines.append(channel["url"])
-    return "
-".join(lines) + "
-"
+    return "\n".join(lines) + "\n"
 
 
 def _source_request_headers(channel: dict[str, Any], request: Request) -> dict[str, str]:
