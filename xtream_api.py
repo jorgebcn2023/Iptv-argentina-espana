@@ -17,7 +17,7 @@ from urllib.parse import quote
 
 import requests
 from fastapi import FastAPI, HTTPException, Query, Request
-from fastapi.responses import PlainTextResponse, RedirectResponse, Response
+from fastapi.responses import PlainTextResponse, RedirectResponse, Response, StreamingResponse
 
 APP_TITLE = "Personal Xtream-compatible API (read-only)"
 PLAYLIST_URL = os.getenv(
@@ -27,7 +27,7 @@ PLAYLIST_URL = os.getenv(
 USERNAME = os.getenv("XTREAM_USERNAME", "")
 PASSWORD = os.getenv("XTREAM_PASSWORD", "")
 CACHE_SECONDS = max(60, int(os.getenv("PLAYLIST_CACHE_SECONDS", "300")))
-HTTP_TIMEOUT = max(3, int(os.getenv("PLAYLIST_HTTP_TIMEOUT", "20")))
+HTTP_TIMEOUT = max(3, int(os.getenv("PLAYLIST_HTTP_TIMEOUT", "20")))\nSTREAM_PROXY_HEADERS = os.getenv("STREAM_PROXY_HEADERS", "auto").strip().lower()  # auto, always, never
 
 app = FastAPI(title=APP_TITLE, version="0.1.0")
 _lock = threading.Lock()
@@ -267,8 +267,35 @@ def get_playlist(
     return "\n".join(lines) + "\n"
 
 
+def _source_request_headers(channel: dict[str, Any], request: Request) -> dict[str, str]:
+    """Translate common M3U VLC header directives for sources that require them."""
+    headers: dict[str, str] = {"User-Agent": "VLC/3.0.20 LibVLC/3.0.20"}
+    for directive in channel.get("directives", []):
+        if directive.startswith("#EXTVLCOPT:http-user-agent="):
+            headers["User-Agent"] = directive.split("=", 1)[1].strip()
+        elif directive.startswith("#EXTVLCOPT:http-referrer="):
+            headers["Referer"] = directive.split("=", 1)[1].strip()
+        elif directive.startswith("#EXTVLCOPT:http-referer="):
+            headers["Referer"] = directive.split("=", 1)[1].strip()
+        elif directive.startswith("#EXTVLCOPT:http-origin="):
+            headers["Origin"] = directive.split("=", 1)[1].strip()
+        elif directive.startswith("#EXTHTTP:"):
+            # Common M3U convention: JSON object containing request headers.
+            import json
+            try:
+                parsed = json.loads(directive.split(":", 1)[1])
+                if isinstance(parsed, dict):
+                    headers.update({str(k): str(v) for k, v in parsed.items()})
+            except (ValueError, TypeError):
+                pass
+    range_header = request.headers.get("range")
+    if range_header:
+        headers["Range"] = range_header
+    return headers
+
+
 @app.get("/live/{username}/{password}/{stream_id}.ts")
-def live_redirect(username: str, password: str, stream_id: str) -> Response:
+def live_redirect(username: str, password: str, stream_id: str, request: Request) -> Response:
     check_auth(username, password)
     if not stream_id.isdigit():
         raise HTTPException(status_code=404, detail="Canal no encontrado.")
@@ -276,6 +303,49 @@ def live_redirect(username: str, password: str, stream_id: str) -> Response:
     index = int(stream_id) - 1
     if index < 0 or index >= len(channels) or channels[index]["id"] != stream_id:
         raise HTTPException(status_code=404, detail="Canal no encontrado.")
-    # Deliberately redirect instead of proxying video to keep resource use low.
-    # Per-channel headers cannot be applied to the remote request by a redirect.
-    return RedirectResponse(url=channels[index]["url"], status_code=307)
+    channel = channels[index]
+    has_headers = any(
+        d.startswith(("#EXTVLCOPT:http-user-agent=", "#EXTVLCOPT:http-referrer=",
+                      "#EXTVLCOPT:http-referer=", "#EXTVLCOPT:http-origin=", "#EXTHTTP:"))
+        for d in channel.get("directives", [])
+    )
+    # Redirect is fastest and avoids routing video bandwidth through Render.
+    # Only proxy when source-specific headers must be attached; opt-in override
+    # STREAM_PROXY_HEADERS=always|never is available for diagnostics.
+    should_proxy = STREAM_PROXY_HEADERS == "always" or (
+        STREAM_PROXY_HEADERS == "auto" and has_headers
+    )
+    if STREAM_PROXY_HEADERS == "never" or not should_proxy:
+        return RedirectResponse(url=channel["url"], status_code=307)
+
+    try:
+        upstream = requests.get(
+            channel["url"], headers=_source_request_headers(channel, request),
+            stream=True, allow_redirects=True, timeout=(8, 25),
+        )
+    except requests.RequestException as exc:
+        raise HTTPException(status_code=502, detail="No se pudo conectar con la fuente del canal.") from exc
+
+    if upstream.status_code >= 400:
+        status = upstream.status_code
+        upstream.close()
+        raise HTTPException(status_code=502, detail=f"La fuente del canal respondió HTTP {status}.")
+    response_headers: dict[str, str] = {}
+    for key in ("Content-Type", "Content-Length", "Content-Range", "Accept-Ranges", "Cache-Control"):
+        value = upstream.headers.get(key)
+        if value:
+            response_headers[key] = value
+
+    def body():
+        try:
+            for chunk in upstream.iter_content(chunk_size=64 * 1024):
+                if chunk:
+                    yield chunk
+        finally:
+            upstream.close()
+
+    return StreamingResponse(
+        body(), status_code=upstream.status_code,
+        media_type=upstream.headers.get("Content-Type", "application/octet-stream"),
+        headers=response_headers,
+    )
