@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: personal-xtream-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-xtream.txt
+    startCommand: uvicorn xtream_api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PLAYLIST_URL
+        value: https://raw.githubusercontent.com/jorgebcn2023/Iptv-argentina-espana/feature/titan-iptv-v2/playlist.m3u
+      - key: XTREAM_USERNAME
+        sync: false
+      - key: XTREAM_PASSWORD
+        sync: false
+      - key: PLAYLIST_CACHE_SECONDS
+        value: "300"
