@@ -26,8 +26,8 @@ PLAYLIST_URL = os.getenv(
 )
 USERNAME = os.getenv("XTREAM_USERNAME", "")
 PASSWORD = os.getenv("XTREAM_PASSWORD", "")
-CACHE_SECONDS = max(60, int(os.getenv("PLAYLIST_CACHE_SECONDS", "300")))
-HTTP_TIMEOUT = max(3, int(os.getenv("PLAYLIST_HTTP_TIMEOUT", "20")))
+CACHE_SECONDS = max(300, int(os.getenv("PLAYLIST_CACHE_SECONDS", "1800")))
+HTTP_TIMEOUT = max(3, int(os.getenv("PLAYLIST_HTTP_TIMEOUT", "12")))
 STREAM_PROXY_HEADERS = os.getenv("STREAM_PROXY_HEADERS", "auto").strip().lower()  # auto, always, never
 
 app = FastAPI(title=APP_TITLE, version="0.1.0")
@@ -193,6 +193,8 @@ def health() -> dict[str, Any]:
         "channel_count": len(_cache["channels"]),
         "cache_age_seconds": int(time.time() - _cache["loaded_at"]) if _cache["loaded_at"] else None,
         "last_refresh_error": _cache["last_error"],
+        "playlist_cache_seconds": CACHE_SECONDS,
+        "stream_header_mode": STREAM_PROXY_HEADERS,
     }
 
 
